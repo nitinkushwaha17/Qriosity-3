@@ -2,9 +2,16 @@ import dj_database_url
 import os
 import django_heroku
 import psycopg2
+import environ 
+
+env = environ.Env()
+environ.Env.read_env()
+
+
+SECRET_KEY = env("SECRET_KEY")
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = ')b5l7*7kx72g!%0d)sy*@zx+7q(t_4uohqc4wy6vhwycs@w#2r'
 
 
 DEBUG = True
@@ -115,6 +122,8 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 django_heroku.settings(locals())

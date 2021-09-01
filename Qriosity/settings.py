@@ -183,9 +183,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DATABASES['default'] = dj_database_url.config(
     conn_max_age=600, ssl_require=True)
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 try:
     from .local_settings import *
 except ImportError:
     print("You are in production mode now...")
+
 
 django_heroku.settings(locals())
