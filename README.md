@@ -13,7 +13,5 @@ python local.py runserver
 python manage.py runserver
 ```
 
-------------
-
 WIP 
 
