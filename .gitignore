@@ -10,3 +10,4 @@ staticfiles
 media
 myenv
 *.env
+*workspace.code-workspace
