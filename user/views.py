@@ -84,6 +84,9 @@ def leaderboard(request):
 
     leader = models.Player.objects.order_by(
         '-score', 'last_submit')[:1]
+
+    print(type(leader[0].last_submit))
+
     n = models.Player.objects.count()
 
     # uncomment when 2nd round in play
