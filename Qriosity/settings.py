@@ -58,6 +58,12 @@ MIDDLEWARE = [
 ]
 
 
+# redirect to https only 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+
+
+
 AUTHENTICATION_BACKENDS = (
 
     'social_core.backends.facebook.FacebookOAuth2',
