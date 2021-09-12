@@ -7,7 +7,7 @@ desc = " the images related to a Doc are retrieved by the images property of doc
 
 class Stage_1(models.Model):
     title = models.CharField(blank=True, max_length=200)
-    level = models.IntegerField()
+    level = models.IntegerField(unique=True)
     description = models.TextField(blank=True, default=desc)
     image_url = models.URLField(blank=True)
     hint = models.TextField(blank=True, default='hint')
@@ -21,7 +21,8 @@ class StageTwo(models.Model):
     title = models.CharField(blank=True, max_length=200)
     description = models.TextField(blank=True, default=desc)
     answer = models.CharField(blank=True, max_length=400)
-    level = models.IntegerField()
+    level = models.IntegerField(unique=True)
+    image_url = models.URLField(blank=True)
 
     def __str__(self):
         return str(str(self.level)+str(" . ")+str(self.title))
