@@ -12,9 +12,9 @@
     </div>
     {% endif %}
     <h3>
-      <u style="text-decoration: none; color: #d99236; font-size: 1.2em">
+      
         {{ question.title }}
-      </u>
+      
     </h3>
 
     <br />
@@ -27,8 +27,15 @@
 
   <form action="" method="POST" class="stage1">
     {% csrf_token %} {{form.as_p}}
-    <button type="submit" class="btn">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+  <br>
+
+  <a href="{% url 'quiz:stageone' %}"> 
+    <button class="btn btn-primary">
+      Back
+    </button>
+  </a>
 </div>
 
 {% endblock %}

@@ -1,4 +1,6 @@
-{% extends 'base.html'%} {% load static %} {% block content %}
+{% extends 'base.html'%} {% load static %} 
+
+{% block content %}
 
 
 <div class="container">
@@ -8,8 +10,8 @@
       Congratulations {{player.name }} <br />
       on reaching Stage 2!
     </h4>
-    <br />
-    <img src="{{player.image}}" alt="{{ player.name }}" class="propic" />
+    
+  
     <br />
     <p align="center"></p>
 
@@ -17,35 +19,56 @@
     <br />
   </div>
 
-  <div class="listQ">
-    <h4 class="display">
-      Till Now you have solved
-      <br />
-      {{player.count2}} question{{ player.count2|pluralize}} in Stage 2
-    </h4>
-    <div class="questions">
-      {% for i in q %}
-      <div class="coverQ">
-        <div class="stage2Q">
-          <div class="number">Question No. {{i.level}}</div>
-          <div class="title">
-            <a href="{% url 'quiz:individual' i.level %}"> {{ i.title }} </a>
-          </div>
-          {% if i.image %}
-          <div class="image">
-            <img src="{{i.image}}" alt="{{i.title}}" />
-          </div>
-          {% endif %}
-        </div>
-        {% if i.files%}
-        <div class="files">
-          <audio src="{{i.files.url}}" controls></audio>
-        </div>
-        {% endif %}
+
+    
+      Till Now you have solved {{player.count2}} question{{ player.count2|pluralize}} in Stage 2
+   
+   
+
+      <div class="container">
+                    
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th> No</th>
+              <th>Question</th>
+              <th>
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in q %}
+            <tr>
+              <td>{{i.level}}</td>
+              <td>
+                <a href="{% url 'quiz:individual' i.level %}"> {{ i.title }} </a>
+              </td>
+              <td>
+                {% for j in player.solved_set.all %}
+                  {% if j.level_on == i.level %}
+                       {{j.solved}}
+                  {% endif %}  
+                {% endfor %}
+              </td>
+              
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
-      {% endfor %}
+
+      <p>
+        Note - Status Appears Only if You have visited a question
+      </p>
+     
+
+
     </div>
-  </div>
+
+      
+      
+
 </div>
 
 {% endblock %}
