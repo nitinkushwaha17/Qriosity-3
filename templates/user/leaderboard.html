@@ -25,25 +25,44 @@
                 <input type="text" id="searchbox" placeholder="Search Your Name Here ...." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Your Name Here ....'" />
                 <br />
             </div>
-            <div class="list">
-                <br /> {% for player in leaderboard %}
-                <div class="item">
-                    <div style="position: relative;">
-                    <div class="pic" style="background-image: url({{ player.image }});"></div></div>
-                    <!--<div class="player_details">-->
-                        <div class="name">
-                            {{ player.name }}
-                        </div>
-                        <div class="score">
-                            {{ player.score }}
-                        </div>
-                        <div class="score">
-                            {{ player.last_submit.time }}
-                        </div>
-                    <!--</div>-->
-                </div>
-                {% endfor %}
-            </div>
+
+            <div class="container">
+                    
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th> Pic</th>
+                      <th>name</th>
+                      <th>
+                        Score
+                      </th>
+                      <th>
+                        Last Submit
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for player in leaderboard %}
+                    <tr>
+                      <td>
+
+                        <img src="{{ player.image }}" alt="">
+                      </td>
+                      <td>
+                        {{ player.name }}
+                      </td>
+                      <td>
+                        {{ player.score }}
+                      </td>
+                      <td>
+                        {{ player.last_submit.time }}
+                      </td>
+                      
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
         </div>
     </div>
     
