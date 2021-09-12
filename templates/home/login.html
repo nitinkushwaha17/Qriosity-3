@@ -1,40 +1,5 @@
 {% extends 'base.html' %}{% load static %}{% block content %}
-<link rel="stylesheet" href="{% static 'home/login.css' %}" />
-<link
-  rel="stylesheet"
-  href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-  integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-  crossorigin="anonymous"
-/>
-<style type="text/css">
-  .google-login{
-    border-radius: 0.2em;
-    background-color: #4285f4;
-    border: none;
-    font-size: 1.2em;
-    padding: 0.2rem;
-    display: flex;
-    margin-bottom: 0.7rem;
-    align-items: center;
-    margin: 0.2rem;
-  }
-  .google-login .icon_wrapper{
-    background: #fff;
-    display: flex;
-    align-items: center;
-  }
-  .google-login img{
-    height: 30px; 
-    width: 30px;
-    padding: 0.4rem;
-  }
-  .google-login:hover,.google-login:focus{
-    box-shadow: 0 0 6px #4285f4;
-  }
-  ::-webkit-scrollbar{
-    width: 0px;
-  }
-</style>
+
 
 <div class="content">
   <div class="box">
@@ -43,28 +8,13 @@
     </h3>
     <br />
     <div class="icon3">
-      <!--<a href="{% url 'social:begin' 'facebook' %}">
-        <font class="login-medium"><i class="fab fa-facebook"></i> <span>login using facebook</span></font>
-      </a>-->
+      
       <a href="{% url 'social:begin' 'google-oauth2' %}">
-        <font class="google-login"> 
-          <div class="icon_wrapper"><img src="{% static 'home/Google_Logo.svg' %}"></div>
-          <span style="padding: 0 0.5rem;">login with google</span>
-        </font>
+        
+        <img src="https://img.icons8.com/fluency/48/000000/login-rounded-right.png"/>
       </a>
     </div>
   </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-  particlesJS.load(
-    "particles-js",
-    "{% static 'home/home.json' %}",
-    function () {
-      console.log("Hello Qriosity Player !!!");
-    }
-  );
-</script>
 
 {% endblock %}

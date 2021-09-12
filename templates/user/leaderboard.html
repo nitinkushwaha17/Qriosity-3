@@ -1,49 +1,13 @@
-{% load static %}
-<html>
+{% extends 'base.html'%} {% load static %} {% block content %}
+
+
 
 <head>
     <title>Leaderboard</title>
     <meta name="viewport" content="width=device-width, user-scalable=no" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Red+Hat+Display:400,900&display=swap" type="text/css" />
-    <link rel="shortcut icon" href="{% static 'home/home.ico' %}" type="image/x-icon" />
-    <link rel="stylesheet" href="{% static 'user/leaderboard.css' %}" />
-    <style>
-
-    </style>
 </head>
 
-<body>
-    <header>
-        <h1>
-            <a class="qriosity" href="{% url 'home:home' %}">Qriosity 2.0</a>
-        </h1>
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="{% url 'home:rules'%}">Rules</a>
-                </li>
-                <li>
-                    <a href="{% url 'user:leaderboard' %}"> LeaderBoard </a>
-                </li>
-                <li>
-                    <a href="{% url 'quiz:stageone' %}">Arena</a>
-                </li>
-                <li>
-                    <a href="{% url 'user:story' %}">Story</a>
-                </li>
-                <li>
-                    <a href="{% url 'user:dashboard' %}"> Dashboard </a>
-                </li>
-                <li>
-                    <a href="{% url 'logout' %}">Logout</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <div class="content">
+    <div class="container">
         <div class="topper">
             {% for top in leader%}
             <img src="{{top.image}}" alt="{{top.name}}" class="tpic" />
@@ -82,9 +46,7 @@
             </div>
         </div>
     </div>
-    <br /><br /><br /><br /><br />
-    <div class="newline"><br /><br /><br /></div>
-    {% include 'partials/_footer.html'%}
+    
 
     <!-- <div class="parallax"></div> -->
 
@@ -134,6 +96,6 @@
             $('.content .box').css("height",box_height+"px");
         })
     </script>
-</body>
 
-</html>
+
+{% endblock %}

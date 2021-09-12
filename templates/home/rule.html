@@ -4,17 +4,15 @@
   <title>Rules</title>
   {% endblock %}
 </head>
-<link rel="stylesheet" href="{% static 'home/rule.css' %}" />
 
-<div class="content">
-  <div class="box">
-    <div class="panel">
+
+<div class="container">
       <h2>
         <ul>
           <li>Rules & Regulations:</li>
         </ul>
       </h2>
-      <ul class="listr" style="list-style: circle inside">
+      <ul style="list-style: circle inside">
         <li>
           Round 1 consists of a total of 10 questions carrying <b>15</b> points
           each.
@@ -66,7 +64,7 @@
           view all answers entered shall be provided.
         </li>
       </ul>
-    </div>
+    
 
     <br />
     {% if user.is_authenticated %}
@@ -92,11 +90,8 @@
       </button>
       {% endif %}
     </a>
-  </div>
+
+
 </div>
 
-<script>
-  console.log("Please Read these rules carefully.");
-  console.log("We wish all the best");
-</script>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html'%} {% load static %} {% block content %}
 <head>
-  <link rel="stylesheet" href="{% static 'quiz/quiz.css' %}" />
+  
   {% block title %}
   <title>PASSCODE</title>
   {% endblock %}
@@ -8,17 +8,10 @@
 
 <div class="content">
   <div class="stage1">
-    Thanks for Playing with US. <br />
+    <u>Thanks for Playing with US. </u>
+    <br />
     You have completed Stage 1. <br />
     Enter the PASSCODE for BONUS points. 
-    <div>
-      <form action="{% url 'quiz:algo'%}" method="POST">
-        {% csrf_token %}
-        <button type="submit" class="btn">
-         Algorithms
-        </button>
-      </form>
-    </div>
   </div>
 
   {% if check %}
@@ -29,12 +22,7 @@
   </p>
   {% endif %}
 
-  <form action="{% url 'quiz:algo'%}" method="POST">
-    {% csrf_token %}
-    <button type="submit" class="btn">
-      Algorithms
-    </button>
-  </form>
+  
   <div class="stage1">
     <form action="{% url 'quiz:passcode' %}" method="POST">
       {% csrf_token %}
@@ -42,7 +30,7 @@
         Enter The passcode below
       </h1>
       {{form.as_p}}
-      <button class="btn btn-primary mb1 bg-blue" type="submit">
+      <button class="btn btn-secondary mb1 bg-blue" type="submit">
         Submit
       </button>
     </form>

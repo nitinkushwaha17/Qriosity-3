@@ -1,42 +1,59 @@
-<header>
-    <h1>
-        <a href="{% url 'home:home' %}">Qriosity 2.0</a>
-    </h1>
-    <br />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
-    <nav>
-        <ul>
-            {% if user.is_authenticated %}
-            <li>
-                <a class="rulebtn">Rules</a>
-            </li>
-            <li>
-                <a href="{% url 'user:leaderboard' %}"> LeaderBoard </a>
-            </li>
-            <li>
-                <a href="{% url 'user:formdata' %}"> Profile</a>
-            </li>
-            <li>
-                <a href="{% url 'user:dashboard' %}"> Dashboard </a>
-            </li>
-            <li>
-                <a href="{% url 'logout' %}">Logout</a>
-            </li>
-            {% else %}
-            <li>
-                <a class="rulebtn">Rules</a>
-            </li>
-            <li>
-                <a href="{% url 'user:leaderboard' %}"> LeaderBoard </a>
-            </li>
-            <li>
-                <a href="{% url 'quiz:algo' %}"> Algorithms</a>
-            </li>
-            <li>
-                <a href="{% url 'home:login' %}">Login</a>
-            </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home:home' %}">Arcane</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home:rules' %}">
+              Rules
+            </a>
+          </li>
 
-            {% endif %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'user:leaderboard' %}">
+              LeaderBoard
+            </a>
+          </li>
+
+          {% if user.is_authenticated %}
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'user:dashboard' %}">
+              Dashboard
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'quiz:stageone' %}">
+              Arena
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">
+              Logout
+            </a>
+          </li>
+
+          {% else %}
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home:login' %}">
+              Login/Signup
+            </a>
+          </li>
+
+          {% endif %}
+          
         </ul>
-    </nav>
-</header>
+
+      
+      </div>
+    </div>
+  </nav>

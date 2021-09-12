@@ -1,8 +1,6 @@
 {% extends 'base.html'%} {% load static %} {% block content %}
 
-<head>
-    <link rel="stylesheet" href="{% static 'quiz/quiz.css' %}" />
-</head>
+
 <div class="content">
     <div class="stage1 blocks">
         <p>
@@ -59,7 +57,7 @@
             <p>
                 Stuck ? Take a Hint. ( You will loose points )
             </p>
-            <button type="submit" class="btn">
+            <button type="submit" class="btn btn-primary">
                 Click For Hint
             </button>
         </form>
@@ -68,7 +66,7 @@
 
         <form action="{% url 'quiz:answer'%}" method="post">
             {% csrf_token %} {{ form.as_p}}
-            <button type="submit" class="btn">
+            <button type="submit" class="btn btn-secondary">
                 Submit
             </button>
         </form>

@@ -1,14 +1,11 @@
 {% extends 'base.html'%} {% load static %} {% block content %}
 
 <head>
-    <link rel="stylesheet" href="{% static 'home/404.css' %}" /> {% block title %}
+     {% block title %}
     <title>404:Page Not Found</title>{% endblock %}
 </head>
 <br><br>
-<div class="outer-wrapper">
-    <img src="{% static 'home/404.png' %}" alt="Error 404: Page Not Found">
-</div>
-<div class="outer-wrapper">
-    <img src="{% static 'home/pnf.png' %}" alt="">
-</div>
+
+404
+
 {% endblock %}
