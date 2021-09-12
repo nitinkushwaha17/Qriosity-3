@@ -10,85 +10,12 @@
 </head>
 
 <body>
-    <div id="particles-js"></div>
+    
     <div class="container">
-        <header>
-            <h1>
-                <a href="{% url 'home:home' %}" class="qriosity">Qriosity 3.0</a>
-            </h1>
-
-            <nav>
-                <ul>
-                    {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'home:rules'%}">Rules</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'user:leaderboard' %}"> LeaderBoard </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'quiz:stageone' %}">Arena</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'user:story' %}">Story</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'user:dashboard' %}"> Dashboard </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="{% url 'home:rules'%}">Rules</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'user:leaderboard' %}"> LeaderBoard </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'user:story'%}">Story </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'home:login' %}">Login</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </header>
+        
         {% block content %}{% endblock %}
 
-        <footer>
-            <div class="footleft">
-                <a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="{% static 'home/ieeembw.png'%}" alt="IEEE" class="ieee" />
-                </a>
-            </div>
-            <div class="contact">
-                <div class="ctitle">
-                    <b>Contact Us</b>
-                </div>
-
-                <div class="clinks">
-                    <div class="cinsta">
-                        <a href="https://www.instagram.com/ieeesb_nitdgp/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'home/insta.png'%}" alt="instagram" />
-                        </a>
-                    </div>
-                    <div class="cfb">
-                        <a href="https://www.facebook.com/nitdgpieeesociety/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'home/cfb.png'%}" alt="instagram" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="footend">
-                    <a href="http://www.ieeesbnitdgp.com/" target="_blank" rel="noopener noreferrer">
-                        <img src="{% static 'home/ieeew.png'%}" alt="IEEE" class="ieee" />
-                    </a>
-                </div>
-            </div>
-        </footer>
+        
     </div>
 </body>
 

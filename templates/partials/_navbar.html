@@ -1,20 +1,22 @@
 <header>
     <h1>
-        <a href="{% url 'home:home' %}">Qriosity 2.0</a>
+        <a href="{% url 'home:home' %}" class="qriosity">Qriosity 3.0</a>
     </h1>
-    <br />
 
     <nav>
         <ul>
             {% if user.is_authenticated %}
             <li>
-                <a class="rulebtn">Rules</a>
+                <a href="{% url 'home:rules'%}">Rules</a>
             </li>
             <li>
                 <a href="{% url 'user:leaderboard' %}"> LeaderBoard </a>
             </li>
             <li>
-                <a href="{% url 'user:formdata' %}"> Profile</a>
+                <a href="{% url 'quiz:stageone' %}">Arena</a>
+            </li>
+            <li>
+                <a href="{% url 'user:story' %}">Story</a>
             </li>
             <li>
                 <a href="{% url 'user:dashboard' %}"> Dashboard </a>
@@ -24,18 +26,17 @@
             </li>
             {% else %}
             <li>
-                <a class="rulebtn">Rules</a>
+                <a href="{% url 'home:rules'%}">Rules</a>
             </li>
             <li>
                 <a href="{% url 'user:leaderboard' %}"> LeaderBoard </a>
             </li>
             <li>
-                <a href="{% url 'quiz:algo' %}"> Algorithms</a>
+                <a href="{% url 'user:story'%}">Story </a>
             </li>
             <li>
                 <a href="{% url 'home:login' %}">Login</a>
             </li>
-
             {% endif %}
         </ul>
     </nav>

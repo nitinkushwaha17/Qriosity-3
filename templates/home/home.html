@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{% static 'home/home.css' %}" />
 <head>
   {% block title %}
-  <title>Qriosity 3.0</title>
+  <title>Arcane</title>
   {% endblock %}
   <style type="text/css">
     ::-webkit-scrollbar{
@@ -12,7 +12,7 @@
 </head>
 <div class="content">
   <div class="title glow">
-    <div class="txt">Qriosity 3.0</div>
+    <div class="txt">Arcane</div>
   </div>
   <div class="box">
     <div class="para">
@@ -49,17 +49,5 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-  particlesJS.load(
-    "particles-js",
-    "{% static 'home/home.json' %}",
-    function () {
-      console.log("Hello Qriosity Player 🤗!!!");
-    }
-  );
-</script>
-<script>
-  console.log("Thanks For Playing with us 😊");
-</script>
+
 {% endblock %}
