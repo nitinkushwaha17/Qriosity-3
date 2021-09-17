@@ -2,10 +2,9 @@ from django.contrib import admin
 from .models import Player, PlayerDetails, Solved, StageOneHint
 
 
-admin.site.site_header = "Qriosity 2.0"
+admin.site.site_header = "Arcane"
 admin.site.site_title = "User Admin Area"
-admin.site.index_title = "Welcome to the Qriosity admin area"
-
+admin.site.index_title = "Welcome to the Arcane admin area"
 
 class PlayerDetailsInline(admin.TabularInline):
     model = PlayerDetails

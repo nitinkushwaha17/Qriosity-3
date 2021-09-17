@@ -4,91 +4,30 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> {% block title %}
-    <title>Qriosity</title>{% endblock %}
-    <link rel="stylesheet" href="{% static 'user/base.css' %}" />
-    <link rel="shortcut icon" href="{% static 'user/favicon.ico' %}" />
+
+
+    <!-- Bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <title>Arcane</title>{% endblock %}
 </head>
 
 <body>
-    <div id="particles-js"></div>
-    <div class="container">
-        <header>
-            <h1>
-                <a href="{% url 'home:home' %}" class="qriosity">Qriosity 3.0</a>
-            </h1>
+    
+    <div class="container-fluid">
 
-            <nav>
-                <ul>
-                    {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'home:rules'%}">Rules</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'user:leaderboard' %}"> LeaderBoard </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'quiz:stageone' %}">Arena</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'user:story' %}">Story</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'user:dashboard' %}"> Dashboard </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="{% url 'home:rules'%}">Rules</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'user:leaderboard' %}"> LeaderBoard </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'user:story'%}">Story </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'home:login' %}">Login</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </header>
+        {%  include 'partials/_navbar.html' %}
+
+        <hr>
+        
         {% block content %}{% endblock %}
 
-        <footer>
-            <div class="footleft">
-                <a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer">
-                    <img src="{% static 'home/ieeembw.png'%}" alt="IEEE" class="ieee" />
-                </a>
-            </div>
-            <div class="contact">
-                <div class="ctitle">
-                    <b>Contact Us</b>
-                </div>
+        <hr>
 
-                <div class="clinks">
-                    <div class="cinsta">
-                        <a href="https://www.instagram.com/ieeesb_nitdgp/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'home/insta.png'%}" alt="instagram" />
-                        </a>
-                    </div>
-                    <div class="cfb">
-                        <a href="https://www.facebook.com/nitdgpieeesociety/" target="_blank" rel="noopener noreferrer">
-                            <img src="{% static 'home/cfb.png'%}" alt="instagram" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="footend">
-                    <a href="http://www.ieeesbnitdgp.com/" target="_blank" rel="noopener noreferrer">
-                        <img src="{% static 'home/ieeew.png'%}" alt="IEEE" class="ieee" />
-                    </a>
-                </div>
-            </div>
-        </footer>
+        {%  include 'partials/_footer.html' %}
+
+        
     </div>
 </body>
 

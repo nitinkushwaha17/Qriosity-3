@@ -1,42 +1,6 @@
 {% extends 'base.html' %}{% load static %}{% block content %}
 
-<link rel="stylesheet" href="{% static 'quiz/quiz.css'%}" />
 
-<style>
-  .content1 {
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-  }
-
-  .container {
-    color: white;
-    background: black;
-  }
-  table,
-  td,
-  th {
-    border: 0.8px solid white;
-    color: white;
-  }
-
-  table,
-  h3 {
-    margin: 1em;
-    font-size: 0.7em;
-  }
-
-  th,
-  td {
-    padding: 1em;
-  }
-
-  div {
-    text-align: center;
-  }
-</style>
 
 <h2>The top {{n }} qualified participants are</h2>
 <div class="content1">

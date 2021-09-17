@@ -1,14 +1,8 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
-<link rel="stylesheet" href="{% static 'user/styles.css' %}" />
 {% block title%} <title>Dashboard</title>{% endblock %}
-<style>
-  .imageusr {
-    height: 20vh;
-    width: 20vh;
-  }
-</style>
-<div class="content">
+
+<div class="container">
   <div class="user">
     <img
       src="{{ player.image }}"
@@ -19,7 +13,7 @@
       {{ player.name }}
     </div>
 
-    <div class="det_container">
+    <div class="container">
       <div class="score" style="font-size: medium;">
         <p>{{ player.score }}</p>
         <p>Score</p>
@@ -27,14 +21,6 @@
      <div class="rank" style="font-size: medium;">
       <p>{{rank}}</p>
       <p>Rank</p>
-
-        <!-- {% if rank != 0 %}
-           <p>{{rank}}</p>
-           <p>Rank</p>
-        {% else %}
-           <p>NQ</p>
-           <p>Rank</p>
-       {% endif %} -->
       </div>
     </div>
 
@@ -56,12 +42,5 @@
     >
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-  particlesJS.load(
-    "particles-js",
-    "{% static 'home/home.json' %}",
-    function () {}
-  );
-</script>
+
 {% endblock %}

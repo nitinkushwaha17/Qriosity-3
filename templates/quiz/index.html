@@ -1,122 +1,17 @@
-{% extends 'base.html'%} {% load static %} {% block content %}
+{% extends 'base.html'%} {% load static %} 
 
-<head>
-  <link rel="stylesheet" href="{% static 'quiz/quiz.css' %}" />
-  <style>
-    img {
-      max-height: 30vh;
-    }
+{% block content %}
 
-    .content {
-      justify-content: center;
-    }
 
-    .questions {
-      display: flex;
-      flex-flow: row wrap;
-    }
-    .number {
-      color: #d29d28;
-    }
-    .number,
-    .title {
-      padding: 0.5em;
-    }
-    .title a:hover {
-      color: #9e9e9e;
-    }
-
-    .listQ {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 0.3em;
-      margin: 0.5em;
-      max-width: 80vw;
-      border-radius: 1em;
-      margin-top: 1em;
-      box-shadow: 0px 2px 8px 2px #a26d28;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .display_box,
-    .listQ {
-      max-width: 48%;
-    }
-    .stage2Q {
-    }
-    .coverQ {
-      flex: 33%;
-    }
-    #countdownbcontainer {
-      display: flex;
-      flex-direction: column;
-      color: #fff;
-    }
-    .message {
-      display: block;
-      padding: 1rem;
-      margin: 1em;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.85);
-      box-shadow: 0px 2px 8px 2px #d99236;
-      border-radius: 1em;
-    }
-    #countdownblock {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 1em;
-      margin: 0.5em;
-      max-width: 80vw;
-      border-radius: 1em;
-      margin-top: 1em;
-      box-shadow: 0px 2px 8px 2px #d99236;
-      color: white;
-      font-size: 2em;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      /* background-color: blanchedalmond; */
-    }
-    #countdownblock .cntdwn {
-      text-align: center;
-      padding: 1rem;
-    }
-    #countdownblock .cntdwn .text {
-      font-size: 0.5em;
-    }
-    @media only screen and (max-width: 700px) {
-      #countdownblock {
-        font-size: 1em;
-      }
-    }
-    @media only screen and (max-width: 300px) {
-      #countdownblock {
-        font-size: 0.6em;
-      }
-    }
-    @media only screen and (max-width: 900px) {
-      .coverQ {
-        flex: 100%;
-      }
-      .display_box,
-      .listQ {
-        max-width: 80%;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        font-size: 0.8em;
-      }
-    }
-  </style>
-</head>
-
-<div class="content">
+<div class="container">
   <br />
   <div class="display_box stage1">
     <h4 align="center">
       Congratulations {{player.name }} <br />
       on reaching Stage 2!
     </h4>
-    <br />
-    <img src="{{player.image}}" alt="{{ player.name }}" class="propic" />
+    
+  
     <br />
     <p align="center"></p>
 
@@ -124,105 +19,56 @@
     <br />
   </div>
 
-  <div class="listQ">
-    <h4 class="display">
-      Till Now you have solved
-      <br />
-      {{player.count2}} question{{ player.count2|pluralize}} in Stage 2
-    </h4>
-    <div class="questions">
-      {% for i in q %}
-      <div class="coverQ">
-        <div class="stage2Q">
-          <div class="number">Question No. {{i.level}}</div>
-          <div class="title">
-            <a href="{% url 'quiz:individual' i.level %}"> {{ i.title }} </a>
-          </div>
-          <!-- <div class="description">
-                      {{i.description}}
-                    </div> -->
-          {% if i.image %}
-          <div class="image">
-            <img src="{{i.image}}" alt="{{i.title}}" />
-          </div>
-          {% endif %}
-        </div>
-        {% if i.files%}
-        <div class="files">
-          <audio src="{{i.files.url}}" controls></audio>
-        </div>
-        {% endif %}
+
+    
+      Till Now you have solved {{player.count2}} question{{ player.count2|pluralize}} in Stage 2
+   
+   
+
+      <div class="container">
+                    
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th> No</th>
+              <th>Question</th>
+              <th>
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in q %}
+            <tr>
+              <td>{{i.level}}</td>
+              <td>
+                <a href="{% url 'quiz:individual' i.level %}"> {{ i.title }} </a>
+              </td>
+              <td>
+                {% for j in player.solved_set.all %}
+                  {% if j.level_on == i.level %}
+                       {{j.solved}}
+                  {% endif %}  
+                {% endfor %}
+              </td>
+              
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
       </div>
-      {% endfor %}
+
+      <p>
+        Note - Status Appears Only if You have visited a question
+      </p>
+     
+
+
     </div>
-  </div>
+
+      
+      
+
 </div>
-<div class="countdownbcontainer">
-  <div id="countdownblock" class="">
-    <div class="cntdwn">
-      <p id="days"></p>
-      <p class="text">days</p>
-    </div>
-    <p>:</p>
-    <div class="cntdwn">
-      <p id="hours"></p>
-      <p class="text">hours</p>
-    </div>
-    <p>:</p>
-    <div class="cntdwn">
-      <p id="mins"></p>
-      <p class="text">minutes</p>
-    </div>
-    <p>:</p>
-    <div class="cntdwn">
-      <p id="seconds"></p>
-      <p class="text">seconds</p>
-    </div>
-  </div>
-  <div class="message">
-    Congratulations on reaching Second round. The second round will start at
-    9:00 AM, 13th Sept.
-  </div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-  // Set the date we're counting down to
-  var countDownDate = new Date("Sep 13, 2020 9:00:00").getTime();
-
-  // Update the count down every 1 second
-  var x = setInterval(function () {
-    // Get today's date and time
-    var now = new Date().getTime();
-
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("mins").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
-
-    // If the count down is over, go back to home
-    if (distance < 0) {
-      clearInterval(x);
-
-      document.getElementById("countdownblock").innerHTML = "";
-      $(".countdownbcontainer").css("display", "none");
-      $(".content").css("display", "flex");
-    } else {
-      $(".countdownbcontainer").css("display", "flex");
-      $(".content").css("display", "none");
-    }
-  });
-</script>
 
 {% endblock %}

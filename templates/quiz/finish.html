@@ -1,49 +1,15 @@
 {% extends 'base.html'%} {% load static %} {% block content %}
 
 <head>
-  <link rel="stylesheet" href="{% static 'quiz/finish.css' %}" />
-  <style>
-    .circle img {
-      height: 30vh;
-      width: 30vh;
-    }
-
-    .congrate {
-      text-align: center;
-    }
-  </style>
   {% block title %}
   <title>Congrats!</title>
   {% endblock %}
 </head>
 
 <div class="content">
-  '
-  <div class="circle">
-    <img src="{% static 'quiz/WHEEL2.png'%}" alt="wheel" />
-  </div>
-  <div class="stage1">
-    <div class="congrate">
-      Congratulations !!
-      <br />
-      You have finished the Mission.
-    </div>
-    <br />
-
-    <h3>
-      Visit
-    </h3>
-    <a href="{% url 'user:dashboard'%}">
-      <button class="btn btn-primary mb1 bg-blue">
-        Dashboard
-      </button>
-    </a>
-    <a href="{% url 'user:leaderboard'%}">
-      <button class="btn btn-primary mb1 bg-blue">
-        Leaderboard
-      </button>
-    </a>
-  </div>
+  <h3>
+    Finished
+  </h3>
 </div>
 
 {% endblock %}

@@ -14,5 +14,3 @@ python manage.py runserver
 ```
 
 WIP 
-
-https://help.heroku.com/J2R1S4T8/can-heroku-force-an-application-to-use-ssl-tls
