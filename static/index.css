@@ -5,6 +5,9 @@ body
     color: white;
     font-weight: normal;
 }
+a:visited{
+  color: white;
+}
 .p{
   font-size: 20px;
 }
@@ -23,14 +26,13 @@ text-align: center;
 top: 109px; */
 }
 .blockz{
-    
     background: #46A29F;
     border-radius: 50px;
     font-size: 20px;
 }
 .buttn1{
-/* width: 249px;
-height: 36px; */
+width: 249px;
+height: 36px;
 left: 125px;
 top: 283px;
 font-size: 20px;
@@ -45,8 +47,8 @@ box-sizing: border-box;
 border-radius: 50px;
 }
 .buttn2{
-/* width: 1392px;
-height: 36px; */
+width: 1392px;
+height: 36px;
 font-size: 20px;
 left: 125px;
 top: 283px;
@@ -63,8 +65,8 @@ box-sizing: border-box;
 
 }
 .buttn3{
-/* width: 1670px;
-height: 36px; */
+width: 1670px;
+height: 36px;
 left: 125px;
 top: 283px;
 
@@ -83,8 +85,8 @@ box-sizing: border-box;
 border-radius: 50px;
 }
 .buttn4{
-    /* width: 249px;
-    height: 36px; */
+    width: 249px;
+    height: 36px;
     left: 125px;
     top: 283px;
     font-size: 20px;
@@ -99,8 +101,8 @@ border-radius: 50px;
     border-radius: 50px;
     }
     .buttn5{
-        /* width: 1670px;
-        height: 36px; */
+        width: 1670px;
+        height: 36px;
         left: 125px;
         top: 283px;
         
@@ -159,12 +161,8 @@ border-radius: 50px;
   .over{
     color: #66FCF1;
     font-size: 42px ;
-    margin: 10px;
   }
   .textedits{
       margin:10px;
       font-size: 20px;
-  }
-  .smth{
-padding: 70px;
   }
