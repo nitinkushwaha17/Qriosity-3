@@ -6,9 +6,7 @@
 </head>
 {%block title%}
 <title>Index</title>{%endblock%}
-<body>
-    <div class="footer">
-    </div>
+
 
 <div class="container">
    
@@ -53,53 +51,8 @@
       Till Now you have solved {{player.count2}} question{{ player.count2|pluralize}} in Stage 2
       <br>
       Note - Status Appears Only if You have visited a question
-    </p>
-    
-      
-   
-   
-
-      <!-- <div class="container">
-                    
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th> No</th>
-              <th>Question</th>
-              <th>
-                Status
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for i in q %}
-            <tr>
-              <td>{{i.level}}</td>
-              <td>
-                <a href="{% url 'quiz:individual' i.level %}"> {{ i.title }} </a>
-              </td>
-              <td>
-                {% for j in player.solved_set.all %}
-                  {% if j.level_on == i.level %}
-                       {{j.solved}}
-                  {% endif %}  
-                {% endfor %}
-              </td>
-              
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div> -->
-
-        
-
-
-    </div>
-
-      
-      
+    </p>      
 
 </div>
-</body>
+
 {% endblock %}
