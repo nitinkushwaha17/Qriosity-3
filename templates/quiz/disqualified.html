@@ -1,18 +1,11 @@
 {% extends 'base.html'%} {% load static %} 
 
 {% block content %}
-<link rel="stylesheet" href="index.css">
-<link rel="stylesheet" href="materialize.css">
-<!-- 
-<div class="row">
-    <div class="col s6 l6">
-        <img class="design1" src="Ornament.png">
-        <img class="design2" src="Ornament.png">
-    </div>
-    <div class="col s6 l6">
-        <div class="bro"><p><img src="Feeling sorry-bro.png" alt="Girl in a jacket" width="500px" height="500px"></p>
-        </div>
-  </div> -->
+<head>
+    <link rel="stylesheet" href="{%static 'quiz/index.css' %}">
+</head>
+
+
 <div>
     <br>
 </div>
@@ -33,7 +26,7 @@
     </div>
     <div class="col grid-example s12 m12 l6 textedits">
         <span class="flow-text bro">
-            <img src="Feeling sorry-bro.png" alt="Girl in a jacket" width="400px" height="400px">
+            <img src="{% static 'images/Feeling sorry-bro.png' %}" alt="Girl in a jacket" width="400px" height="400px">
         </span></div>
   </div>
 </body>
