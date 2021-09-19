@@ -1,15 +1,102 @@
 {% extends 'base.html'%} {% load static %} 
 
 {% block content %}
-
+<head>
+<link rel="stylesheet" href="{%static 'materialize.css' %}">
+<link rel="stylesheet" href="{%static 'index.css' %}">
+</head>
+{%block title%}
+<title>Index</title>{%endblock%}
+<body>
+    <div class="footer">
+    </div>
 
 <div class="container">
+   
   <br />
-  <div class="display_box stage1">
-    <h4 align="center">
-      Congratulations {{player.name }} <br />
-      on reaching Stage 2!
-    </h4>
+      <div class="h4lite" align="center">
+      Index for Round 2</div>
+      <br />
+      <p align="center">To view or answer a question click on its title</p>
+      <br />
+    <div class="row blockz">
+      <div class="col s2 buttn1"><b>SR No.</b></div>
+      <div class="col s7 buttn2"><font color="black"><b>Questions</b></font></div>
+      <div class="col s3 buttn3"><b>Status</b></div>
+    </div>
+    <br>
+    {% for i in q %}
+    <div class="row blockz">
+      <div class="col s2 buttn4">{{i.level}}</div>
+      <div class="col s7 buttn2">
+        <a href="{% url 'quiz:individual' i.level %}"> {{ i.title }} </a>
+      </div>
+
+      <div class="col s3 buttn5">
+        {% for j in player.solved_set.all %}
+        {% if j.level_on == i.level %}
+             {{j.solved}}
+        {% endif %}  
+      {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
+    <div class="row blockz">
+      <div class="col s2 buttn4">Button</div>
+      <div class="col s7 buttn2">Button</div>
+      <div class="col s3 buttn5">Button</div>
+    </div>
     
   
     <br />
@@ -25,7 +112,7 @@
    
    
 
-      <div class="container">
+      <!-- <div class="container">
                     
         <table class="table table-striped">
           <thead>
@@ -56,7 +143,7 @@
             {% endfor %}
           </tbody>
         </table>
-      </div>
+      </div> -->
 
       <p>
         Note - Status Appears Only if You have visited a question
@@ -70,5 +157,5 @@
       
 
 </div>
-
+</body>
 {% endblock %}
