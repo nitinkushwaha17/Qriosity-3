@@ -15,6 +15,7 @@ div#main{
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    z-index: -1;
 }
 .dots>div{
     height: 5px;
