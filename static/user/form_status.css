@@ -79,9 +79,16 @@ button:hover{
 
     .boxin{
         font-size: 20px;
+        width:40vw;
     }
 
     p{
         font-size: 24px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .boxin{
+        margin-left: -15px;
     }
 }
