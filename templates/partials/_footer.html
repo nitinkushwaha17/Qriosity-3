@@ -1,5 +1,44 @@
 {% load static %}
+<link rel="stylesheet" href="{% static 'user/footer.css' %}" />
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" 
+integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
-<footer>
-  Footer
+<footer class="foo">
+  <div class="footer">
+    <a class="footer-brand" href="{% url 'home:home' %}"><img src="{% static 'images/logo.svg'%}" alt="Arcane" class="arcane"></a>
+    <a href="https://www.ieeesbnitdgp.com/" target="_blank" rel="noopener noreferrer">
+      <img src="{% static 'images/ieee.svg'%}" alt="IEEE" class="ieee" />
+    </a>
+    <div class="contact">
+      <div class="clinks">
+        <div class="cfb">
+          <a
+            href="https://www.facebook.com/nitdgpieeesociety/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-facebook"></i>
+          </a>
+        </div>
+        <div class="cinsta">
+          <a
+            href="https://www.instagram.com/ieeesb_nitdgp/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        <div class="cln">
+          <a
+            href="https://www.linkedin.com/company/ieeesbnitdgp/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>

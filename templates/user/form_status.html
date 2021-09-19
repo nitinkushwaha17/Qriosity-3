@@ -1,6 +1,7 @@
 {%extends 'base.html' %} {% load static %} {% block content %}
 
-
+<link rel="stylesheet" href="{% static 'user/form_status.css' %}" />
+<link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet" />
 <head>
   {% block title %}
   <title>Contact Info 📇</title>
@@ -10,44 +11,36 @@
   <br /><br />
 
   <div class="box">
-    <h3>
-      Your current Profile details :
-    </h3>
-    <br />
-    <p>
-      Name : {{details.full_name}}
-    </p>
-    <br />
-    <p>
-      College : {{details.college}}
-    </p>
-    <br />
-    <p>
-      Year : {{details.year}}
-    </p>
-    <br />
-    <p>
-      Contact Number : {{details.contact}}
-    </p>
-  </div>
+    <div class="detail-head">
+      <h1>
+        {{details.full_name}}
+      </h1>
+    </div>
+    <br /><br/>
+    <div class="details">
+       <p> College Name: </p>
+       <p class="boxin"> {{details.college}} </p>
+       <p> Year : </p>
+      <p class="boxin"> {{details.year}} </p>
+      <p>Contact no. :</p>
+      <p class="boxin"> {{details.contact}} </p>
+    </div>
+    <br/>
 
-  <div class="submit">
+    <div class="submit">
     <a href="{% url 'user:details'%}">
-      <button value="Update Contact" class="btn btn-primary mb1 bg-blue">
+      <button value="Update Contact">
         Update Profile
       </button>
     </a>
-  </div>
-  <div class="submit">
     <a href="{% url 'user:dashboard'%}">
       <button
-        value="Update Contact"
-        class="btn btn-primary mb1 bg-blue"
-        style="font-size: medium;"
-      >
+        value="Update Contact">
         Proceed to Dashboard
       </button>
     </a>
+  </div>
+
   </div>
 </div>
 

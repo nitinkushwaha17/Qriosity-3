@@ -1,0 +1,32 @@
+.navbar{
+    background-color: #202833;
+    width:100vw;
+}
+
+.nav-link{
+    color:#66FCF1;
+}
+
+.navbar-nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width:85vw;
+}
+
+.nav-item{
+    margin-right:1.5vw;
+}
+
+.navbar-toggler {
+    border-color: #66FCF1;
+  }
+
+.nav-link:hover{
+    color: white;
+}
+
+.arcane{
+    height:50px;
+    width:auto;
+}
