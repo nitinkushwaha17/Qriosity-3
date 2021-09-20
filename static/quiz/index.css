@@ -1,21 +1,22 @@
 body
 {
     background-color: black;
-    font-family: 'Segoe UI';
+    /* font-family: 'Segoe UI'; */
     color: white;
     font-weight: normal;
+    font-size:x-large;
 }
 .p{
-  font-size: 20px;
+  font-size: x-large;
 }
 .h4lite{
 /* width: 553px;
 /* height: 100px; */
 /*font-family: Darker Grotesque; */
-font-style: normal;
+font-style:normal;
 color:#46A29F;
-/* font-weight: bold; */
-font-size: 36px;
+font-weight: bold;
+font-size: 42px;
 /* line-height: 98px; */
 /* display: flex; */
 align-items: center;
@@ -27,14 +28,17 @@ top: 109px; */
     
     background: #46A29F;
     border-radius: 50px;
-    font-size: 20px;
+    font-size: x-large;
+    height: 20%;
+    display: flex;
+    flex-wrap: wrap;
 }
 .buttn1{
 /* width: 249px;
 height: 36px; */
 left: 125px;
 top: 283px;
-font-size: 17px;
+font-size: x-large;
 color:black;
 text-align: center;
 background: #C5C6C8;
@@ -48,7 +52,7 @@ border-radius: 50px;
 .buttn2{
 /* width: 1392px;
 height: 36px; */
-font-size: 17px;
+font-size: x-large;
 left: 125px;
 top: 283px;
 
@@ -69,7 +73,7 @@ height: 36px; */
 left: 125px;
 top: 283px;
 
-font-size: 17px;
+font-size: x-large;
 color: black;
 text-align: center;
 
@@ -88,7 +92,7 @@ border-radius: 50px;
     height: 36px; */
     left: 125px;
     top: 283px;
-    font-size: 17px;
+    font-size: x-large;
     text-align: center;
     background: black;
     color: #46A29F;
@@ -105,7 +109,7 @@ border-radius: 50px;
         left: 125px;
         top: 283px;
         
-        font-size: 17px;
+        font-size: x-large;
         text-align: center;
         
         /* Heading CTA Border */
@@ -232,4 +236,9 @@ padding: 70px;
   }
   .dotpos{
     left:80vw;
+  }
+  @media screen and (max-width: 480px) {
+    body {
+      font-size: normal;
+    }
   }
