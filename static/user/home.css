@@ -215,6 +215,10 @@
   .shead h3{
     margin-left: 8vw;
   }
+  
+  .dotg4{
+    top:18vw;
+  }
 }
 
 @keyframes move {
