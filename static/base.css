@@ -9,30 +9,3 @@ div#main{
     min-height: 100vh;
     overflow-x: hidden;
 }
-.dots{
-    position: absolute;
-    display: grid;
-    grid-template-rows: repeat(6, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    z-index: -1;
-}
-.dots>div{
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    background-color: aqua;
-}
-#d1{
-    top: 100px;
-    right: -15px;
-}
-#d2{
-    top: 320px;
-    left: -15px;
-}
-#d3{
-    top: 450px;
-    right: -10px;
-    transform: rotate(90deg);
-}
