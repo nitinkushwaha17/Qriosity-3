@@ -9,7 +9,7 @@ div#main{
     min-height: 100vh;
     overflow-x: hidden;
 }
-.dots{
+/* .dots{
     position: absolute;
     display: grid;
     grid-template-rows: repeat(6, 1fr);
@@ -35,4 +35,4 @@ div#main{
     top: 450px;
     right: -10px;
     transform: rotate(90deg);
-}
+} */
