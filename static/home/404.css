@@ -1,0 +1,113 @@
+/* Description: Master CSS file */
+
+
+/*****************************************
+Colors:
+- Backgrounds - #0B0C10;
+- Buttons, icons - 
+- Headings text - 
+- Body text - 
+******************************************/
+
+
+/**************************/
+/*     General Styles     */
+/**************************/
+body,
+html {
+    width: 100%;
+	height: 100%;
+	background-color: #0B0C10;
+}
+
+
+.robosvg {
+	position: absolute;
+width: 1311px;
+height: 1402px;
+left: -217px;
+top: -161px;
+}
+
+
+h1 {
+	position: absolute;
+width: 459px;
+height: 391px;
+left: 1000px;
+top: 285px;
+right: 279px;
+
+
+font-family: Darker Grotesque;
+font-style: normal;
+font-weight: bold;
+font-size: 288px;
+line-height: 391px;
+/* identical to box height */
+
+text-align: center;
+
+color: #FFFFFF;
+}
+
+
+h3 {
+
+
+
+/* Heading Medium 48pt */
+
+font-family: Darker Grotesque;
+font-style: normal;
+font-weight: 500;
+font-size: 48px;
+line-height: 65px;
+text-align: center;
+
+color: #FFFFFF;
+
+}
+
+.lostcode {
+	position: absolute;
+width: 667px;
+height: 123px;
+left: 900px;
+top: 614px;
+right: 159px;
+font-style: normal;
+text-align: center;
+
+color:#C5C6C8;
+
+}
+
+.btn
+{
+	font-family: Darker Grotesque;
+font-style: normal;
+font-size: 36px;
+line-height: 49px;
+padding: 10px 20px;
+border-color: #66FCF1;
+}
+
+
+
+
+
+
+
+/* Min-width 1200px */
+@media (min-width: 1200px) {
+	
+
+
+
+
+	
+}
+/* end of min-width 1200px */
+
+

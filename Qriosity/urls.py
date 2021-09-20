@@ -6,6 +6,9 @@ from django.contrib.auth import views as auth_views
 import user
 import home
 
+handler404 = 'home.views.error_404'
+
+
 urlpatterns = [
     path('harrypotter/', admin.site.urls),
     path('user/', include('user.urls')),
