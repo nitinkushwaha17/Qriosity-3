@@ -1,17 +1,17 @@
 {% extends 'base.html'%} {% load static %} 
 
 {%block title%}
+<link rel="stylesheet" href="{%static 'quiz/index.css' %}">
+<title>Index</title>
+{%endblock%}
 
-<title>Index</title>{%endblock%}
+
+{% block content %}
 <div class="dotss dotgg1">
   <img src="{% static 'images/Ornament 17.svg'%}" class="dotss1"/>
   <img src="{% static 'images/Ornament 17.svg'%}" class="dotss2" />
 </div>
 
-<link rel="stylesheet" href="{%static 'quiz/index.css' %}">
-
-
-{% block content %}
 <div class="container">
   
   <br />
