@@ -325,3 +325,7 @@ def Individual(request, qid):
                         return render(request, 'quiz/individual.html', {"question": question, "form": my_form, "all": all})
                 else:
                     return HttpResponse('<h2> Your Form data was Invalid </h2>')
+
+
+def Disqualify(request) :
+    return render(request, 'quiz/disqualified.html')
