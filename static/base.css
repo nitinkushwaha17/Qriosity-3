@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500&display=swap');
+
 body{
     background-color: #0B0C10;
     font-family: 'Darker Grotesque', sans-serif;
@@ -36,3 +37,4 @@ div#main{
     right: -10px;
     transform: rotate(90deg);
 } */
+
