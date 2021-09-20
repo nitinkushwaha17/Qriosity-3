@@ -1,19 +1,23 @@
 {% extends 'base.html'%} {% load static %} 
 
-{% block content %}
-<head>
-<link rel="stylesheet" href="{%static 'quiz/index.css' %}">
-</head>
 {%block title%}
+
 <title>Index</title>{%endblock%}
 <div class="dotss dotgg1">
   <img src="{% static 'images/Ornament 17.svg'%}" class="dotss1"/>
   <img src="{% static 'images/Ornament 17.svg'%}" class="dotss2" />
 </div>
 
+<link rel="stylesheet" href="{%static 'quiz/index.css' %}">
+<title>Index</title>
+{%endblock%}
+
+
+{% block content %}
 <div class="container">
   
   <br />
+
       <div class="h4lite" align="center">
       Index for Round 2</div>
       <br />
@@ -53,6 +57,7 @@
     <p align="center">To view or answer a question click on its title</p> -->
     <br />
   </div>
+
 
     <p align="center">
       Till Now you have solved {{player.count2}} question{{ player.count2|pluralize}} in Stage 2

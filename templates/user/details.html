@@ -1,9 +1,10 @@
-{%extends 'base.html' %} {% load static %} {% block content %}
-<head>
-  {% block title %}
-  <title>Fill contact details</title>
-  {% endblock %}
-</head>
+{%extends 'base.html' %} {% load static %} 
+
+{% block title %}
+<title>Fill contact details</title>
+{% endblock %}
+
+{% block content %}
 <div class="content usercontactblock">
   <form action="{% url 'user:formdata' %}" method="POST">
     <h2 align="center">
