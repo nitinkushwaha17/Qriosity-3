@@ -1,5 +1,4 @@
 body{
-    background-color: black;
     height: 1vh;
 }
 p,h1{
@@ -16,6 +15,7 @@ p,h1{
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    margin: -26vw 0 -30vw 0;
 }
 
 .boxin{
@@ -63,9 +63,39 @@ button:hover{
     justify-content: space-evenly;
     width:100%;
     margin-top: 1.3vw;
+    margin-bottom: -5vw;
 }
 
-@media screen and (max-width:700px) {
+.dots1,.dots2,.dots3,.dots4,.dots5,.dots6{
+    width:3vw;
+    height:auto;
+  }
+
+.dots{
+    display:flex;
+    width:8vw;
+    justify-content: space-between;
+    position:relative; 
+    z-index: -2;
+}
+
+.dotg1{
+    left:45vw;
+    top:20vw;
+}
+
+.dotg2{
+    transform: rotateZ(90deg);
+    right:45vw;
+    top:25vw;
+}
+
+.dotg3{
+    left: 60vw;
+    bottom: 2vw;
+}
+
+@media screen and (max-width:700px) and (min-width:500px) {
     .submit{
         display:grid;
         justify-items: center;
@@ -87,8 +117,86 @@ button:hover{
     }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:499px) and (min-width:351px) {
+    .submit{
+        display:grid;
+        justify-items: center;
+        grid-gap: 15px;
+    }
+
+    .submit button{
+        font-size: 15px;
+        width:200px;
+    }
+
     .boxin{
-        margin-left: -15px;
+        font-size: 20px;
+        width:40vw;
+        margin-left: -20px;
+    }
+
+    p{
+        font-size: 24px;
+    }
+
+    .dotg1{
+        top:8vw;
+    }
+    
+    .dotg2{
+        top:30vw;
+    }
+
+    .dotg3{
+        top:15vw;
+        left:80vw;
+    }
+
+    .details{
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .submit{
+        display:grid;
+        justify-items: center;
+        grid-gap: 15px;
+    }
+
+    .submit button{
+        font-size: 15px;
+        width:200px;
+    }
+
+    .boxin{
+        font-size: 17px;
+        width:40vw;
+        margin-left: -2px;
+    }
+
+    h1{
+        font-size: 28px;
+    }
+
+    p{
+        font-size: 20px;
+    }
+
+    .dotg1{
+        top:8vw;
+    }
+    
+    .dotg2{
+        top:30vw;
+    }
+
+    .dotg3{
+        top:15vw;
+        left:80vw;
+    }
+
+    .details{
+        margin-left: 15px;
     }
 }
