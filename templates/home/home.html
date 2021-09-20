@@ -1,14 +1,80 @@
 {% extends 'base.html' %}{% load static %}
 
-{% block title %}<title>Arcane</title>{% endblock %}
+{% block title%}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'user/home.css' %}" />
+<link href="https://fonts.googleapis.com/css?family=Darker+Grotesque&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<title>Dashboard</title>
+{% endblock %}
  
 {% block content %}
 <div class="container">
 
-  <h1>
-    Arcane
-  </h1>
+  <section>
+    <div class="first_part">
+      <div class="dots dotg1">
+        <img src="{% static 'images/Ornament 17.svg'%}" class="dots1"/>
+        <img src="{% static 'images/Ornament 17.svg'%}" class="dots2" />
+      </div>
+      <div class="first_text">
+        <h2>Feeling ready yet?</h2>
+        <p>Feel the innocent veneer, surprise, the disclosure of a hidden meaning, and the pleasure of solution.</p>
+        <form action="{% url 'quiz:stageone' %}" method="POST">
+          {% csrf_token %}
+          <button class="btn">Play Now</button>
+        </form>
+      </div>
+      <div class="img1">
+        <img src="{% static 'images/Online games addiction-bro 1.svg' %}" class="gaming_pic"/>
+      </div>
+    </div>
+  </section>
 
+  <div class="container-chevron">
+    <div class="wrapper">
+      <div class="chevron"></div>
+      <div class="chevron"></div>
+      <div class="chevron"></div>
+    </div>
+    <span class="text">The Story</span>
+  </div>
+  <br/>  
+
+  <div class="story_section" id="story">
+    <div class="shead">
+      <h3>STORY</h3>
+      <div class="dots dotg2">
+        <img src="{% static 'images/Ornament 17.svg'%}" class="dots3" />
+        <img src="{% static 'images/Ornament 17.svg'%}" class="dots4" />
+      </div>
+    </div>
+    <div class="spart1">
+      <img src="{% static 'images/Coding-bro 1.svg'%}" class="coding_pic" />
+      <p class="story1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      </p>
+    </div>
+    <div class="dots dotg3">
+      <img src="{% static 'images/Ornament 17.svg'%}" class="dots5" />
+      <img src="{% static 'images/Ornament 17.svg'%}" class="dots6" />
+    </div>
+    <div class="spart2">
+      <p class="story2">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duisaute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+      </p>
+      <img src="{% static 'images/Coding-bro 1.svg'%}" class="coding_pic" />
+    </div>
+    <div class="dots dotg4">
+      <img src="{% static 'images/Ornament 17.svg'%}" class="dots7" />
+      <img src="{% static 'images/Ornament 17.svg'%}" class="dots8" />
+    </div>
+  </div>
 </div>
 
 {% endblock %}
