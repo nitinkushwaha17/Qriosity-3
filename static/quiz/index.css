@@ -13,8 +13,9 @@ body
 /* height: 100px; */
 /*font-family: Darker Grotesque; */
 font-style: normal;
+color:#46A29F;
 /* font-weight: bold; */
-font-size: 42px;
+font-size: 36px;
 /* line-height: 98px; */
 /* display: flex; */
 align-items: center;
@@ -33,7 +34,7 @@ top: 109px; */
 height: 36px; */
 left: 125px;
 top: 283px;
-font-size: 20px;
+font-size: 17px;
 color:black;
 text-align: center;
 background: #C5C6C8;
@@ -47,7 +48,7 @@ border-radius: 50px;
 .buttn2{
 /* width: 1392px;
 height: 36px; */
-font-size: 20px;
+font-size: 17px;
 left: 125px;
 top: 283px;
 
@@ -68,7 +69,7 @@ height: 36px; */
 left: 125px;
 top: 283px;
 
-font-size: 20px;
+font-size: 17px;
 color: black;
 text-align: center;
 
@@ -87,7 +88,7 @@ border-radius: 50px;
     height: 36px; */
     left: 125px;
     top: 283px;
-    font-size: 20px;
+    font-size: 17px;
     text-align: center;
     background: black;
     color: #46A29F;
@@ -104,7 +105,7 @@ border-radius: 50px;
         left: 125px;
         top: 283px;
         
-        font-size: 20px;
+        font-size: 17px;
         text-align: center;
         
         /* Heading CTA Border */
@@ -167,4 +168,68 @@ border-radius: 50px;
   }
   .smth{
 padding: 70px;
+  }
+ 
+  .dotss{
+    position:absolute;
+    display:flex;
+    width:8vw;
+    justify-content: space-between;
+  }
+  
+  .dotgg1{
+    align-items: flex-end;
+    /* top:16vw;
+    right: 3vw; */
+    transform: rotate(-90deg);
+    justify-content: space-between;
+  }
+  .dotgg2{
+    position: absolute;
+    /* bottom:5vw; */
+    left: 80vw;
+  }
+  
+  .dotg3{
+    position: relative;
+    top:5vw;
+  }
+  .dotg4{
+    position:relative;
+    top:5vw;
+    left:80vw;
+  }
+  
+  .dotss1,.dotss2,.dots3,.dots4,.dots5,.dots6,.dots7,.dots8{
+    width:3vw;
+    height:auto;
+  }
+  .dotposition{
+    top:2vw;
+    z-index: -1;
+    /* left:80vw; */
+  }
+  .dotposition2{
+    top:2vw;
+    z-index: -1;
+    left:90vw;
+    /* transform: rotate(-90deg); */
+  }
+  .dotposition3{
+    position: absolute;
+    top:30vw;
+    z-index: -1;
+    left:45vw;
+     transform: rotate(-90deg);
+     justify-content: space-between;
+  }
+  .dotgg3{
+    align-items: flex-end;
+    /* top:16vw;
+    right: 3vw; */
+    transform: rotate(-90deg);
+    justify-content: space-between;
+  }
+  .dotpos{
+    left:80vw;
   }
