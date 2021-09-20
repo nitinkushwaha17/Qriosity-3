@@ -1,6 +1,6 @@
 {% extends 'base.html'%} {% load static %} {% block content %}
 <style>
-  h2 {
+  /* h2 {
     color: #d99236;
   }
   .container {
@@ -26,7 +26,7 @@
     font-size: 2em;
     display: flex;
     align-items: center;
-    /* background-color: blanchedalmond; */
+  
   }
   #countdownblock .cntdwn {
     text-align: center;
@@ -65,34 +65,174 @@
     #countdownblock {
       font-size: 0.6em;
     }
+  } */
+
+  .quizstatus {
+    position:absolute;
+    width:540px;
+    height:90px;
+    left:164px;
+    top:437px;
+
+    font-family: 'Darker Grotesque';
+    font-style:normal;
+    font-weight:900;
+    font-size:96px;
+    line-height:130px;
+    display:flex;
+    align-items:center;
+
+    color:#ffffff;
   }
+
+#hours{
+position: absolute;
+width: 118px;
+height: 128px;
+left: 164px;
+top: 486px;
+
+font-family: Darker Grotesque;
+font-style: normal;
+font-weight: bold;
+font-size: 96px;
+line-height: 130px;
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+}
+
+#mins{
+  position: absolute;
+width: 118px;
+height: 128px;
+left: 351px;
+top: 486px;
+
+font-family: Darker Grotesque;
+font-style: normal;
+font-weight: bold;
+font-size: 96px;
+line-height: 130px;
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+}
+
+#seconds{
+  position: absolute;
+width: 118px;
+height: 128px;
+left: 538px;
+top: 486px;
+
+font-family: Darker Grotesque;
+font-style: normal;
+font-weight: bold;
+font-size: 96px;
+line-height: 130px;
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+}
+
+.text1{
+  position: absolute;
+width: 94px;
+height: 49px;
+left: 164px;
+top: 589px;
+
+/* Heading Bold 36pt */
+
+font-family: Darker Grotesque;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 49px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+}
+
+.text2{
+  position: absolute;
+width: 118px;
+height: 49px;
+left: 339px;
+top: 589px;
+
+/* Heading Bold 36pt */
+
+font-family: Darker Grotesque;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 49px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+}
+
+.text3{
+  position: absolute;
+width: 134px;
+height: 49px;
+left: 526px;
+top: 589px;
+
+/* Heading Bold 36pt */
+
+font-family: Darker Grotesque;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 49px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+
+color: #FFFFFF;
+}
+
+
 </style>
 
 <div class="content">
   {% if end %}
   <p class="quizstatusdone">Quiz Expired on {{end}}</p>
   {% else %}
-  <h2 class="quizstatus">Quiz Live On</h2>
+  <h2 class="quizstatus">Coming Soon</h2>
 
   <div id="countdownblock" class="">
-    <div class="cntdwn">
+    <!-- <div class="cntdwn">
       <p id="days"></p>
       <p class="text">days</p>
-    </div>
-    <p>:</p>
+    </div> -->
+    <!-- <p>:</p> -->
     <div class="cntdwn">
       <p id="hours"></p>
-      <p class="text">hours</p>
+      <p class="text1">hours</p>
     </div>
     <p>:</p>
     <div class="cntdwn">
       <p id="mins"></p>
-      <p class="text">minutes</p>
+      <p class="text2">minutes</p>
     </div>
     <p>:</p>
     <div class="cntdwn">
       <p id="seconds"></p>
-      <p class="text">seconds</p>
+      <p class="text3">seconds</p>
     </div>
   </div>
   <button id="endinfo" class="btn"></button>
@@ -102,7 +242,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
   // Set the date we're counting down to
-  var countDownDate = new Date("Sep 12, 2020 9:00:00").getTime();
+  var countDownDate = new Date("Sep 24, 2021 9:00:00").getTime();
 
   // Update the count down every 1 second
   var x = setInterval(function () {
