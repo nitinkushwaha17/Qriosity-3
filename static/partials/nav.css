@@ -5,6 +5,7 @@
 
 .nav-link{
     color:#66FCF1;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar-nav{
@@ -20,7 +21,7 @@
 
 .navbar-toggler {
     border-color: #66FCF1;
-  }
+}
 
 .nav-link:hover{
     color: white;

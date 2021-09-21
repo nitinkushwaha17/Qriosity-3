@@ -1,41 +1,57 @@
-{% extends 'base.html'%} {% load static %} {% block content %}
+{% extends 'base.html'%} {% load static %}
+
+{% block title %}
+<link rel="stylesheet" href="{%static 'quiz/individual.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="content container d-flex flex-column">
+    <div class="stage1 blocks">
+        <div class="ques-head d-flex">
+            <p>
+                QUESTION {{ question.level }}
+            </p>
+            <div></div>
+        </div>
+
+        <div class="ques">
+            <h3 class="qtitle">{{ question.title }}</h3>
+
+            <div class="ques-content d-flex">
+                <!-- description -->
+                {% if question.description %}
+                <div class="description">{{ question.description }}</div>
+                {% endif %}
+
+                <!-- image -->
+                {% if question.image_url %}
+                <img src="{{ question.image_url }}" alt="{{question.title}}" />
+                {% endif %}
+            </div>
+
+            <form action="" method="post" id="ans" class="d-flex justify-content-between">
+                {% csrf_token %} 
+                <!-- {{ form.as_p}} -->
+                <input type="text" name="answer" placeholder="Enter your answer">
+                <button type="submit" class="btn">
+                    Submit
+                </button>
+            </form>
 
 
-<div class="container">
-  <div class="stage1">
-    <h3 style="font-size: 0.7em">Question No. {{question.level}}</h3>
-    {% if value %}
-    <div class="wrong">
-      Wrong Answer
-      <br />
-      Try Again <br />
+            {% if value %}
+            <div class="wrong">
+                Wrong Answer!
+                <br/> Try Again <br/>
+            </div>
+            {% endif %}
+        
+        </div>
+        <a href="{% url 'quiz:stageone' %}" class="back"> 
+            <button class="btn btn-primary">
+              Back
+            </button>
+        </a>
     </div>
-    {% endif %}
-    <h3>
-      
-        {{ question.title }}
-      
-    </h3>
-
-    <br />
-    <!-- description -->
-    {% if question.description %}
-    <div>{{ question.description }}</div>
-    {% endif %}
-    <br />
-  </div>
-
-  <form action="" method="POST" class="stage1">
-    {% csrf_token %} {{form.as_p}}
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-  <br>
-
-  <a href="{% url 'quiz:stageone' %}"> 
-    <button class="btn btn-primary">
-      Back
-    </button>
-  </a>
 </div>
-
 {% endblock %}

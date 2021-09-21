@@ -1,75 +1,90 @@
-{% extends 'base.html'%} {% load static %} {% block content %}
+{% extends 'base.html'%} {% load static %}
 
+{% block title %}
+<link rel="stylesheet" href="{%static 'quiz/Stage1.css' %}">
+{% endblock %}
 
-<div class="content">
+{% block content %}
+<div class="content container d-flex flex-column">
     <div class="stage1 blocks">
-        <p>
-            Question Level : {{ question.level }}
-        </p>
-
-        {% if value %}
-        <div class="wrong">
-            Wrong Answer!
-            <br/> Try Again <br/> 
-            {% if hint %} 
-            {% else %}
-                <div class="warning">
-                    Stuck ? Take a Hint. <br /> (You will loose points)
-                </div>
-            {% endif %}
-        </div>
-        {% endif %}
-
-        <h3 class="qtitle">{{ question.title }}</h3>
-
-        <!-- description -->
-        {% if question.description %}
-        <div class="description">{{ question.description }}</div>
-        {% endif %}
-
-        <!-- image -->
-        {% if question.image %}
-        <div>
-            <img src="{{ question.image_url }}" alt="{{question.title}}" />
-        </div>
-        {% endif %}
-    </div>
-
-    <div class="anhint blocks">
-        {% if hint %}
-        <div>
-            <h3 class="qtitle">
-                You Have Lost 5 points.
-            </h3>
-        </div>
-        <div class="hint">
-            <p align="center">
-                Hint :
-            </p>
-            <p align="center" class="ohint">
-                {{ question.hint}}
-            </p>
-        </div>
-
-        {% else %}
-        <form action="{% url 'quiz:hint'%}" method="post">
-            {% csrf_token %}
+        <div class="ques-head d-flex">
             <p>
-                Stuck ? Take a Hint. ( You will loose points )
+                QUESTION {{ question.level }}
             </p>
-            <button type="submit" class="btn btn-primary">
-                Click For Hint
-            </button>
-        </form>
+            <div></div>
+        </div>
 
-        {% endif %}
+        
 
-        <form action="{% url 'quiz:answer'%}" method="post">
-            {% csrf_token %} {{ form.as_p}}
-            <button type="submit" class="btn btn-secondary">
-                Submit
-            </button>
-        </form>
+        <div class="ques">
+            <h3 class="qtitle">{{ question.title }}</h3>
+
+            <div class="ques-content d-flex">
+                <!-- description -->
+                {% if question.description %}
+                <div class="description">{{ question.description }}</div>
+                {% endif %}
+
+                <!-- image -->
+                {% if question.image_url %}
+                <img src="{{ question.image_url }}" alt="{{question.title}}" />
+                {% endif %}
+            </div>
+
+            <form action="{% url 'quiz:answer'%}" method="post" id="ans">
+                {% csrf_token %} 
+                <!-- {{ form.as_p}} -->
+                <input type="text" name="answer" placeholder="Enter your answer">
+            </form>
+
+
+            {% if value %}
+            <div class="wrong">
+                Wrong Answer!
+                <br/> Try Again <br/>
+                {% if hint %} 
+                {% else %}
+                    <br/>
+                    <div class="warning">
+                        Stuck ? Take a Hint. <br /> (You will loose points)
+                    </div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="btns d-flex {% if hint %} m-col {% endif %}">
+                {% if hint %}
+                <div class="hint-container">
+                    <h3 class="pts">
+                        You have lost 5 points.
+                    </h3>
+                
+                    <div class="hint">
+                        <!-- <p> -->
+                            Hint : {{ question.hint}}
+                        <!-- </p> -->
+                    </div>
+                </div>
+
+                {% else %}
+                <form action="{% url 'quiz:hint'%}" method="post">
+                    {% csrf_token %}
+                    <!-- <p>
+                        Stuck ? Take a Hint. ( You will loose points )
+                    </p> -->
+                    <button type="submit" class="btn">
+                        Hint
+                    </button>
+                </form>
+
+                {% endif %}
+
+                <button type="submit" class="btn" form="ans">
+                    Submit
+                </button>
+            </div>
+        
+        </div>
     </div>
 </div>
 {% endblock %}
