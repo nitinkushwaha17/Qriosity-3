@@ -18,19 +18,11 @@
    
 
   <div class="buttons">
-
-    <div class="button_1" >
-      <button  id="b1" href="#">login with <image id="b2_im" src="{% static 'login_images/Vector.png' %}"></button>
-    </div>
-
-    <div class="button_2">
-     <button id="b2" href="#">login with <image id="b2_im" src="{% static 'login_images/Vector (1).png' %}"></button>
-    </div>
-
-    
-    <div>
-     <P class="create_acc">New here?<a id="cr_acc" href="#"> Create an account.</a></p>
-    </div>
+    <a href="{% url 'social:begin' 'google-oauth2' %}">
+      <div class="button_1" >
+        <button  id="b1" href="#">login with <image id="b2_im" src="{% static 'login_images/Vector.png' %}"></button>
+      </div>
+    </a>
 
   </div>
 
