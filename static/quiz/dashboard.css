@@ -169,8 +169,7 @@
     width:  320px;
     border-radius: 18px;
     background: #202833;
-    z-index: -10000;
-    /* margin-right: 0px; */
+    z-index: 1;
     margin-left: 160px;
 }
 .parent-container .user-container .user-card .profile-nsr-container .left{
