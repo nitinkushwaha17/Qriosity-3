@@ -22,29 +22,33 @@
     <div class="user-card">
         <div class="profile-nsr-container">
             <div class="left">
-               <img src="{% static 'images/my.png' %}" alt="profile" srcset="" width="350px" height="350px">
+               <img src="{{ player.image }}" alt="profile" srcset="" width="350px" height="350px">
                 <div class="name" >
-                   Maeve walker
+                   {{player.name}}
                 </div>
             </div>
             <div class="right">
                 <div class="right-child score">
-                   <span class="special-color"> 60 </span>
+                   <span class="special-color">{{ player.score }} </span>
                    <p>Score</p>
                 </div>
                 <div class="right-child rank">
-                    <span class="special-color"> 7 </span>
+                    <span class="special-color"> {{rank}} </span>
                     <p>Rank</p>
                 </div>
             </div>
         </div>
 
         <div class="buttons-container">
-        <form action="{% url 'quiz:stageone' %}" method="POST">
-        <!-- {% csrf_token %} -->
-        <button type="submit" class="button">Go to Profile</button>
-        <button type="submit" class="button">Start</button>
-        </form>
+        
+        <a href="{% url 'user:formdata' %}">
+            <button type="submit" class="button">Go to Profile</button>
+        </a>
+        <a href="{% url 'quiz:stageone' %}">
+            <button type="submit" class="button">Start</button>
+        </a>
+        
+        
         </div>
         </div>
     </div>
