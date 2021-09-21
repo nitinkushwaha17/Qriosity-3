@@ -1,37 +1,92 @@
 {% extends 'base.html'%} {% load static %}
 
-{% block title %}<title>PASSCODE</title>{% endblock %}
+{% block title %}
+<title>
+    End Game !
+</title>
+<link rel="stylesheet" href="{%static 'quiz/Stage1.css' %}">
+{% endblock %}
 
 {% block content %}
-<div class="content">
-  <div class="stage1">
-    <u>Thanks for Playing with US. </u>
-    <br />
-    You have completed Stage 1. <br />
-    Enter the PASSCODE for BONUS points. 
-  </div>
+<div class="content container d-flex flex-column">
+    <div class="stage1 blocks">
+        <div class="ques-head d-flex">
+            <p>
+                Thanks for playing with us !
+            </p>
+            <div></div>
+        </div>
 
-  {% if check %}
-  <p class="wrong">
-    please try again,
-    <br />
-    your answer was incorrect
-  </p>
-  {% endif %}
+        
 
-  
-  <div class="stage1">
-    <form action="{% url 'quiz:passcode' %}" method="POST">
-      {% csrf_token %}
-      <h1>
-        Enter The passcode below
-      </h1>
-      {{form.as_p}}
-      <button class="btn btn-secondary mb1 bg-blue" type="submit">
-        Submit
-      </button>
-    </form>
-  </div>
+        <div class="ques">
+            <h3 class="qtitle">End Game</h3>
+
+            <div class="ques-content d-flex">
+                <!-- description -->
+                
+                <div class="description">
+                  
+                  You have been briliant to have come this far, this is your final hurdle, solve it and reach a milestone in this quest.
+                  The image is an illusion, a diversion, but not any ordinary one. This diversion will lead you to the path of
+                  unwravelling the mystery beneath.
+                
+                </div>
+                
+
+                <!-- image -->
+                
+                <img src="https://github.com/sa-y-an/Qriosity/raw/master/image5.jpg"/>
+                
+            </div>
+
+            <form action="{% url 'quiz:passcode'%}" method="post" id="ans">
+                {% csrf_token %} 
+                <!-- {{ form.as_p}} -->
+                <input type="text" name="answer" placeholder="Enter your answer">
+            </form>
+
+
+            {% if check %}
+            <div class="wrong">
+                Wrong Answer!
+                <br/> Try Again <br/>
+            </div>
+            {% endif %}
+
+            <div class="btns d-flex {% if hint %} m-col {% endif %}">
+                
+                <div class="hint-container">
+                
+                    <div class="hint">
+                        PS : Notepad can do more than text editing you know !
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" form="ans">
+                    Submit
+                </button>
+            </div>
+        
+        </div>
+    </div>
 </div>
+
+<script>
+  console.log("call the crypto method to your help")
+
+function crypto(code) {
+  if (code == "cicada"){
+    console.log("ENIGMAHACK")
+  }
+  else {
+    console.log("Call me with the code you got from decoding the image")
+  }
+
+}
+
+
+
+</script>
 
 {% endblock %}
