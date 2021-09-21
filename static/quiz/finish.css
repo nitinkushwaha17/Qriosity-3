@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap'); */
+
 
 body
 {
@@ -92,10 +92,7 @@ padding: 90px;
 
 @media (max-width: 991px)
 {
-body
-{
-    /* background-color: rgb(51, 51, 46); */
-}
+
 .dots
 {
     display: none;
