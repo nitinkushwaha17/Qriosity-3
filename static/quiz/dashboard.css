@@ -1,0 +1,219 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;600;700;800;900&display=swap'); */
+
+*{
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+.parent-container{
+    background-color: #0B0C10;
+    /* color: #66FCF1; */
+    min-height: 100vh;
+    /* overflow: hidden !important; */
+    display: flex;
+    justify-content: space-between;
+}
+.parent-container .image-container{
+    flex: 1;
+    /* background-color: orangered; */
+}
+.parent-container .image-container img{
+    height: 650px;
+    width: 650px;
+    margin-left: 10px;
+}
+.parent-container .user-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    /* background-color: gold; */
+}
+.parent-container .user-container .user-card{
+    /* background-color: violet; */
+    padding: 30px;
+    height: 70%;
+    width:  80%;
+    border-radius: 18px;
+    background: #202833;
+    z-index: 100000;
+    margin-right: 150px;
+}
+.parent-container .user-container .user-card .profile-nsr-container{
+    display: flex;
+    /* background-color: firebrick; */
+}
+.parent-container .user-container .user-card .profile-nsr-container .left{
+    /* background-color: #888; */
+    padding: 15px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.parent-container .user-container .user-card .profile-nsr-container .left .name{
+    color: #C5C6C8;
+    margin-top: 13px;
+    font-size: 32px;
+    font-weight: 700;
+}
+.parent-container .user-container .user-card .profile-nsr-container .left img{
+    height: 232px;
+    width:  232px;
+    border-radius: 30px;
+    background-blend-mode: color;
+    background-color: #fff;
+   
+}
+.parent-container .user-container .user-card .profile-nsr-container .right{
+    /* background-color: chartreuse; */
+    width: 50%;
+    text-align: center;
+    padding: 15px;
+}
+.parent-container .user-container .user-card .profile-nsr-container .right .special-color{
+    color: #66FCF1;
+    font-size: 3.2rem;
+    font-weight: 600;
+    /* background-color: darkblue; */
+}
+.parent-container .user-container .user-card .profile-nsr-container .right .score{
+    margin-bottom: 28px;
+}
+.parent-container .user-container .user-card .profile-nsr-container .right p{
+    color: #C5C6C8;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 14px;
+}
+.parent-container .user-container .buttons-container{
+    display: flex;
+    /* background: purple; */
+    width: 100%;
+    justify-content: space-around;
+}
+.parent-container .user-container .buttons-container button{
+    background: transparent !important;
+    border-radius: 12px;
+    border: 2px solid #66FCF1;
+    padding: 8px 70px;
+    color: #C5C6C8;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 18px 22px;
+}
+
+/* Dots Css*/
+.top-left{
+    position: absolute;
+    z-index: 10000;
+    top: 120px;
+    left: 2px;
+    display: flex;
+    flex-direction: column;
+}
+.top-left svg:first-child{
+    margin-bottom: 40px;
+}
+
+.top-right{
+    position: absolute;
+    z-index: 1000;
+    top: 40px;
+    right: -10px;
+    font-size: 16px;
+    display: flex;
+    overflow: hidden;
+    transform: rotate(180deg)
+}
+.top-right {
+    display: flex;
+}
+.top-right svg{
+    margin-bottom: 40px;
+}
+.bottom-left{
+    position: absolute;
+     bottom: 0px; 
+    left: 170px;
+}
+.bottom-left svg:first-child{
+    margin-bottom: 30px;
+}
+.bottom-left svg{
+    margin-bottom: 30px;
+}
+
+@media (max-width: 1000px)
+{
+    .dots
+    {
+        display: none;
+    }
+  .parent-container 
+  {
+      flex-direction: column;
+  }
+ 
+.parent-container .image-container img{
+    height: 350px;
+    width: 350px;
+    margin: 0;
+
+}
+.parent-container .user-container .user-card{
+    background-color: violet;
+    padding: 7px 25px;
+    height: 320px;
+    width:  320px;
+    border-radius: 18px;
+    background: #202833;
+    z-index: 1;
+    margin-left: 160px;
+}
+.parent-container .user-container .user-card .profile-nsr-container .left{
+    /* background-color: rgb(197, 13, 13); */
+    padding: 15px;
+    width: 50%;
+}
+.parent-container .user-container .user-card .profile-nsr-container .left .name{
+    /* color: #174fbe; */
+    margin-top: 13px;
+    font-size: 18px;
+    font-weight: 400;
+}
+.parent-container .user-container .user-card .profile-nsr-container .left img{
+    height: 132px;
+    width:  132px;  
+}
+.parent-container .user-container .user-card .profile-nsr-container .right .special-color{
+    color: #66FCF1;
+    font-size: 1.9rem;
+    font-weight: 600;
+    /* background-color: darkblue; */
+}
+.parent-container .user-container .user-card .profile-nsr-container .right .score{
+    margin-bottom: 8px;
+}
+.parent-container .user-container .user-card .profile-nsr-container .right p{
+    /* color: #16ff16; */
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 5px;
+}
+.parent-container .user-container .buttons-container{
+    display: flex;
+    /* background: purple; */
+    width: 200px;
+    justify-content: space-around;
+}
+.parent-container .user-container .buttons-container button{
+    padding: 8px 19px;
+    color: #C5C6C8;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 2px;
+}
+
+}
