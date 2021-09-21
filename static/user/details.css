@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    margin-top: -2vw;
+    margin: -25vw 0 -35vw 0px;
   }
   .box {
     font-size: 1.3em;
@@ -18,14 +18,15 @@
   
   form p {
     display: flex;
-    padding: 1em;
+    padding: 1.8vw 1em;
+    font-family: Darker Grotesque, Arial, Helvetica, sans-serif;
   }
   
   label {
     padding: 0.2em;
     font-size: 2vw;
     margin-right: 3vw;
-    color:#66FCF1;
+    color: #66FCF1;
   }
   
   input {
@@ -44,7 +45,7 @@
     color: white;
     border-radius: 1em;
     width: 80vw;
-    margin: 3vw 0 0 20vw;
+    margin: 3vw 0 -10vw 20vw;
   }
   
   .box p {
@@ -57,18 +58,74 @@
     justify-content: center;
     align-items: center;
     font-size: 2vw;
-    margin: 0 26vw;
+    margin: 0 24.5vw;
     color: #C5C6C8;
+    border: 2px solid #66FCF1;
+    border-radius: 15px;
   }
 
   .btn:hover{
-      border: 2px solid #66FCF1;
-      border-radius: 20px;
+      border: 2px solid white;
+      border-radius: 15px;
       color: #66FCF1;
-      padding: 0px 1.5vw;
   }
 
   h2{
       font-size: 4.5vw;
       margin-bottom: 1vw;
   }
+
+  .dots1,.dots2,.dots3,.dots4,.dots5,.dots6{
+    width:3vw;
+    height:auto;
+  }
+
+  .dots{
+    display:flex;
+    width:8vw;
+    justify-content: space-between;
+    position:relative; 
+    z-index: -2;
+}
+
+.dotg1{
+  left:40vw;
+  top:20vw;
+}
+
+.dotg2{
+  transform: rotateZ(90deg);
+  right:45vw;
+  top:25vw;
+}
+
+.dotg3{
+  left: 35vw;
+  bottom:2vw;
+}
+@media screen and (max-width: 800px){
+  label {
+    font-size:2.7vw;
+  }
+
+  input{
+    font-size: 2vw;
+  }
+  
+  .btn{
+    font-size: 2.5vw;
+  }
+
+  .dotg1{
+    top:12vw;
+  }
+
+  .dotg2{
+      top:30vw;
+  }
+
+  .dotg3{
+      top:12vw;
+      left:40vw;
+  }
+}
