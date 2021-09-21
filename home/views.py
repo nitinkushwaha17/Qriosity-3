@@ -71,6 +71,16 @@ def page(request):
 
             # incorrect answer
             else:   # returns the same page
+                leaders = Player.objects.order_by(
+                    '-score', 'last_submit')[:n]
                 return render(request, 'home/page.html', {"n": n, "leaders": leaders, "form": form, "lst": lst[2]})
         else:
             return HttpResponse('<h2> Your Form Data was Invalid </h2>')
+
+
+def error_404(request, exception):
+        data = {}
+        return render(request,'home/404.html', data)
+
+
+
