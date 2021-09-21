@@ -1,9 +1,26 @@
 {% extends 'base.html' %} {% load static %}
 
-{% block title%}<title>Dashboard</title>{% endblock %}
+{% block title%}
+<title>Dashboard</title>
+<head>
+  <link rel="stylesheet" href="{% static 'user/dashboard.css' %}">
+</head>
+
+{% endblock %}
+
+
 
 {% block content %}
 <div class="container">
+
+  <h1>
+    <u>
+     Dashboard
+    </u>
+  </h1>
+
+  <br>
+  
   <div class="user">
     <img
       src="{{ player.image }}"
@@ -15,13 +32,19 @@
     </div>
 
     <div class="container">
-      <div class="score" style="font-size: medium;">
-        <p>{{ player.score }}</p>
-        <p>Score</p>
-      </div>
-     <div class="rank" style="font-size: medium;">
-      <p>{{rank}}</p>
-      <p>Rank</p>
+
+     
+
+      <div class="score">
+        <ul>
+          <li>
+            Score - {{ player.score }}
+          </li>
+          <li>
+            Rank - {{rank}}
+          </li>
+        </ul>
+       
       </div>
     </div>
 
