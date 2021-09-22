@@ -1,71 +1,61 @@
-{% extends 'base.html'%} {% load static %} 
 
-{% block title %}<title>Rules</title>{% endblock %}
+{% extends 'base.html'%} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static "rule.css" %}">
+<head>
+  {% block title %}
+  <title>Rules</title>
+  {% endblock %}
+</head>
 
-{% block content %}
-<div class="container">
-      <h2>
-        <ul>
-          <li>Rules & Regulations:</li>
-        </ul>
-      </h2>
-      <ul style="list-style: circle inside">
-        <li>
-          Round 1 consists of a total of 10 questions carrying <b>15</b> points
-          each.
-        </li>
-        <li>
-          Upon providing answer to all of the questions in round 1, 10
-          algorithms will be revealed. Answers of the questions are to be used
-          to solve the algorithms.
-        </li>
-        <li>
-          Solving one algorithm will yield a letter of the English alphabet.
-        </li>
-        <li>
-          On solving the algorithms of round 1, all the letters so obtained can
-          be used to generate the passcode, which have a bonus point of
-          <b>60</b>
-          associated with it. The rankings on the leaderboard will determine who
-          gets to participate in round 2.
-        </li>
-        <li>Round 2 carries 5 questions carrying <b>20</b> points each .</li>
-        <li>
-          Questions of round 1 will contain hints. Requesting for hints will
-          result in the lowering of points obtainable from that particular
-          question by <b>5</b>.
-        </li>
-        <li>Questions of round 2 will not contain any hints.</li>
-        <li>
-          Answers to the questions have to be given in a format that shall not
-          contain any spaces and special characters to separate words and shall
-          all be in lower case . For example to answer for m-rna you must write
-          mrna.
-        </li>
-        <li>
-          If the question asks for three values ,the answer must be specified in
-          proper sequence of the variables without space.
-        </li>
-        <li>
-          The one who has the maximum points at the end of the quiz will be the
-          winner.
-        </li>
-        <li>
-          In case of a tie, the earlier the submission, the higher the ranking.
-        </li>
-        <li>
-          To save time, participants are advised to keep noting the answers of
-          each question of first round in a notebook for generation of final
-          passcode . In case the participant forgets the answers to the
-          questions of first round while generating the passcode, the option to
-          view all answers entered shall be provided.
-        </li>
-      </ul>
-    
+<div class="container"> 
 
-    <br />
-    {% if user.is_authenticated %}
-    <a href="{% url 'quiz:stageone'  %}">
+  <div class="item1">
+    <h2 >Rules </h2>
+    <p >Know the rules,So that you can break them effectively.</p>
+  </div>
+
+  <div class="item2">
+    <image id="im1" src="{% static 'rulesimages/Completed steps-bro 1.png'%}">
+  </div>
+  
+  
+
+ <div class="item4">
+    <p >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    </p>
+  </div>
+
+  <div class="item3">
+    <image id="im2" src="{% static 'rulesimages/Coding-bro 1.png'%}">
+ </div>
+
+  
+  <div class="item5">  
+    <p >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna
+      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
+      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    </p>
+  </div>
+
+  <div class="item6">    
+    <image id="im3" src="{% static 'rulesimages/Coding-bro 2.png'%}">
+  </div>
+
+  <div class="item7">
+    <image id="im4" src="{% static 'rulesimages/Zig Zag.png'%}">
+  </div>
+
+  <div class="item9">
+   {% if user.is_authenticated %}
+    <a  href="{% url 'quiz:stageone'  %}">
       <button
         class="btn btn-primary mb1 bg-blue"
         type="submit"
@@ -76,7 +66,7 @@
       </button></a
     >
     {% else %}
-    <a href="{% url 'home:login' %}">
+    <a  href="{% url 'home:login' %}">
       <button
         class="btn btn-primary mb1 bg-blue"
         type="submit"
@@ -87,8 +77,15 @@
       </button>
       {% endif %}
     </a>
+    </div>
 
-
-</div>
+    <image id="im5" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
+    <image id="im6" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
+    <image id="im7" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
+    <image id="im8" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
+    <image id="im9" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
+    <image id="im10" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
+     
+</div> 
 
 {% endblock %}

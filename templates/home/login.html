@@ -1,19 +1,39 @@
 {% extends 'base.html' %}{% load static %}{% block content %}
+<link rel="stylesheet" href="{% static "_login.css" %}">
 
-<div class="content">
-  <div class="box">
-    <h3 class="loginh">
-      Login to be Featured
-    </h3>
-    <br />
-    <div class="icon3">
-      
-      <a href="{% url 'social:begin' 'google-oauth2' %}">
-        
-        <img src="https://img.icons8.com/fluency/48/000000/login-rounded-right.png"/>
-      </a>
+
+
+<div class="container">
+    
+    <div class="finger_pr">
+      <image id="finger" src="{% static 'login_images/Fingerprint-bro 1.png' %}">
+
     </div>
+ 
+
+  <div class="dots1">
+     <image  id="f_d1" src="{% static 'login_images/Ornament 16 (1).png' %}">
+     <image id="f_d2"  src="{% static 'login_images/Ornament 16 (1).png' %}">
   </div>
+   
+
+  <div class="buttons">
+    <a href="{% url 'social:begin' 'google-oauth2' %}">
+      <div class="button_1" >
+        <button  id="b1" href="#">login with <image id="b2_im" src="{% static 'login_images/Vector.png' %}"></button>
+      </div>
+    </a>
+
+  </div>
+
+
+
+  <div class="dots2" >
+     <image id="f_d3" src="{% static 'login_images/Ornament 16 (1).png' %}">
+     <image id="f_d4"  src="{% static 'login_images/Ornament 16 (1).png' %}">
+  </div>
+
 </div>
+
 
 {% endblock %}

@@ -1,0 +1,229 @@
+.container{
+  background-color: black;
+  display: flex; 
+  flex-direction: row;
+  width: 1700px;
+}
+
+.container>*{
+  padding:10px 0px 10px 0px;
+  margin:10px 0px 10px 0px;
+  flex: 1 100%;
+}
+
+.finger_pr{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 5000px;
+}
+
+#finger{
+ width:500px;
+ max-width: 100%;
+ min-width: 400px;
+ height: auto;
+}
+
+.dots1{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+  align-items: flex-end;
+}
+
+#f_d2{
+  width: 40px;
+  max-width: 100%;
+  height: auto;
+}
+
+#f_d1{
+  width: 40px;
+  max-width: 100%;
+  height: auto;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 5000px;
+}
+
+.button_1{
+  display: flex;
+  margin: 300px 0px 20px 0px;
+}
+
+.button_2{
+  display: flex;
+  margin: 20px 0px 40px 0px;
+}
+
+#b1{
+  height: 70px;
+  width: 400px;
+  background-color: black;
+  color:white;
+  border-color: #66FCF1;
+  border-radius: 20px;
+  font-size: 28px;
+}
+
+#b2{
+  height: 70px;
+  width: 400px;
+  background-color: black;
+  color:white;
+  border-color: #66FCF1;
+  border-radius: 20px;
+  font-size: 28px;
+  align-items: center;
+}
+
+#b2_im{
+  max-width: 100%;
+  height: auto;
+}
+
+.create_acc{
+  color: white;
+  font-size: 28px;
+  Font family: Darker Grotesque ;
+  line-height: 33px;
+  display: flex;
+  text-align: center;
+  margin: 20px 0px 170px 0px;
+}
+
+#cr_acc{
+  color:white;
+  font-size: 28px; 
+  Font family: Darker Grotesque ;
+  line-height: 33px;
+  vertical-align:top;
+  display: flex;
+}
+
+.dots2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+#f_d3{
+  width: 40px;
+  max-width: 100%;
+  height: auto;
+}
+
+#f_d4{
+  width: 40px;
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width:1000px) {
+
+  .container{
+    background-color: black;
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .container>*{
+    padding:10px 0px 10px 0px;
+    margin:10px 0px 10px 0px;
+    flex: 1 100%;
+  }
+  
+  .finger_pr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #finger{
+   width:400px;
+   max-width: 100%;
+   min-width: 350px;
+   height: auto;
+  }
+  
+  .dots1{
+    display: none;
+  }
+  
+  .buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .button_1{
+    display: flex;
+    margin: 20px 0px 20px 0px;
+  }
+  
+  .button_2{
+    display: flex;
+    margin: 20px 0px 40px 0px;
+  }
+  
+  #b1{
+    height: 50px;
+    width: 300px;
+    background-color: black;
+    color:white;
+    border-color: #66FCF1;
+    border-radius: 20px;
+    font-size: 18px;
+  }
+  
+  #b2{
+    height: 50px;
+    width: 300px;
+    background-color: black;
+    color:white;
+    border-color: #66FCF1;
+    border-radius: 20px;
+    font-size: 18px;
+    align-items: center;
+  }
+  
+  #b2_im{
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .create_acc{
+    color: white;
+    font-size: 18px;
+    Font family: Darker Grotesque ;
+    line-height: 24px;
+    display: flex;
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+  }
+  
+  #cr_acc{
+    color:white;
+    font-size: 18px; 
+    Font family: Darker Grotesque ;
+    line-height: 24px;
+    vertical-align:top;
+    display: flex;
+  }
+  
+  .dots2{
+    display: none;
+    flex-direction: row;
+    
+  }
+  
+ 
+  
+}

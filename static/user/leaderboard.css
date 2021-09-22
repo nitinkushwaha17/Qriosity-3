@@ -1,0 +1,164 @@
+.contain{
+    width: 100%;
+    margin: 0;
+    gap: 20px;
+}
+.topper,.box{
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.topper{
+    height: 75vh;
+}
+.box{
+    align-items: flex-start;
+}
+.tcard{
+    background-color: #202833;
+    padding: 40px 40px;
+    margin: auto;
+    width: 50%;
+    min-width: 250px;
+    border-radius: 32px;
+    text-align: center;
+    color: #C5C6C8;
+}
+.tcard img{
+    max-width: 180px;
+    width: 70%;
+    min-width: 125px;
+    margin: auto;
+    border-radius: 30px;
+    /* margin: 40px auto; */
+}
+.thname{
+    font-weight: bold;
+    margin-top: 20px;
+}
+.tscore{
+    margin-top: 50px;
+}
+.tscore span{
+    color: #66FCF1;
+    font-size: 64px;
+}
+.search{
+    width: 80%;
+    position: relative;
+}
+.search input{
+    width: 100%;
+    font-size: 24px;
+    background-color: #0B0C10;
+    color: #C5C6C8;
+    outline: none;
+    border: 1px solid #66FCF1;
+    border-radius: 10px;
+    padding: 12px 40px 12px 20px;
+}
+.search i{
+    position: absolute;
+    color: #46A29F;
+    right: 15px;
+    top: 20px;
+    font-size: 20px;
+}
+.list{
+    width: 80%;
+    padding-left: 30px;
+    margin-top: 50px;
+    gap: 25px;
+    align-items: center;
+}
+.item{
+    display: flex;
+    position: relative;
+    width: 100%;
+    background-color: #202833;
+    color: #C5C6C8;
+    font-size: 24px;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 50px;
+    justify-content: space-around;
+}
+.item img{
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    left: -30px;
+    border-radius: 50%;
+    background-color: #202833;
+}
+.item .name{
+    text-align: center;
+    flex: 1;
+}
+.item .score{
+    flex-basis: 10%;
+    margin-right: 20px;
+    text-align: center;
+}
+.dots{
+    height: 25vh;
+    position: absolute;
+    display: flex;
+    gap: 30px;
+}
+#d1{
+    top: 200px;
+    right: -50px;
+}
+#d2{
+    top: 500px;
+    left: -50px;
+    transform: rotate(90deg);
+}
+#d3{
+    top: 100px;
+    left: -50px;
+}
+
+@media screen and (max-width: 768px){
+    .contain{
+        flex-direction: column;
+        align-items: center;
+    }
+    .topper,.box{
+        width: 100%;
+        align-items: center;
+    }
+    .topper{
+        height: auto;
+    }
+    .tcard{
+        background-color: #202833;
+        padding: 40px 30px;
+    }
+    .tscore{
+        margin-top: 20px;
+    }
+    .dots{
+        display: none;
+    }
+}
+@media screen and (max-width: 576px){
+    .tscore span{
+        font-size: 48px;
+    }
+    .search input{
+        font-size: 18px;
+    }
+    .list{
+        padding-left: 20px;
+    }
+    .item{
+        font-size: 18px;
+    }
+    .item img{
+        height: 40px;
+        width: 40px;
+        left: -20px;
+    }
+}
