@@ -31,3 +31,22 @@
     height:50px;
     width:auto;
 }
+
+.fas{
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 800px){
+    .arcane{
+        height:28px;
+        width:auto;
+    }
+
+    .fas{
+        font-size: 1.2em;
+    }
+
+    .navbar-toggler-icon{
+        font-size: 0.7em;
+    }
+}
