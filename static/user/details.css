@@ -17,7 +17,8 @@
   }
   
   form p {
-    display: flex;
+    display: grid;
+    grid-template-columns: 25vw 40vw;
     padding: 1.8vw 1em;
     font-family: Darker Grotesque, Arial, Helvetica, sans-serif;
   }
@@ -106,6 +107,10 @@
 @media screen and (max-width: 800px){
   label {
     font-size:2.7vw;
+  }
+
+  form p{
+    grid-template-columns: 30vw 40vw;
   }
 
   input{
