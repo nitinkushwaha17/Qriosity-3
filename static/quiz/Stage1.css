@@ -42,6 +42,7 @@
     font-size: 36px;
 }
 .description{
+    width: 50%;
     font-size: 24px;
     color: #C5C6C8;
     display: flex;
@@ -56,7 +57,7 @@ form#ans input{
     border: 1px solid #66FCF1;
     border-radius: 10px;
     width: 50%;
-    padding: 10px;
+    padding: 12px 20px;
 }
 .btns{
     justify-content: space-between;
@@ -91,6 +92,9 @@ form#ans input{
 @media screen and (max-width: 992px) {
     .ques-content{
         flex-direction: column-reverse;
+    }
+    .description{
+        width: 100%;
     }
 }
 @media screen and (max-width: 567px) {
