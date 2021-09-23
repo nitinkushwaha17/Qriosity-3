@@ -1,4 +1,4 @@
-# Qriosity 3.0
+# Arcane 
 
 
 - For running it locally use
@@ -12,5 +12,3 @@ python local.py runserver
 ```sh
 python manage.py runserver
 ```
-
-WIP 
