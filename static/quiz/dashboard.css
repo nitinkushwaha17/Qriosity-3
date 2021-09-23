@@ -36,7 +36,7 @@
     width:  80%;
     border-radius: 18px;
     background: #202833;
-    z-index: 100000;
+    z-index: auto;
     margin-right: 150px;
 }
 .parent-container .user-container .user-card .profile-nsr-container{
@@ -169,7 +169,7 @@
     width:  320px;
     border-radius: 18px;
     background: #202833;
-    z-index: 1;
+    z-index: auto;
     margin-left: 160px;
 }
 .parent-container .user-container .user-card .profile-nsr-container .left{
