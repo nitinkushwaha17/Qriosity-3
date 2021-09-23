@@ -329,3 +329,6 @@ def Individual(request, qid):
 
 def Disqualify(request) :
     return render(request, 'quiz/disqualified.html')
+
+def dummytimer(request):
+    return render(request, 'quiz/timer,html')
