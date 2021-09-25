@@ -12,8 +12,12 @@ SECRET_KEY = env("SECRET_KEY")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+if str(env("DEBUG")) == "False" :
+    DEBUG = False
+else :
+    DEBUG = True
 
-DEBUG = True
+
 # If you turn debug to false make sure to run python local.py collectstatic
 ALLOWED_HOSTS = ['*']
 
