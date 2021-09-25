@@ -11,3 +11,4 @@ media
 myenv
 *.env
 *workspace.code-workspace
+*config.json

@@ -1,22 +1,19 @@
 import os
 import django_heroku
-import psycopg2
-import environ 
 
-env = environ.Env()
-environ.Env.read_env()
-
-
-SECRET_KEY = env("SECRET_KEY")
+import json
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-if str(env("DEBUG")) == "False" :
-    DEBUG = False
-else :
-    DEBUG = True
+params = json.load(open(os.path.join(BASE_DIR, 'Qriosity/config.json'), 'r'))
 
+
+SECRET_KEY = params['SECRET_KEY']
+
+
+
+DEBUG = params['DEBUG']
 
 # If you turn debug to false make sure to run python local.py collectstatic
 ALLOWED_HOSTS = ['*']
