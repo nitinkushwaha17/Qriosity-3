@@ -1,13 +1,11 @@
 .footer{
     display:flex;
     background-color: #202833;
-    position: fixed;
-    bottom: 0;
-    left: 0;
     align-items: center;
     width:100vw;
     justify-content: space-between;
     padding: 0px 20px;
+    z-index: 2;
 }
 
 .arcane{
@@ -23,8 +21,7 @@
 .clinks{
     display: flex;
     justify-content: space-evenly;
-    width:15vw;
-    
+    width:15vw;   
 }
 
 .fab{

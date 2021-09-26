@@ -1,5 +1,6 @@
 .navbar{
     background-color: #202833;
+    z-index: 2;
 }
 
 .nav-link{
