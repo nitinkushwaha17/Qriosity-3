@@ -20,7 +20,7 @@
     <img src="/static/images/Ornament 17.svg" class="dotss2">  
 </div>
 
-<div class="contain d-flex">
+<div class="content d-flex">
     <div class="topper">
         <div class="tcard d-flex flex-column">
             {% for top in leader%}
@@ -102,14 +102,15 @@
 <script type="text/javascript">
     $(document).ready(function (){
         var body_height = $('body').height();
-        var header_height = $('header').height();
-        var footer_height = $('footer').height();
-        var box_height =(body_height-(header_height+footer_height)-20-32);
+        var header_height = $('nav').height();
+        var footer_height = $('footer div').height();
+        var box_height =(body_height-(header_height+footer_height)-48-16);
+        console.log(body_height, header_height, footer_height, box_height);
 
-        if(window.matchMedia("(max-width: 980px)").matches){
-            var topper_height = $('.topper').outerHeight(); 
-            box_height = box_height - topper_height-32+16;
-        }
+        // if(window.matchMedia("(max-width: 980px)").matches){
+        //     var topper_height = $('.topper').outerHeight(); 
+        //     box_height = box_height - topper_height-32+16;
+        // }
         $('.content .box').css("height",box_height+"px");
     })
 </script>
