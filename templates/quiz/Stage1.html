@@ -32,7 +32,19 @@
                 {% if question.image_url %}
                 <img src="{{ question.image_url }}" alt="{{question.title}}" />
                 {% endif %}
+
+                
             </div>
+
+            <div class="">
+                {%if question.format %}
+                <div class= "text-secondary">
+                   Format -  {{question.format}}
+                </div>
+            {% endif %}
+            </div>
+
+
 
             <form action="{% url 'quiz:answer'%}" method="post" id="ans">
                 {% csrf_token %} 

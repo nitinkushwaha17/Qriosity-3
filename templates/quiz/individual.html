@@ -29,6 +29,14 @@
                 {% endif %}
             </div>
 
+            <div class="">
+                {%if question.format %}
+                <div class= "text-secondary">
+                   Format -  {{question.format}}
+                </div>
+            {% endif %}
+            </div>
+
             <form action="" method="post" id="ans" class="d-flex justify-content-between">
                 {% csrf_token %} 
                 <!-- {{ form.as_p}} -->
