@@ -119,9 +119,9 @@
 
 .top-right{
     position: absolute;
-    z-index: 1000;
+    z-index: 10000;
     top: 40px;
-    right: -10px;
+    right: -30px;
     font-size: 16px;
     display: flex;
     overflow: hidden;
@@ -155,15 +155,19 @@
   {
       flex-direction: column;
   }
- 
+ .image-container
+ {
+    display: none;
+ }
 .parent-container .image-container img{
-    height: 350px;
-    width: 350px;
-    margin: 0;
-
+ display: none;
 }
+.col 
+{
+height: 60px;
+}
+
 .parent-container .user-container .user-card{
-    background-color: violet;
     padding: 7px 25px;
     height: 320px;
     width:  320px;
@@ -171,14 +175,14 @@
     background: #202833;
     z-index: auto;
     margin-left: 160px;
+    margin-bottom: 300px;
 }
 .parent-container .user-container .user-card .profile-nsr-container .left{
-    /* background-color: rgb(197, 13, 13); */
+
     padding: 15px;
     width: 50%;
 }
 .parent-container .user-container .user-card .profile-nsr-container .left .name{
-    /* color: #174fbe; */
     margin-top: 13px;
     font-size: 18px;
     font-weight: 400;
@@ -191,20 +195,17 @@
     color: #66FCF1;
     font-size: 1.9rem;
     font-weight: 600;
-    /* background-color: darkblue; */
 }
 .parent-container .user-container .user-card .profile-nsr-container .right .score{
     margin-bottom: 8px;
 }
 .parent-container .user-container .user-card .profile-nsr-container .right p{
-    /* color: #16ff16; */
     font-weight: 400;
     font-size: 1.3rem;
     line-height: 5px;
 }
 .parent-container .user-container .buttons-container{
     display: flex;
-    /* background: purple; */
     width: 200px;
     justify-content: space-around;
 }
