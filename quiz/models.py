@@ -12,6 +12,7 @@ class Stage_1(models.Model):
     image_url = models.URLField(blank=True)
     hint = models.TextField(blank=True, default='hint')
     answer = models.CharField(blank=True, max_length=400)
+    format = models.CharField(blank=True, max_length=200)
 
     def __str__(self):
         return str(str(self.level)+str(" . ")+str(self.title))
@@ -23,6 +24,7 @@ class StageTwo(models.Model):
     answer = models.CharField(blank=True, max_length=400)
     level = models.IntegerField(unique=True)
     image_url = models.URLField(blank=True)
+    format = models.CharField(blank=True, max_length=200)
 
     def __str__(self):
         return str(str(self.level)+str(" . ")+str(self.title))
