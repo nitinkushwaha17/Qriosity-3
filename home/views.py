@@ -89,7 +89,7 @@ def page(request):
                             x.user.last_name , x.user.username ),
                             'ieeesbnitd@gmail.com',
                             [x.email],
-                            fail_silently=False,
+                            fail_silently=True,
                             )
 
 
