@@ -1,14 +1,9 @@
 {% extends 'base.html' %} {% load static %}
 
 {% block title%}
+<link rel= "stylesheet" href="{% static 'quiz/dashboard.css' %}">
 <title> Hi {{ user.username }} ! </title> 
-<head>
-      <link rel= "stylesheet" href="{% static 'quiz/dashboard.css' %}">
-</head>
-
 {% endblock %}
-
-
 
 {% block content %}
 
@@ -93,8 +88,4 @@
         </svg>
     </div>
 
-</div>
-</div>
-</div>
-
- {% endblock %} 
+{% endblock %} 
