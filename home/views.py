@@ -35,6 +35,7 @@ def rules(request):
 
 def page(request):
     "Only After 1st Round is complete"
+
     p = get_object_or_404(Leaders, pk=1)
     n = p.playerNum
     lst = [0, 1, 2]
@@ -45,10 +46,17 @@ def page(request):
         j = 1
         leaders = Player.objects.order_by(
             '-score', 'last_submit')[:n]
+
+        email_list = []
+
         for i in leaders:
             i.rank = j
             j += 1
             i.save()
+
+            email_list.append(i.email)
+
+        print(email_list)
         return render(request, 'home/page.html', {"n": n, "leaders": leaders, "form": form, "lst": lst[0]})
 
     if request.method == "POST":    # if the admin submits the passcode
@@ -58,13 +66,17 @@ def page(request):
             ans = my_form.cleaned_data.get("answer")
             organs = "AlohaMoraHarryPotter"
 
+            
+
             # correct answer
             if (str(organs) == str(ans)):   # if the answer is correct
                 leaders = Player.objects.order_by(
                     '-score', 'last_submit')[:n]
                 for x in leaders:
                     x.level2 = 0
-                    x.score = 0
+
+                    
+                    
                     x.save()
                     print(x.name)
                 return render(request, 'home/page.html', {"n": n, "leaders": leaders, "form": form, "lst": lst[1]})
