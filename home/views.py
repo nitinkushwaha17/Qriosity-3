@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import user_passes_test
 from .models import Leaders
 from user.models import Player
 from quiz.forms import UserAnswer
+from django.core.mail import send_mail
+from django.contrib import messages
 
 # Create your views here.
 
@@ -73,12 +75,25 @@ def page(request):
                 leaders = Player.objects.order_by(
                     '-score', 'last_submit')[:n]
                 for x in leaders:
-                    x.level2 = 0
-
-                    
+                    x.level2 = 0           
                     
                     x.save()
                     print(x.name)
+
+                    with open('text_messages/login_user.txt', 'r') as file:
+                        data_email = file.read()
+
+                    send_mail(
+                            'Signup Sucessfull',
+                            str(data_email).format(x.user.first_name , x.user.first_name , 
+                            x.user.last_name , x.user.username ),
+                            'ieeesbnitd@gmail.com',
+                            [x.email],
+                            fail_silently=False,
+                            )
+
+
+
                 return render(request, 'home/page.html', {"n": n, "leaders": leaders, "form": form, "lst": lst[1]})
 
             # incorrect answer
