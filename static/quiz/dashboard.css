@@ -153,14 +153,17 @@
     }
   .parent-container 
   {
-      flex-direction: column;
+      flex-direction: column-reverse;
   }
- .image-container
+ /* .image-container
  {
     display: none;
- }
+
+ } */
 .parent-container .image-container img{
- display: none;
+
+    height: 370px;
+    width: 370px;
 }
 .col 
 {
@@ -175,7 +178,7 @@ height: 60px;
     background: #202833;
     z-index: auto;
     margin-left: 160px;
-    margin-bottom: 300px;
+    /* margin-bottom: 300px; */
 }
 .parent-container .user-container .user-card .profile-nsr-container .left{
 
