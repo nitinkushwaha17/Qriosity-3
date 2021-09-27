@@ -1,280 +1,208 @@
 {% extends 'base.html'%} {% load static %} {% block content %}
 <style>
-  /* h2 {
-    color: #d99236;
-  }
-  .container {
-    background: radial-gradient(circle at 120% 50%, #d99236, black 70%);
-  }
+	.dots {
+		height: 25vh;
+		position: absolute;
+		display: flex;
+		gap: 30px;
+	}
+	#d1 {
+		top: 100px;
+		left: 10px;
+	}
+	#d2 {
+		bottom: 0px;
+		right: 100px;
+		transform: rotate(90deg);
+	}
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+	.image {
+		margin: auto;
+		height: 82vh;
+	}
 
-  #countdownblock {
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 1em;
-    margin: 0.5em;
-    max-width: 80vw;
-    border-radius: 1em;
-    margin-top: 1em;
-    box-shadow: 0px 2px 8px 2px #d99236;
-    color: white;
-    font-size: 2em;
-    display: flex;
-    align-items: center;
-  
-  }
-  #countdownblock .cntdwn {
-    text-align: center;
-    padding: 1rem;
-  }
-  #countdownblock .cntdwn .text {
-    font-size: 0.5em;
-  }
+	.content {
+		height: 82vh;
+		width: 49vw;
+		margin: 2px;
+	}
 
-  .timeexp {
-    display: none !important;
-  }
-  #endinfo {
-    display: none;
-    padding: 0.5em;
-  }
-  .quizstatusdone {
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 1em;
-    margin: 0.5em;
-    max-width: 80vw;
-    border-radius: 1em;
-    margin-top: 1em;
-    box-shadow: 0px 2px 8px 2px #d99236;
-    color: white;
-    font-size: 2em;
-    display: flex;
-    align-items: center;
-  }
-  @media only screen and (max-width: 700px) {
-    #countdownblock {
-      font-size: 1em;
-    }
-  }
-  @media only screen and (max-width: 300px) {
-    #countdownblock {
-      font-size: 0.6em;
-    }
-  } */
+	.centerBlock {
+		display: table;
+		margin: auto;
+		margin-top: 30vh;
+	}
 
-  .quizstatus {
-    position:absolute;
-    width:540px;
-    height:90px;
-    left:164px;
-    top:437px;
+	.para {
+		font-size: 1.5em;
+		color: teal;
+	}
 
-    font-family: 'Darker Grotesque';
-    font-style:normal;
-    font-weight:900;
-    font-size:96px;
-    line-height:130px;
-    display:flex;
-    align-items:center;
+	.countdown {
+		height: 128px;
+		margin: 0.3em;
+		margin-top: 20px;
+		font-family: Darker Grotesque;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 5rem;
+		display: flex;
+		align-items: center;
+		color: #ffffff;
+	}
 
-    color:#ffffff;
-  }
+	.countdown span {
+		margin: 20%;
+		color: teal;
+	}
 
-#hours{
-position: absolute;
-width: 118px;
-height: 128px;
-left: 164px;
-top: 486px;
+	.text {
+		height: 49px;
+		margin: 0.5em;
+		margin-top: 0;
+		/* Heading Bold 36pt */
+		font-family: Darker Grotesque;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 2rem;
+		/* identical to box height */
+		display: flex;
+		align-items: center;
+	}
 
-font-family: Darker Grotesque;
-font-style: normal;
-font-weight: bold;
-font-size: 96px;
-line-height: 130px;
-display: flex;
-align-items: center;
-
-color: #FFFFFF;
-}
-
-#mins{
-  position: absolute;
-width: 118px;
-height: 128px;
-left: 351px;
-top: 486px;
-
-font-family: Darker Grotesque;
-font-style: normal;
-font-weight: bold;
-font-size: 96px;
-line-height: 130px;
-display: flex;
-align-items: center;
-
-color: #FFFFFF;
-}
-
-#seconds{
-  position: absolute;
-width: 118px;
-height: 128px;
-left: 538px;
-top: 486px;
-
-font-family: Darker Grotesque;
-font-style: normal;
-font-weight: bold;
-font-size: 96px;
-line-height: 130px;
-display: flex;
-align-items: center;
-
-color: #FFFFFF;
-}
-
-.text1{
-  position: absolute;
-width: 94px;
-height: 49px;
-left: 164px;
-top: 589px;
-
-/* Heading Bold 36pt */
-
-font-family: Darker Grotesque;
-font-style: normal;
-font-weight: bold;
-font-size: 36px;
-line-height: 49px;
-/* identical to box height */
-
-display: flex;
-align-items: center;
-
-color: #FFFFFF;
-}
-
-.text2{
-  position: absolute;
-width: 118px;
-height: 49px;
-left: 339px;
-top: 589px;
-
-/* Heading Bold 36pt */
-
-font-family: Darker Grotesque;
-font-style: normal;
-font-weight: bold;
-font-size: 36px;
-line-height: 49px;
-/* identical to box height */
-
-display: flex;
-align-items: center;
-
-color: #FFFFFF;
-}
-
-.text3{
-  position: absolute;
-width: 134px;
-height: 49px;
-left: 526px;
-top: 589px;
-
-/* Heading Bold 36pt */
-
-font-family: Darker Grotesque;
-font-style: normal;
-font-weight: bold;
-font-size: 36px;
-line-height: 49px;
-/* identical to box height */
-
-display: flex;
-align-items: center;
-
-color: #FFFFFF;
-}
-
-
+	@media screen and (max-width: 768px) {
+		.image,
+		.dots {
+			display: none;
+		}
+		.content {
+			width: 100vw;
+		}
+		.countdown {
+			height: 128px;
+			margin: 0.3em;
+			margin-top: 20px;
+			font-family: Darker Grotesque;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 4rem;
+			display: flex;
+			align-items: center;
+			color: #ffffff;
+		}
+		.text {
+			height: 49px;
+			margin: 0.5em;
+			margin-top: 0;
+			/* Heading Bold 36pt */
+			font-family: Darker Grotesque;
+			font-style: normal;
+			font-weight: bold;
+			font-size: 1.5rem;
+			/* identical to box height */
+			display: flex;
+			align-items: center;
+		}
+	}
 </style>
 
-<div class="content">
-  {% if end %}
-  <p class="quizstatusdone">Quiz Expired on {{end}}</p>
-  {% else %}
-  <h2 class="quizstatus">Coming Soon</h2>
-
-  <div id="countdownblock" class="">
-    <!-- <div class="cntdwn">
-      <p id="days"></p>
-      <p class="text">days</p>
-    </div> -->
-    <!-- <p>:</p> -->
-    <div class="cntdwn">
-      <p id="hours"></p>
-      <p class="text1">hours</p>
-    </div>
-    <p>:</p>
-    <div class="cntdwn">
-      <p id="mins"></p>
-      <p class="text2">minutes</p>
-    </div>
-    <p>:</p>
-    <div class="cntdwn">
-      <p id="seconds"></p>
-      <p class="text3">seconds</p>
-    </div>
-  </div>
-  <button id="endinfo" class="btn"></button>
-  {% endif %}
+<div class="dots" id="d1">
+	<img src="/static/images/Ornament 17.svg" class="dotss1" />
+	<img src="/static/images/Ornament 17.svg" class="dotss2" />
+</div>
+<div class="dots" id="d2">
+	<img src="/static/images/Ornament 17.svg" class="dotss1" />
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-  // Set the date we're counting down to
-  var countDownDate = new Date("Sep 25, 2021 9:00:00").getTime();
+<div class="row">
+	<div class="col-md-6 content">
+		<div class="centerBlock mt-40">
+			<div class="row">
+				<p class="text-center m-0 p-0 para">
+					GET READY FOR MOST BRAINSTORMING CHALLENGES
+				</p>
+				<p class="text-center m-0 p-0 para">LET'S SEE WHO CRACKS THE CODE?</p>
+			</div>
+			<div class="row">
+				<div class="col-3">
+					<div class="row">
+						<p id="days" class="countdown"></p>
+					</div>
+					<div class="row">
+						<p class="text-secondary text">days</p>
+					</div>
+				</div>
+				<div class="col-3">
+					<div class="row">
+						<p id="hours" class="countdown"></p>
+					</div>
+					<div class="row">
+						<p class="text-secondary text">hours</p>
+					</div>
+				</div>
+				<div class="col-3">
+					<div class="row">
+						<p id="mins" class="countdown"></p>
+					</div>
+					<div class="row">
+						<p class="text-secondary text">minutes</p>
+					</div>
+				</div>
+				<div class="col-3">
+					<div class="row">
+						<p id="seconds" class="countdown"></p>
+					</div>
+					<div class="row">
+						<p class="text-secondary text">seconds</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-  // Update the count down every 1 second
-  var x = setInterval(function () {
-    // Get today's date and time
-    var now = new Date().getTime();
+	<div class="col-md-6 image">
+		<img
+			src="{% static 'images/countdown.svg' %}"
+			class="img-fluid m-auto h-100 d-block"
+		/>
+	</div>
 
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		// Set the date we're counting down to
+		var countDownDate = new Date("Sep 28, 2021 9:00:00").getTime();
 
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		// Update the count down every 1 second
+		var x = setInterval(function () {
+			// Get today's date and time
+			var now = new Date().getTime();
 
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("mins").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+			// Find the distance between now and the count down date
+			var distance = countDownDate - now;
 
-    // If the count down is over, go back to home
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("endinfo").innerHTML =
-        "<p style='font-size: 0.4em'><a href='{% url 'home:home' %}'>Go back to home</a></p>";
-      document.getElementById("countdownblock").innerHTML = "";
-      $("#countdownblock").addClass("timeexp");
-      $("#endinfo").css("display", "block");
-    }
-  });
-</script>
+			// Time calculations for days, hours, minutes and seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor(
+				(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+			);
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-{% endblock %}
+			$("#days").html(days + "<span>: </span>");
+			$("#hours").html(hours + "<span>: </span>");
+			$("#mins").html(minutes + "<span>: </span>");
+			$("#seconds").html(seconds);
+
+			// If the count down is over, go back to home
+			if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("endinfo").innerHTML =
+					"<p style='font-size: 0.4em'><a href='{% url 'home:home' %}'>Go back to home</a></p>";
+				document.getElementById("countdownblock").innerHTML = "";
+				$("#countdownblock").addClass("timeexp");
+				$("#endinfo").css("display", "block");
+			}
+		});
+	</script>
+	{% endblock %}
+</div>
