@@ -12,6 +12,9 @@
         <th>Rank</th>
         <th>Name</th>
         <th>Score</th>
+        <th>
+          Email
+        </th>
       </tr>
 
       {% for player in leaders %}
@@ -19,6 +22,7 @@
         <td>{{player.rank}}</td>
         <td>{{player.name }}</td>
         <td>{{player.score}}</td>
+        <td>{{player.email}}</td>
       </tr>
       {% endfor %}
     </table>
