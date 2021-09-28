@@ -1,30 +1,21 @@
-
-/* @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;500;600;700;800;900&display=swap'); */
-
-*{
-    font-family: 'Darker Grotesque', sans-serif;
-}
-
 .parent-container{
-    background-color: #0B0C10;
-    /* color: #66FCF1; */
-    min-height: 100vh;
-    /* overflow: hidden !important; */
     display: flex;
     justify-content: space-between;
+    margin: 0 2rem;
 }
 .parent-container .image-container{
     flex: 1;
-    /* background-color: orangered; */
+    margin: auto;
 }
 .parent-container .image-container img{
-    height: 650px;
-    width: 650px;
-    margin-left: 10px;
+    width: 100%;
+    height: auto;
+    max-height: 650px;
+    max-width: 650px;
 }
 .parent-container .user-container{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex: 1;
     /* background-color: gold; */
@@ -32,12 +23,9 @@
 .parent-container .user-container .user-card{
     /* background-color: violet; */
     padding: 30px;
-    height: 70%;
-    width:  80%;
+    /* margin: auto; */
     border-radius: 18px;
     background: #202833;
-    z-index: auto;
-    margin-right: 150px;
 }
 .parent-container .user-container .user-card .profile-nsr-container{
     display: flex;
@@ -46,7 +34,6 @@
 .parent-container .user-container .user-card .profile-nsr-container .left{
     /* background-color: #888; */
     padding: 15px;
-    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,7 +78,7 @@
     display: flex;
     /* background: purple; */
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .parent-container .user-container .buttons-container button{
     background: transparent !important;
@@ -107,7 +94,7 @@
 /* Dots Css*/
 .top-left{
     position: absolute;
-    z-index: 10000;
+    z-index: -1;
     top: 120px;
     left: 2px;
     display: flex;
@@ -119,7 +106,7 @@
 
 .top-right{
     position: absolute;
-    z-index: 10000;
+    z-index: -1;
     top: 40px;
     right: -30px;
     font-size: 16px;
@@ -135,8 +122,9 @@
 }
 .bottom-left{
     position: absolute;
-     bottom: 0px; 
+    bottom: 0px; 
     left: 170px;
+    z-index: -1;
 }
 .bottom-left svg:first-child{
     margin-bottom: 30px;
@@ -147,77 +135,58 @@
 
 @media (max-width: 1000px)
 {
-    .dots
-    {
+    .dots{
         display: none;
     }
-  .parent-container 
-  {
-      flex-direction: column-reverse;
-  }
- /* .image-container
- {
-    display: none;
+    .parent-container {
+        margin: auto;
+        flex-direction: column-reverse;
+    }
+    .parent-container .image-container img{
 
- } */
-.parent-container .image-container img{
+        height: auto;
+        max-width: 370px;
+    }
+    .parent-container .user-container .user-card{
+        margin: auto;
+        /* margin-bottom: 300px; */
+    }
+    .parent-container .user-container .user-card .profile-nsr-container .left{
 
-    height: 370px;
-    width: 370px;
-}
-.col 
-{
-height: 60px;
-}
-
-.parent-container .user-container .user-card{
-    padding: 7px 25px;
-    height: 320px;
-    width:  320px;
-    border-radius: 18px;
-    background: #202833;
-    z-index: auto;
-    margin-left: 160px;
-    /* margin-bottom: 300px; */
-}
-.parent-container .user-container .user-card .profile-nsr-container .left{
-
-    padding: 15px;
-    width: 50%;
-}
-.parent-container .user-container .user-card .profile-nsr-container .left .name{
-    margin-top: 13px;
-    font-size: 18px;
-    font-weight: 400;
-}
-.parent-container .user-container .user-card .profile-nsr-container .left img{
-    height: 132px;
-    width:  132px;  
-}
-.parent-container .user-container .user-card .profile-nsr-container .right .special-color{
-    color: #66FCF1;
-    font-size: 1.9rem;
-    font-weight: 600;
-}
-.parent-container .user-container .user-card .profile-nsr-container .right .score{
-    margin-bottom: 8px;
-}
-.parent-container .user-container .user-card .profile-nsr-container .right p{
-    font-weight: 400;
-    font-size: 1.3rem;
-    line-height: 5px;
-}
-.parent-container .user-container .buttons-container{
-    display: flex;
-    width: 200px;
-    justify-content: space-around;
-}
-.parent-container .user-container .buttons-container button{
-    padding: 8px 19px;
-    color: #C5C6C8;
-    font-size: 1rem;
-    font-weight: 500;
-    margin: 2px;
-}
+        padding: 15px;
+        width: 50%;
+    }
+    .parent-container .user-container .user-card .profile-nsr-container .left .name{
+        margin-top: 13px;
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .parent-container .user-container .user-card .profile-nsr-container .left img{
+        height: 132px;
+        width:  132px;  
+    }
+    .parent-container .user-container .user-card .profile-nsr-container .right .special-color{
+        color: #66FCF1;
+        font-size: 1.9rem;
+        font-weight: 600;
+    }
+    .parent-container .user-container .user-card .profile-nsr-container .right .score{
+        margin-bottom: 8px;
+    }
+    .parent-container .user-container .user-card .profile-nsr-container .right p{
+        font-weight: 400;
+        font-size: 1.3rem;
+        line-height: 5px;
+    }
+    .parent-container .user-container .buttons-container{
+        justify-content: space-between;
+    }
+    .parent-container .user-container .buttons-container button{
+        padding: 8px 19px;
+        color: #C5C6C8;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 2px;
+    }
 
 }
