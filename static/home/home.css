@@ -28,7 +28,7 @@
 .first_part div h2 {
     color:#66FCF1;
     font-size: 3vw;
-    font-weight: 542;
+    font-weight: bold;
 }
 
 .first_part div p {
@@ -186,55 +186,78 @@
   transform: skew(0deg, -30deg);
 }
 
-@media screen and (max-width: 500px) {
-  .first_text{
-    margin-left: -5vw;
-    width:30vw;
-  }
-
-  .btn{
-    padding: 5px 30px;
-  }
-
-  .first_part div p{
-    width:28vw;
-    font-size: 2.2vw;
-    margin-bottom: -0.3vw;
-    line-height: 3vw;
-  }
-
-  .chevron, .text{
-    display: none;
-  }
-
-  .story_section{
-    margin-top: -36vw;
-  }
-
-  .shead h3{
-    margin-left: 8vw;
-  }
-  
-  .dotg4{
-    top:18vw;
-  }
+@media screen and (max-width: 768px) {
+    .dots{
+        display: none;
+    }
+    .first_part {
+        flex-direction: column;
+        text-align: center;
+    }
+    .first_part div h2 {
+        font-size: 32px;
+    }
+    .btn{
+        padding: 5px 30px;
+    }
+    .first_part div p{
+        width: auto;
+        font-size: 18px;
+        line-height: initial;
+    }
+    .container-chevron{
+        display: none;
+    }
+    .gaming_pic {
+        width: 100%;
+    }
+    .shead{
+        display: block;
+        text-align: center;
+        padding: 0;
+    }
+    .shead h3{
+        font-size: 36px;
+        font-weight: bold;
+        display: block;
+        margin-left: 0;
+    }
+    .spart1{
+        margin: 0;
+        flex-direction: column-reverse;
+    }
+    .coding_pic{
+        width: auto;
+        height: auto;
+        margin-top: -20%;
+    }
+    .story1, .story2{
+        line-height: initial;
+        margin-top: 0;
+        text-align: center;
+        font-size: 18px;
+    }
+    .spart2{
+        margin: 0;
+        flex-direction: column;
+    }
 }
 
 @keyframes move {
-  25% {
-    opacity: 1;
+    25% {
+        opacity: 1;
 
-  }
-  33% {
-    opacity: 1;
-    transform: translateY(30px);
-  }
-  67% {
-    opacity: 1;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
-  }
+    }
+    33% {
+        opacity: 1;
+        transform: translateY(30px);
+    }
+    67% {
+        opacity: 1;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+    }
 }
