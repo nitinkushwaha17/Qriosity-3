@@ -85,8 +85,7 @@ def page(request):
 
                     send_mail(
                             'Signup Sucessfull',
-                            str(data_email).format(x.user.first_name , x.user.first_name , 
-                            x.user.last_name , x.user.username ),
+                            str(data_email).format(x.name),
                             'ieeesbnitd@gmail.com',
                             [x.email],
                             fail_silently=True,
