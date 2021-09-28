@@ -84,7 +84,7 @@ def page(request):
                         data_email = file.read()
 
                     send_mail(
-                            'Signup Sucessfull',
+                            'Congrats, you cleared round 1',
                             str(data_email).format(x.name),
                             'ieeesbnitd@gmail.com',
                             [x.email],
