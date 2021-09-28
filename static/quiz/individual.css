@@ -68,6 +68,7 @@ form#ans input{
     margin-top: 20px;
 }
 .back button{
+    color: #C5C6C8;
     margin-top: 20px;
 }
 @media screen and (max-width: 992px) {
