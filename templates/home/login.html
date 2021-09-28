@@ -18,11 +18,11 @@
    
 
   <div class="buttons">
-    <a href="{% url 'social:begin' 'google-oauth2' %}">
+    
       <div class="button_1" >
-        <button  id="b1" href="#">login with <image id="b2_im" src="{% static 'login_images/Vector.png' %}"></button>
+        <button  id="b1" href="#">login with <a href="{% url 'social:begin' 'google-oauth2' %}"></a><image id="b2_im" src="{% static 'login_images/Vector.png' %}"></button>
       </div>
-    </a>
+  
 
   </div>
 
