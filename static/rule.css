@@ -1,4 +1,5 @@
 .container{
+  background-color: black;
   width:100%;
 }
 
@@ -98,20 +99,11 @@
   display: none;
 }
 
-.item9{
-  display: block;
-  justify-self: center;
-}
-
-.btn{
-  align-self:center;
-  justify-self: center;
-}
-
 
 @media screen and (min-width:768px) {
 
   .container{
+    background-color: black;
     width:600px;
   }
 
@@ -156,20 +148,9 @@
 
   .item7 {
     display: block;
-    justify-self: center;
-    align-self: center;
   }
   
-  .item9{
-    display: block;
-    justify-self: center;
-  }
-
-  .btn{
-    align-self:center;
-    justify-self: center;
-  }
-
+  
   .item3 {
     display:block;
   }
@@ -326,10 +307,12 @@
   
   .item9{
     order: 8;
-    justify-self: center;
   }
   
+  .item9 image{
+    width: 200px;
 
+  }
 
   #im5{
     display: block;
