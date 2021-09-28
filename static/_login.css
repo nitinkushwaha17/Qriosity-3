@@ -1,12 +1,13 @@
 .container{
+  background-color: black;
   display: flex; 
   flex-direction: row;
-  height:800px;
+  width: 1700px;
 }
 
 .container>*{
   padding:10px 0px 10px 0px;
-  margin:10px 0px 0px 0px;
+  margin:10px 0px 10px 0px;
   flex: 1 100%;
 }
 
@@ -47,6 +48,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-basis: 5000px;
 }
 
 .button_1{
@@ -54,6 +56,10 @@
   margin: 300px 0px 20px 0px;
 }
 
+.button_2{
+  display: flex;
+  margin: 20px 0px 40px 0px;
+}
 
 #b1{
   height: 70px;
@@ -122,10 +128,10 @@
 @media screen and (max-width:1000px) {
 
   .container{
+    background-color: black;
     display: flex; 
     flex-direction: column;
     width: 100%;
-    height: 600px;
   }
   
   .container>*{
@@ -136,10 +142,8 @@
   
   .finger_pr{
     display: flex;
-    align-items:flex-start;
+    align-items: center;
     justify-content: center;
-    order:2;
-    flex-shrink: 1;
   }
   
   #finger{
@@ -151,22 +155,24 @@
   
   .dots1{
     display: none;
-    order:3;
   }
   
   .buttons{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content:space-evenly;
-    flex-shrink: 5;
   }
   
   .button_1{
     display: flex;
-    margin: 0px 0px 0px 0px;
+    margin: 20px 0px 20px 0px;
   }
-
+  
+  .button_2{
+    display: flex;
+    margin: 20px 0px 40px 0px;
+  }
+  
   #b1{
     height: 50px;
     width: 300px;
@@ -175,12 +181,20 @@
     border-color: #66FCF1;
     border-radius: 20px;
     font-size: 18px;
-    vertical-align: middle;
   }
   
+  #b2{
+    height: 50px;
+    width: 300px;
+    background-color: black;
+    color:white;
+    border-color: #66FCF1;
+    border-radius: 20px;
+    font-size: 18px;
+    align-items: center;
+  }
   
   #b2_im{
-    width: 30px;
     max-width: 100%;
     height: auto;
   }
