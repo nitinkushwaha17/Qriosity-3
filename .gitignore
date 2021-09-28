@@ -12,3 +12,4 @@ myenv
 *.env
 *workspace.code-workspace
 *config.json
+*.DS_Store
