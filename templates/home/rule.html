@@ -1,6 +1,6 @@
 
 {% extends 'base.html'%} {% load static %} {% block content %}
-<link rel="stylesheet" href="{% static "rule.css" %}">
+<!-- <link rel="stylesheet" href="{% static "rule.css" %}"> -->
 <head>
   {% block title %}
   <title>Rules</title>
@@ -14,6 +14,65 @@ body {
   background: black;
   font-family: 'Varela', sans-serif;
 }
+
+.item1 h2{
+  font-weight: 700;
+  font-size:36px;
+  color:#66FCF1;
+  padding-top: 20px;
+  color: #66FCF1;
+  text-align: center;
+  vertical-align: center;
+  
+}
+.item1 p{
+  color: white;
+  font-size: 18px;
+  text-align:center;
+  font-style:bold;
+  vertical-align: center;
+  line-height: 24px;
+}
+
+
+#im1 ,#im2 , #im3{
+    width: 700px;
+    padding-bottom:20px;
+    max-width: 100%;
+    height: auto;
+    align-items: center;  
+  }
+  
+
+#im5{
+    display: block;
+    width: 40px;
+    padding-bottom:20px;
+    align-items: center;
+    position:absolute;
+    top:130px;
+    float:left;
+  }
+
+#im7 {
+		display: block;
+		width: 40px;
+		padding-bottom: 20px;
+		align-items: center;
+		position: absolute;
+		top: 900px;
+		float: left;
+	}
+  #im6 {
+		display: block;
+		width: 40px;
+		padding-bottom: 20px;
+		align-items: center;
+		position: absolute;
+		top: 900px;
+		float: left;
+	}
+
 .glitch {
 		text-transform: uppercase;
 		position: relative;
@@ -114,26 +173,36 @@ canvas {
 	height: 100vh;
 }
 
+.item9{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 </style>
 
 <div class="container"> 
   <div id="particles-js"></div>
-  <div class="item1">
-    <h2 class="glitch" data-text="RULES">Rules</h2> 
-    <p class="glitch">
-      <span aria-hidden="true">Know the rules,So that you can break them effectively</span>
-      Know the rules,So that you can break them effectively
-      <span aria-hidden="true">Know the rules,So that you can break them effectively</span>
-    </p>
+
+  <div class="row align-items-center">
+    <div class="col-sm item1">
+      <h2 class="glitch" data-text="RULES">Rules</h2> 
+      <p class="glitch">
+        Know the rules,So that you can break them effectively
+      </p>
+    </div>
+    <div class="col-xs-12 col-sm-6 item2 ">
+      <image id="im1" class="d-none d-sm-block" src="{% static 'rulesimages/Completed steps-bro 1.png'%}">
+    </div>
   </div>
 
-  <div class="item2">
-    <image id="im1" src="{% static 'rulesimages/Completed steps-bro 1.png'%}">
-  </div>
   
   
-
- <div class="item4">
+<div class="row align-items-center">
+  <div class="item3 col-xs-12 col-sm-6">
+    <image id="im2" class="d-none d-sm-block" src="{% static 'rulesimages/Coding-bro 1.png'%}">
+ </div>
+ <div class="col-sm item4">
     <p >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -142,13 +211,11 @@ canvas {
       reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
     </p>
   </div>
+</div>
 
-  <div class="item3">
-    <image id="im2" src="{% static 'rulesimages/Coding-bro 1.png'%}">
- </div>
 
-  
-  <div class="item5">  
+<div class="row align-items-center">
+  <div class="col-sm item5">  
     <p >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
       sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -158,13 +225,10 @@ canvas {
     </p>
   </div>
 
-  <div class="item6">    
-    <image id="im3" src="{% static 'rulesimages/Coding-bro 2.png'%}">
+  <div class="col-xs-12 col-sm-6 item6">    
+    <image id="im3" class="d-none d-sm-block" src="{% static 'rulesimages/Coding-bro 2.png'%}">
   </div>
-
-  <div class="item7">
-    <image id="im4" src="{% static 'rulesimages/Zig Zag.png'%}">
-  </div>
+</div>
 
   <div class="item9">
    {% if user.is_authenticated %}
@@ -175,29 +239,34 @@ canvas {
         value="Play"
         class="dare"
       >
+      <h2 class="glitch">
+        <span aria-hidden="true">Start</span>
         Start
-      </button></a
-    >
+        <span aria-hidden="true">Start</span>
+      </h2>
+      </button>
+      </a>
     {% else %}
     <a  href="{% url 'home:login' %}">
       <button
-        class="btn btn-primary mb1 bg-blue"
+        class="btn btn-primary mb1 bg-cyan"
         type="submit"
         value="Play"
         class="dare"
       >
-        Start
+       <h2 class="glitch">
+          <span aria-hidden="true">Start</span>
+          Start
+          <span aria-hidden="true">Start</span>
+       </h2>
       </button>
-      {% endif %}
     </a>
+    {% endif %}
     </div>
 
-    <image id="im5" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
-    <image id="im6" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
-    <image id="im7" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
-    <image id="im8" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
-    <image id="im9" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
-    <image id="im10" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
+    <image id="im5" class="d-none d-sm-block" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
+    <image id="im7" class="d-none d-sm-block" src="{% static 'rulesimages/Ornament 16 (1).png'%}">
+    
      
 </div> 
 
