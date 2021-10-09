@@ -179,6 +179,19 @@ canvas {
   justify-content: center;
 }
 
+.btn {
+    color: #C5C6C8;
+    border: 2px solid #66FCF1;
+    padding: 10px 25px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-size: 1.8vw;
+}
+
+.btn:hover {
+    background-color: #66FCF1;
+}
+
 </style>
 
 <div class="container"> 
@@ -234,7 +247,7 @@ canvas {
    {% if user.is_authenticated %}
     <a  href="{% url 'quiz:stageone'  %}">
       <button
-        class="btn btn-primary mb1 bg-blue"
+        class="btn mb1"
         type="submit"
         value="Play"
         class="dare"
@@ -249,7 +262,7 @@ canvas {
     {% else %}
     <a  href="{% url 'home:login' %}">
       <button
-        class="btn btn-primary mb1 bg-cyan"
+        class="btn mb1"
         type="submit"
         value="Play"
         class="dare"
