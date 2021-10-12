@@ -15,7 +15,6 @@ h3{
 .main{
     height: 80vmin;
     width: 100vmin;
-    margin-top: calc(80vh - 80vmin);
     position: relative;
     margin: auto;
     background-size: cover;
