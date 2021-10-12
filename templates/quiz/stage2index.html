@@ -1,0 +1,74 @@
+{% extends 'base.html'%} {% load static %} 
+
+{%block title%}
+<link rel="stylesheet" href="{%static 'quiz/stage2index.css' %}">
+<title>Index</title>
+{%endblock%}
+
+{% block content %}
+<h3 align="center">
+    Till Now you have solved {{player.count2}} question{{ player.count2|pluralize}} in Stage 2
+</h3>
+<div class="main">
+    {% for i in q %}
+    <div id="node{{i.level}}" class="node">
+        <a href="{% url 'quiz:individual' i.level %}" class="link-success {% for j in player.solved_set.all %}
+        {% if j.level_on == i.level %}
+            {% if j.solved %}
+                done
+            {% else %}
+                visited
+            {% endif %}
+        {% endif %}  
+        {% endfor %}">
+            {{i.level}}
+        </a>
+    </div>
+    {% endfor %}
+
+    <div id="line1" class="line"></div>
+    <div id="line2" class="line"></div>
+    <div id="line3" class="line"></div>
+    <div id="line4" class="line"></div>
+    <div id="line5" class="line"></div>
+    <div id="line6" class="line"></div>
+    <div id="line7" class="line"></div>
+    <div id="line8" class="line"></div>
+    <div id="line9" class="line"></div>
+    <div id="line10" class="line"></div>
+
+    <img src="https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MTc0NDczMjkyMjYwOTEwNzI2/puzzling-the-internet-the-mystery-of-cicada-3301.webp" alt="">
+</div>
+<script>
+    let lines = document.querySelectorAll(".line");
+    let nodes = document.querySelectorAll(".node a");
+
+    let t = 0;
+
+    lines.forEach((e, i)=>{
+        if(i==9){
+            if(nodes[9].classList.contains("done") && nodes[0].classList.contains("done")){
+                e.style.display="block";
+                e.style.transitionDelay = `${t}s`;
+                e.style.opacity = "1";
+            }
+            else{
+                e.style.display="none";
+                e.style.opacity="0";
+            }
+        }
+        else{
+            if(nodes[i].classList.contains("done") && nodes[i+1].classList.contains("done")){
+                e.style.display="block";
+                e.style.transitionDelay = `${t}s`;
+                e.style.opacity = "1";
+                t+=0.2;
+            }
+            else{
+                e.style.display="none";
+                e.style.opacity="0";
+            }
+        }
+    })
+</script>
+{% endblock %}
