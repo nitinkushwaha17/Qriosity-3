@@ -175,7 +175,68 @@ h3{
     filter: blur(2px);
 }
 
+.s-img{
+    min-width: 100px;
+    min-height: 100px;
+    width: 20vw;
+    height: 20vw;
+    position: absolute;
+    z-index: -3;
+    opacity: 0.8;
+    filter: blur(1px);
+}
+
+#s-img1{
+    top: 20%;
+    right: 5%;
+    transform: rotate(4deg);
+}
+
+#s-img2{
+    top: 50%;
+    right: 65%;
+    transform: rotate(-4deg);
+}
+
+#s-img3{
+    top: 15%;
+    right: 80%;
+    transform: rotate(6deg);
+}
+
+#s-img4 .img-inner{
+    background-image: url('../images/sticky-note-3301.png');
+}
+
+#s-img4{
+    height: 10vw;
+    width: 10vw;
+    top: 10%;
+    right: 80%;
+    transform: rotate(5deg);
+}
+
+.img-inner{
+    height: 100%;
+    position: relative;
+    background-image: url('../images/polaroid_frame.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.img-inner img{
+    position: absolute;
+    max-width: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @media screen and (max-width: 500px) {
+    .main{
+        margin-top: 20vh;
+    }
     .node>a{
         height: 25px;
         width: 25px;
@@ -186,5 +247,26 @@ h3{
     }
     .line{
         width: 3px;
+    }
+
+    #s-img1{
+        top: 28%;
+    }
+    
+    #s-img2{
+        top: 68%;
+    }
+    
+    #s-img3{
+        top: 24%;
+    }
+
+    #s-img4{
+        min-width: 0;
+        min-height: 0;
+        height: 50px;
+        width: 50px;
+        top: 22%;
+        right: 78%;
     }
 }
