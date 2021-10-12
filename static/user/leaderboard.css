@@ -17,20 +17,20 @@ body{
 .box{
     height: 50vh;
     align-items: flex-start;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
-.box::-webkit-scrollbar{
+.list::-webkit-scrollbar{
     background: transparent;
     color: transparent;
     width: 2px;
     margin-right: 1px;
 }
-.box::-webkit-scrollbar-thumb{
+.list::-webkit-scrollbar-thumb{
     width: 2px;
     background: #747474;
     border-radius: 0.231rem;
 }
-.box::-webkit-scrollbar-track{
+.list::-webkit-scrollbar-track{
     background: transparent;
     width: 2px;
 }
