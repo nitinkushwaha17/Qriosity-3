@@ -52,6 +52,7 @@ def StageOne(request):
 
     quiz = datetime(2021, 9, 2, 9, 0, 0)       # Set the Date Time Here
     end = datetime(2021, 10, 20, 23, 0, 0)
+
     # firstend = datetime(2021, 8, 3, 2, 0, 0)
 
     print(now)
