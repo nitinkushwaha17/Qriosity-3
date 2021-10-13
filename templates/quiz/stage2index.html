@@ -37,7 +37,7 @@
     <div id="line9" class="line"></div>
     <div id="line10" class="line"></div>
 
-    <img src="{%static 'images/cicada-bg.png' %}" alt="" class="anim">
+    <img src="{%static 'images/cicada-bg.png' %}" alt="">
 </div>
 <div class="s-img anim" id="s-img1">
     <div class="img-inner">
@@ -66,16 +66,21 @@
     let d=2;
 
     if(localStorage.getItem("anim")==null){
-        nodes.forEach((e)=>{
-            e.style.transitionDelay = `${d}s`;
-            e.style.opacity="1";
-            d+=0.2;
-        })
-        img.forEach((e)=>{
-            e.style.transitionDelay = `${d}s`;
-            e.style.opacity="1";
-        })
-        localStorage.setItem("anim", 1);
+        document.querySelector(".main img").style.opacity="0";
+        window.onload=()=>{
+            document.querySelector(".main img").classList.add("anim");
+            nodes.forEach((e)=>{
+                e.style.transitionDelay = `${d}s`;
+                e.style.opacity="1";
+                d+=0.2;
+            })
+            showLines();
+            img.forEach((e)=>{
+                e.style.transitionDelay = `${d}s`;
+                e.style.opacity="1";
+            })
+            localStorage.setItem("anim", 1);
+        }
     }
     else{
         nodes.forEach((e)=>{
@@ -83,35 +88,38 @@
             d=0;
         })
         document.querySelector(".main img").classList.remove("anim");
+        showLines();
         img.forEach((e)=>{
             e.classList.remove("anim");
         })
     }
 
-    lines.forEach((e, i)=>{
-        if(i==9){
-            if(nodes[9].classList.contains("done") && nodes[0].classList.contains("done")){
-                e.style.display="block";
-                e.style.transitionDelay = `${d}s`;
-                e.style.opacity = "1";
+    function showLines(){
+        lines.forEach((e, i)=>{
+            if(i==9){
+                if(nodes[9].classList.contains("done") && nodes[0].classList.contains("done")){
+                    e.style.display="block";
+                    e.style.transitionDelay = `${d}s`;
+                    e.style.opacity = "1";
+                }
+                else{
+                    e.style.display="none";
+                    e.style.opacity="0";
+                }
             }
             else{
-                e.style.display="none";
-                e.style.opacity="0";
+                if(nodes[i].classList.contains("done") && nodes[i+1].classList.contains("done")){
+                    e.style.display="block";
+                    e.style.transitionDelay = `${d}s`;
+                    e.style.opacity = "1";
+                    d+=0.2;
+                }
+                else{
+                    e.style.display="none";
+                    e.style.opacity="0";
+                }
             }
-        }
-        else{
-            if(nodes[i].classList.contains("done") && nodes[i+1].classList.contains("done")){
-                e.style.display="block";
-                e.style.transitionDelay = `${d}s`;
-                e.style.opacity = "1";
-                d+=0.2;
-            }
-            else{
-                e.style.display="none";
-                e.style.opacity="0";
-            }
-        }
-    })
+        })
+    }
 </script>
 {% endblock %}
