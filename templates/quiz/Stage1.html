@@ -49,7 +49,7 @@
             <form action="{% url 'quiz:answer'%}" method="post" id="ans">
                 {% csrf_token %} 
                 <!-- {{ form.as_p}} -->
-                <input type="text" name="answer" placeholder="Enter your answer">
+                <input type="text" name="answer" placeholder="Enter your answer" autofocus>
             </form>
 
 
