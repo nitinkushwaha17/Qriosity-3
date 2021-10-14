@@ -8,7 +8,7 @@ body{
 div#main{
     margin: 0px; 
     padding: 0px;
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     min-height: 100vh;
 }
@@ -16,5 +16,12 @@ div#main{
 .main-container{
     margin: 0px;
     padding: 0px;
-    min-height: 90vh;
+    min-height: 100vh;
+    margin-top: 10vw;
+}
+
+@media screen and (max-width: 550px) {
+    .main-container{
+        margin-top: 20vw;
+    }
 }
