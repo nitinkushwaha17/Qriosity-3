@@ -1,105 +1,91 @@
-{% extends 'base.html'%} {% load static %}
-
-{% block title %}
-<link rel="stylesheet" href="{%static 'quiz/Stage1.css' %}">
-<title>
-    Arcane Arena
-</title>
-{% endblock %}
-
-{% block content %}
+{% extends 'base.html'%} {% load static %} {% block title %}
+<link rel="stylesheet" href="{%static 'quiz/Stage1.css' %}" />
+<title>Arcane Arena</title>
+{% endblock %} {% block content %}
+<style>
+	body {
+		background-image: url("{% static 'images/bg.jpg' %}");
+		background-size: cover;
+	}
+	.ques {
+		backdrop-filter: blur(8px);
+	}
+</style>
 <div class="content container d-flex flex-column">
-    <div class="stage1 blocks">
-        <div class="ques-head d-flex">
-            <p>
-                QUESTION {{ question.level }}
-            </p>
-            <div></div>
-        </div>
+	<div class="stage1 blocks">
+		<div class="ques-head d-flex">
+			<p>QUESTION {{ question.level }}</p>
+			<div></div>
+		</div>
 
-        
+		<div class="ques">
+			<h3 class="qtitle">{{ question.title }}</h3>
 
-        <div class="ques">
-            <h3 class="qtitle">{{ question.title }}</h3>
+			<div class="ques-content d-flex">
+				<!-- description -->
+				{% if question.description %}
+				<div class="description">{{ question.description }}</div>
+				{% endif %}
 
-            <div class="ques-content d-flex">
-                <!-- description -->
-                {% if question.description %}
-                <div class="description">{{ question.description }}</div>
-                {% endif %}
+				<!-- image -->
+				{% if question.image_url %}
+				<img src="{{ question.image_url }}" alt="{{question.title}}" />
+				{% endif %}
+			</div>
 
-                <!-- image -->
-                {% if question.image_url %}
-                <img src="{{ question.image_url }}" alt="{{question.title}}" />
-                {% endif %}
+			<div class="">
+				{%if question.format %}
+				<div class="text-secondary">Format - {{question.format}}</div>
+				{% endif %}
+			</div>
 
-                
-            </div>
+			<form action="{% url 'quiz:answer'%}" method="post" id="ans">
+				{% csrf_token %}
+				<!-- {{ form.as_p}} -->
+				<input type="text" name="answer" placeholder="Enter your answer" />
+			</form>
 
-            <div class="">
-                {%if question.format %}
-                <div class= "text-secondary">
-                   Format -  {{question.format}}
-                </div>
-            {% endif %}
-            </div>
+			{% if value %}
+			<div class="wrong">
+				Wrong Answer!
+				<br />
+				Try Again <br />
+				{% if hint %} {% else %}
+				<br />
+				<div class="warning">
+					Stuck ? Take a Hint. <br />
+					(You will loose points)
+				</div>
+				{% endif %}
+			</div>
+			{% endif %}
 
+			<div class="btns d-flex {% if hint %} m-col {% endif %}">
+				{% if hint %}
+				<div class="hint-container">
+					<h3 class="pts">You have lost 5 points.</h3>
 
+					<div class="hint">
+						<!-- <p> -->
+						Hint : {{ question.hint}}
+						<!-- </p> -->
+					</div>
+				</div>
 
-            <form action="{% url 'quiz:answer'%}" method="post" id="ans">
-                {% csrf_token %} 
-                <!-- {{ form.as_p}} -->
-                <input type="text" name="answer" placeholder="Enter your answer">
-            </form>
-
-
-            {% if value %}
-            <div class="wrong">
-                Wrong Answer!
-                <br/> Try Again <br/>
-                {% if hint %} 
-                {% else %}
-                    <br/>
-                    <div class="warning">
-                        Stuck ? Take a Hint. <br /> (You will loose points)
-                    </div>
-                {% endif %}
-            </div>
-            {% endif %}
-
-            <div class="btns d-flex {% if hint %} m-col {% endif %}">
-                {% if hint %}
-                <div class="hint-container">
-                    <h3 class="pts">
-                        You have lost 5 points.
-                    </h3>
-                
-                    <div class="hint">
-                        <!-- <p> -->
-                            Hint : {{ question.hint}}
-                        <!-- </p> -->
-                    </div>
-                </div>
-
-                {% else %}
-                <form action="{% url 'quiz:hint'%}" method="post">
-                    {% csrf_token %}
-                    <!-- <p>
+				{% else %}
+				<form action="{% url 'quiz:hint'%}" method="post">
+					{% csrf_token %}
+					<!-- <p>
                         Stuck ? Take a Hint. ( You will loose points )
                     </p> -->
-                    <button type="submit" class="btn">
-                        Hint
-                    </button>
-                </form>
+					<button type="submit" class="btn">Hint</button>
+				</form>
 
-                {% endif %}
+				{% endif %}
 
-                <button type="submit" class="btn" form="ans">
-                    Submit
-                </button>
-            </div>
-        
-        </div>
-    </div>
+				<button type="submit" class="btn" form="ans">Submit</button>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}
