@@ -50,8 +50,9 @@ def StageOne(request):
     
 
 
-    quiz = datetime(2021, 10, 2, 9, 0, 0)       # Set the Date Time Here
-    end = datetime(2021, 12, 2, 23, 0, 0)
+    quiz = datetime(2021, 9, 2, 9, 0, 0)       # Set the Date Time Here
+    end = datetime(2021, 10, 20, 23, 0, 0)
+
     # firstend = datetime(2021, 8, 3, 2, 0, 0)
 
     print(now)
@@ -95,7 +96,7 @@ def StageOne(request):
             q = StageTwo.objects.all()
             player = get_object_or_404(Player, user=request.user)
             if (player.count2 < StageTwo.objects.count()):
-                return render(request, 'quiz/index.html', {"q": q, "player": player})
+                return render(request, 'quiz/stage2index.html', {"q": q, "player": player})
             else:
                 return render(request, 'quiz/finish.html', {"player": player})
 
@@ -200,7 +201,7 @@ def Index(request):
         return render(request, 'quiz/wait.html')
     else:
         if (player.count2 < StageTwo.objects.count()):
-            return render(request, 'quiz/index.html', {"q": q, "player": player})
+            return render(request, 'quiz/stage2index.html', {"q": q, "player": player})
         else:
             return render(request, 'quiz/finish.html', {"player": player})
 

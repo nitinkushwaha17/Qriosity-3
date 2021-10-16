@@ -40,7 +40,7 @@
             <form action="" method="post" id="ans" class="d-flex justify-content-between">
                 {% csrf_token %} 
                 <!-- {{ form.as_p}} -->
-                <input type="text" name="answer" placeholder="Enter your answer">
+                <input type="text" name="answer" placeholder="Enter your answer" autofocus>
                 <button type="submit" class="btn">
                     Submit
                 </button>
