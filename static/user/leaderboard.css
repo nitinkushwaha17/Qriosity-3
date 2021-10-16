@@ -3,7 +3,6 @@ body{
 }
 .main-container{
     min-height: 0;
-    margin-top: 5vw;
 }
 .content{
     width: 100%;
@@ -145,9 +144,6 @@ body{
 @media screen and (max-width: 768px){
     body{
         overflow-y: unset;
-    }
-    .main-container{
-        margin-top: 18vw;
     }
     .content{
         flex-direction: column;
