@@ -69,16 +69,26 @@
         document.querySelector(".main img").style.opacity="0";
         window.onload=()=>{
             document.querySelector(".main img").classList.add("anim");
-            nodes.forEach((e)=>{
-                e.style.transitionDelay = `${d}s`;
-                e.style.opacity="1";
-                d+=0.2;
+
+            let c = 1;
+            nodes.forEach(()=>{
+                nodes.forEach((e)=>{
+                    if(e.parentNode.id==`node${c}`){
+                        e.style.transitionDelay = `${d}s`;
+                        e.style.opacity="1";
+                        d+=0.2;
+                        c++;
+                    }
+                })
             })
+
             showLines();
+
             img.forEach((e)=>{
                 e.style.transitionDelay = `${d}s`;
                 e.style.opacity="1";
             })
+
             localStorage.setItem("anim", 1);
         }
     }
@@ -87,8 +97,11 @@
             e.classList.remove("anim");
             d=0;
         })
+
         document.querySelector(".main img").classList.remove("anim");
+
         showLines();
+
         img.forEach((e)=>{
             e.classList.remove("anim");
         })
@@ -96,28 +109,22 @@
 
     function showLines(){
         lines.forEach((e, i)=>{
-            if(i==9){
-                if(nodes[9].classList.contains("done") && nodes[0].classList.contains("done")){
+            if(i==lines.length-1){
+                if(document.querySelector(`#node${i+1} a`).classList.contains("done") && document.querySelector(`#node1 a`).classList.contains("done")){
                     e.style.display="block";
                     e.style.transitionDelay = `${d}s`;
                     e.style.opacity = "1";
-                }
-                else{
-                    e.style.display="none";
-                    e.style.opacity="0";
                 }
             }
+            else if(document.querySelector(`#node${i+1} a`).classList.contains("done") && document.querySelector(`#node${i+2} a`).classList.contains("done")){
+                e.style.display="block";
+                e.style.transitionDelay = `${d}s`;
+                e.style.opacity = "1";
+                d+=0.2;
+            }
             else{
-                if(nodes[i].classList.contains("done") && nodes[i+1].classList.contains("done")){
-                    e.style.display="block";
-                    e.style.transitionDelay = `${d}s`;
-                    e.style.opacity = "1";
-                    d+=0.2;
-                }
-                else{
-                    e.style.display="none";
-                    e.style.opacity="0";
-                }
+                e.style.display="none";
+                e.style.opacity="0";
             }
         })
     }
