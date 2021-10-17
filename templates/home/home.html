@@ -132,22 +132,27 @@
 		justify-content: center;
 		align-items: center;
 	}
-	@media only screen and (min-width: 700px) {
-		/* For large screens: */
-		.first_text {
-			margin-left: -10%;
-		}
-	}
+	
 	@import "https://fonts.googleapis.com/css?family=Inconsolata";
 	.first_text h2 {
 		margin: 10px;
 		font-weight: bold;
-		font-size: 6.5rem !important;
+		font-size: 4.5rem !important;
 		text-align: center;
 		font-family: "Inconsolata", Helvetica, sans-serif;
 		color: rgba(128, 255, 128, 0.8);
 		text-shadow: 0 0 1ex #33ff33, 0 0 2px rgba(255, 255, 255, 0.8);
 	}
+	@media only screen and (min-width: 700px) {
+		/* For large screens: */
+		.first_text {
+			margin-left: -10%;
+		}
+		.first_text h2{
+			font-size: 5.5rem !important;
+		}
+	}
+
 	.shead h3 {
 		margin-top: 110px;
 	}
@@ -236,7 +241,7 @@
 		width: 90vw;
 		box-sizing: inherit;
 		max-width: 100%;
-		padding: 4rem;
+		padding: 1.5rem;
 		text-transform: uppercase;
 		z-index: -1;
 	}
