@@ -30,16 +30,6 @@ def Algo(request):
 
 
 @login_required(login_url='/login', redirect_field_name=None)
-def showanswer(request, pk):
-    question = get_object_or_404(Stage_1, pk=pk)
-    player = get_object_or_404(Player, user=request.user)
-    if player.question_level > Stage_1.objects.count():
-        return render(request, 'quiz/answerdisplay.html', {'question': question})
-    else:
-        raise Http404("Page does not exist")
-
-
-@login_required(login_url='/login', redirect_field_name=None)
 def StageOne(request):
     ''' Set the date time as class datetime.datetime
     (year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)'''

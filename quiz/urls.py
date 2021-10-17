@@ -15,6 +15,4 @@ urlpatterns = [
     path('algo/', views.Algo, name="algo"),
 
     path('timer/', views.dummytimer, name="timer"),
-    
-    url(r'^algo/questions/(?P<pk>.*)/$',views.showanswer,name='showanswer'),
 ]
