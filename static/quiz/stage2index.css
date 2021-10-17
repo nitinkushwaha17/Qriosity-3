@@ -169,7 +169,7 @@ h3{
     bottom: 0;
     height: 80vmin;
     width: 100vmin;
-    opacity: 0.2;
+    opacity: 0.5;
     z-index: -2;
     filter: blur(2px);
 }
@@ -295,7 +295,7 @@ h3{
         filter: blur(0);
     }
     100%{
-        opacity: 0.2;
+        opacity: 0.5;
         filter: blur(2px);
     }
 }
