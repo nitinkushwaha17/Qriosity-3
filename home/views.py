@@ -9,6 +9,10 @@ from django.contrib import messages
 
 # Create your views here.
 
+def email_users(request) :
+    player = Player.objects.all()
+    return render(request, 'home/emails.html', {'players':player})
+
 
 def not_logged_in(user):
     return not user.is_authenticated
