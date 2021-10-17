@@ -75,7 +75,7 @@ def save_profile(backend, user, response, *args, **kwargs):
             player.save()
 
 
-@login_required(login_url='/login', redirect_field_name=None)
+# @login_required(login_url='/login', redirect_field_name=None)
 def leaderboard(request):
     global current_leaderboard
 
