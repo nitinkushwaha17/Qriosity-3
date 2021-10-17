@@ -195,6 +195,43 @@ canvas {
 .btn:hover {
     background-color: #66FCF1;
 }
+@import "https://fonts.googleapis.com/css?family=Inconsolata";
+	
+	.terminal {
+		background: repeating-linear-gradient(
+			180deg,
+			rgba(0, 0, 0, 0) 0,
+			rgba(0, 0, 0, 0.3) 50%,
+			rgba(0, 0, 0, 0) 100%
+		);
+		background-repeat: no-repeat;
+		background-size: cover;
+		font-size: 1.1rem;
+		margin: auto;
+		margin-top: 10px;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+		height: 100%;
+		width: 90vw;
+		box-sizing: inherit;
+		max-width: 100%;
+		padding: 4rem;
+	}
+
+	.output {
+		color:#22d8a1;
+		text-shadow: 0 0 1px rgba(51, 255, 51, 0.4),
+			0 0 2px rgba(255, 255, 255, 0.8) ;
+	}
+
+	.output::before {
+		content: "> ";
+	}
+
+	.errorcode {
+		color: white;
+	}
 
 </style>
 
@@ -208,44 +245,31 @@ canvas {
         Know the rules,So that you can break them effectively
       </p>
     </div>
-    <div class="col-xs-12 col-sm-6 item2 ">
-      <image id="im1" class="d-none d-sm-block" src="{% static 'rulesimages/Completed steps-bro 1.png'%}">
-    </div>
   </div>
 
   
-  
-<div class="row align-items-center">
-  <div class="item3 col-xs-12 col-sm-6">
-    <image id="im2" class="d-none d-sm-block" src="{% static 'rulesimages/Coding-bro 1.png'%}">
- </div>
- <div class="col-sm item4">
-    <p >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-    </p>
-  </div>
-</div>
 
+		<div class="terminal">
+			<p class="output">
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam assumenda perspiciatis nihil doloremque enim veritatis tempora a maiores architecto nemo corporis magnam quod quia, minus omnis nesciunt dolorem? Nisi, illum.
+				<span class="errorcode">“lorem ipsum dolor”</span> situation.
+			</p>
+			<p class="output">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia laborum facere et vero autem? Quia suscipit sit quod. Suscipit ipsum excepturi quos ratione harum ut itaque aspernatur quaerat beatae inventore?
+			</p>
+			<p class="output">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Et eveniet asperiores, est excepturi repudiandae sunt hic alias, dignissimos soluta eos quae! Totam atque sint officiis temporibus eaque nesciunt repellat corporis. <span class="errorcode">Cicada 3301</span> but also pave the way towards the
+				second round of <span class="errorcode">Arcane</span>, Lorem ipsum dolor sit amet.</p>
+			<p class="output">
+				Do you have what it takes to vanquish the ensuing apocalypse and emerge
+				as a successful recruit of the Cicada 3301?</br>
+				<span class="errorcode">Stick around and find out.</span>
+			</p>
+      <p class="output">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia laborum facere et vero autem? Quia suscipit sit quod. Suscipit ipsum excepturi quos ratione harum ut itaque aspernatur quaerat beatae inventore?
+			</p>
+		</div>
 
-<div class="row align-items-center">
-  <div class="col-sm item5">  
-    <p >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-      sed do eiusmod tempor incididunt ut labore et dolore magna
-      aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-      laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-    </p>
-  </div>
-
-  <div class="col-xs-12 col-sm-6 item6">    
-    <image id="im3" class="d-none d-sm-block" src="{% static 'rulesimages/Coding-bro 2.png'%}">
-  </div>
-</div>
 
   <div class="item9">
    {% if user.is_authenticated %}

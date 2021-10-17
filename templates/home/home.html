@@ -104,7 +104,7 @@
 
 	canvas {
 		margin: auto;
-		opacity: 0.2;
+		opacity: 0.3;
 		z-index: -2;
 		display: block;
 		position: fixed;
@@ -116,27 +116,157 @@
 		padding: 0;
 		margin: 0;
 		position: fixed;
-		top: -10vw;
+		top: 0;
 		left: 0;
-		height: auto;
-		width: 90vw;
+		width: 100vw;
+		height: 100vh;
 		opacity: 0.4;
 		z-index: -1;
-		filter: blur(4px);
+		filter: blur(3px);
+	}
+	.first_text {
+		width: 100vw;
+		height: 50vh;
+		margin-top: 10%;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+	}
+	@media only screen and (min-width: 700px) {
+		/* For large screens: */
+		.first_text {
+			margin-left: -10%;
+		}
+	}
+	@import "https://fonts.googleapis.com/css?family=Inconsolata";
+	.first_text h2 {
+		margin: 10px;
+		font-weight: bold;
+		font-size: 6.5rem !important;
+		text-align: center;
+		font-family: "Inconsolata", Helvetica, sans-serif;
+		color: rgba(128, 255, 128, 0.8);
+		text-shadow: 0 0 1ex #33ff33, 0 0 2px rgba(255, 255, 255, 0.8);
+	}
+	.shead h3 {
+		margin-top: 110px;
+	}
+	
+	.noise {
+		position: absolute;
+		pointer-events: none;
+		width: 100%;
+		height: 100%;
+		background-image: url("https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif");
+		background-repeat: no-repeat;
+		background-size: cover;
+		z-index: -1;
+		opacity: 0.02;
+	}
+
+	.overlay {
+		position: absolute;
+		pointer-events: none;
+		width: 100%;
+		height: 90vh;
+		z-index: 1;
+	}
+
+	.overlay::before {
+		content: "";
+		pointer-events: none;
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 90vh;
+		background-image: linear-gradient(
+			0deg,
+			transparent 0%,
+			rgba(32, 128, 32, 0.2) 2%,
+			rgba(32, 128, 32, 0.8) 3%,
+			rgba(32, 128, 32, 0.2) 3%,
+			transparent 100%
+		);
+		background-repeat: no-repeat;
+		-webkit-animation: scan 5s linear 0s infinite;
+		animation: scan 5s linear 0s infinite;
+	}
+
+	@-webkit-keyframes scan {
+		0% {
+			background-position: 0 -100vh;
+		}
+		35%,
+		100% {
+			background-position: 0 100vh;
+		}
+	}
+
+	@keyframes scan {
+		0% {
+			background-position: 0 -100vh;
+		}
+		35%,
+		100% {
+			background-position: 0 100vh;
+		}
+	}
+	.terminal {
+		background: repeating-linear-gradient(
+			180deg,
+			rgba(0, 0, 0, 0) 0,
+			rgba(0, 0, 0, 0.3) 50%,
+			rgba(0, 0, 0, 0) 100%
+		);
+		background-repeat: no-repeat;
+		background-size: cover;
+		font-size: 1.2rem;
+		color: rgba(128, 255, 128, 0.8);
+		text-shadow: 0 0 1ex #33ff33, 0 0 2px rgba(255, 255, 255, 0.8);
+		margin: auto;
+		margin-top: 10%;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+		height: 100%;
+		width: 90vw;
+		box-sizing: inherit;
+		max-width: 100%;
+		padding: 4rem;
+		text-transform: uppercase;
+		z-index: -1;
+	}
+
+	.output {
+		color: rgba(128, 255, 128, 0.8);
+		text-shadow: 0 0 1px rgba(51, 255, 51, 0.4),
+			0 0 2px rgba(255, 255, 255, 0.8);
+	}
+
+	.output::before {
+		content: "> ";
+	}
+
+	.errorcode {
+		color: white;
 	}
 </style>
 <div class="container">
 	<canvas id="canvas">Canvas is not supported in your browser.</canvas>
 	<canvas id="canvas2">Canvas is not supported in your browser.</canvas>
 	<section>
-		<img src="{% static 'images/cicada.png' %}" class="cicada" />
+		<img src="{% static 'images/bg.jpg' %}" class="cicada" />
 		<div class="first_part">
 			<div class="dots dotg1">
 				<img src="{% static 'images/Ornament 17.svg'%}" class="dots1" />
 				<img src="{% static 'images/Ornament 17.svg'%}" class="dots2" />
 			</div>
-			<div class="first_text">
-				<h2>Feeling ready yet?</h2>
+			<div class="first_text d-flex flex-column">
+				<h2>ARCANE</h2>
 				<p>
 					Feel the innocent veneer, surprise, the disclosure of a hidden
 					meaning, and the pleasure of solution.
@@ -152,160 +282,136 @@
 					</button>
 				</form>
 			</div>
-			<div class="img1">
-				<img
-					src="{% static 'images/Online games addiction-bro 1.svg' %}"
-					class="gaming_pic"
-				/>
-			</div>
 		</div>
 	</section>
 
-	<div class="container-chevron">
-		<div class="wrapper">
-			<div class="chevron"></div>
-			<div class="chevron"></div>
-			<div class="chevron"></div>
-		</div>
-		<span class="text">The Story</span>
-	</div>
-	<br />
-
-	<div class="story_section" id="story">
-		<div class="shead">
-			<h3>STORY</h3>
-			<div class="dots dotg2">
-				<img src="{% static 'images/Ornament 17.svg'%}" class="dots3" />
-				<img src="{% static 'images/Ornament 17.svg'%}" class="dots4" />
-			</div>
-		</div>
-		<div class="spart1">
-			<img src="{% static 'images/Coding-bro 1.svg'%}" class="coding_pic" />
-			<p class="story1">
-				This is the year 3301, the secret organisation of Cicada has discovered country Futurama devising to unleash 
-				a biological war to become the ultimate ruler of the planet.This will lead to some sort of a “all hell broke loose” situation.
-				<br/>
-				The fate of the world is in your hands, for only you can wield your strengths to take over Cicada’s wing and discover 
-				the concealed locations of the world’s most inordinate biological weapons. Captivate yourselves in unlocking the course of 
-				Cicada’s well known mysteries which in turn lead to the precise passcode to break through the deemed avenues.
+	<div class="term">
+		<div class="noise"></div>
+		<div class="overlay"></div>
+		<div class="terminal">
+			<h1>STORY <span class="errorcode">3301</span></h1>
+			<p class="output">
+				This is the year 3301, the secret organisation of Cicada has discovered
+				country Futurama devising to unleash a biological war to become the
+				ultimate ruler of the planet.This will lead to some sort of a
+				<span class="errorcode">“all hell broke loose”</span> situation.
+			</p>
+			<p class="output">
+				The fate of the world is in your hands, for only you can wield your
+				strengths to take over Cicada’s wing and discover the concealed
+				locations of the world’s most inordinate biological weapons. Captivate
+				yourselves in unlocking the course of Cicada’s well known mysteries
+				which in turn lead to the precise passcode to break through the deemed
+				avenues.
+			</p>
+			<p class="output">
+				This would not only prove you worthy enough to become a newly recruited
+				member of the <span class="errorcode">Cicada 3301</span> but also pave the way towards the
+				second round of <span class="errorcode">Arcane</span>, cracking which is imperative to seek the secret
+				chemical formula for the antidote for the virus.
+			</p>
+			<p class="output">
+				Do you have what it takes to vanquish the ensuing apocalypse and emerge
+				as a successful recruit of the Cicada 3301?</br>
+				<span class="errorcode">Stick around and find out.</span>
 			</p>
 		</div>
-		<div class="dots dotg3">
-			<img src="{% static 'images/Ornament 17.svg'%}" class="dots5" />
-			<img src="{% static 'images/Ornament 17.svg'%}" class="dots6" />
-		</div>
-		<div class="spart2">
-			<p class="story2">
-				This would not only prove you worthy enough to become a newly recruited member of the Cicada 3301, but also pave the way 
-				towards the second round of Arcane, cracking which is imperative to seek the secret chemical formula for the antidote for 
-				the virus. <br/>
-				Do you have what it takes to vanquish the ensuing apocalypse and emerge as a successful recruit of the Cicada 3301? <br/>
-				Stick around and find out.
-			</p>
-			<img src="{% static 'images/Coding-bro 1.svg'%}" class="coding_pic" />
-		</div>
-		<div class="dots dotg4">
-			<img src="{% static 'images/Ornament 17.svg'%}" class="mb-5 pb-5 dots7" />
-			<img src="{% static 'images/Ornament 17.svg'%}" class="mb-5 pb-5 dots8" />
-		</div>
 	</div>
-</div>
+	<script>
+		var canvas = document.getElementById("canvas"),
+			ctx = canvas.getContext("2d"),
+			canvas2 = document.getElementById("canvas2"),
+			ctx2 = canvas2.getContext("2d"),
+			// full screen dimensions
+			cw = window.innerWidth,
+			ch = window.innerHeight,
+			charArr = [
+				"a",
+				"b",
+				"c",
+				"d",
+				"e",
+				"f",
+				"g",
+				"h",
+				"i",
+				"j",
+				"k",
+				"l",
+				"m",
+				"n",
+				"o",
+				"p",
+				"q",
+				"r",
+				"s",
+				"t",
+				"u",
+				"v",
+				"w",
+				"x",
+				"y",
+				"z",
+			],
+			maxCharCount = 100,
+			fallingCharArr = [],
+			fontSize = 10,
+			maxColums = cw / fontSize;
+		canvas.width = canvas2.width = cw;
+		canvas.height = canvas2.height = ch;
 
-<script>
-	var canvas = document.getElementById("canvas"),
-		ctx = canvas.getContext("2d"),
-		canvas2 = document.getElementById("canvas2"),
-		ctx2 = canvas2.getContext("2d"),
-		// full screen dimensions
-		cw = window.innerWidth,
-		ch = window.innerHeight,
-		charArr = [
-			"a",
-			"b",
-			"c",
-			"d",
-			"e",
-			"f",
-			"g",
-			"h",
-			"i",
-			"j",
-			"k",
-			"l",
-			"m",
-			"n",
-			"o",
-			"p",
-			"q",
-			"r",
-			"s",
-			"t",
-			"u",
-			"v",
-			"w",
-			"x",
-			"y",
-			"z",
-		],
-		maxCharCount = 100,
-		fallingCharArr = [],
-		fontSize = 10,
-		maxColums = cw / fontSize;
-	canvas.width = canvas2.width = cw;
-	canvas.height = canvas2.height = ch;
-
-	function randomInt(min, max) {
-		return Math.floor(Math.random() * (max - min) + min);
-	}
-
-	function randomFloat(min, max) {
-		return Math.random() * (max - min) + min;
-	}
-
-	function Point(x, y) {
-		this.x = x;
-		this.y = y;
-	}
-
-	Point.prototype.draw = function (ctx) {
-		this.value = charArr[randomInt(0, charArr.length - 1)].toUpperCase();
-		this.speed = randomFloat(1, 5);
-
-		ctx2.fillStyle = "rgba(255,255,255,0.8)";
-		ctx2.font = fontSize + "px san-serif";
-		ctx2.fillText(this.value, this.x, this.y);
-
-		ctx.fillStyle = "#0F0";
-		ctx.font = fontSize + "px san-serif";
-		ctx.fillText(this.value, this.x, this.y);
-
-		this.y += this.speed;
-		if (this.y > ch) {
-			this.y = randomFloat(-100, 0);
-			this.speed = randomFloat(2, 5);
-		}
-	};
-
-	for (var i = 0; i < maxColums; i++) {
-		fallingCharArr.push(new Point(i * fontSize, randomFloat(-500, 0)));
-	}
-
-	var update = function () {
-		ctx.fillStyle = "rgba(0,0,0,0.05)";
-		ctx.fillRect(0, 0, cw, ch);
-
-		ctx2.clearRect(0, 0, cw, ch);
-
-		var i = fallingCharArr.length;
-
-		while (i--) {
-			fallingCharArr[i].draw(ctx);
-			var v = fallingCharArr[i];
+		function randomInt(min, max) {
+			return Math.floor(Math.random() * (max - min) + min);
 		}
 
-		requestAnimationFrame(update);
-	};
+		function randomFloat(min, max) {
+			return Math.random() * (max - min) + min;
+		}
 
-	update();
-</script>
-{% endblock %}
+		function Point(x, y) {
+			this.x = x;
+			this.y = y;
+		}
+
+		Point.prototype.draw = function (ctx) {
+			this.value = charArr[randomInt(0, charArr.length - 1)].toUpperCase();
+			this.speed = randomFloat(1, 5);
+
+			ctx2.fillStyle = "rgba(255,255,255,0.8)";
+			ctx2.font = fontSize + "px san-serif";
+			ctx2.fillText(this.value, this.x, this.y);
+
+			ctx.fillStyle = "#0F0";
+			ctx.font = fontSize + "px san-serif";
+			ctx.fillText(this.value, this.x, this.y);
+
+			this.y += this.speed;
+			if (this.y > ch) {
+				this.y = randomFloat(-100, 0);
+				this.speed = randomFloat(2, 5);
+			}
+		};
+
+		for (var i = 0; i < maxColums; i++) {
+			fallingCharArr.push(new Point(i * fontSize, randomFloat(-500, 0)));
+		}
+
+		var update = function () {
+			ctx.fillStyle = "rgba(0,0,0,0.05)";
+			ctx.fillRect(0, 0, cw, ch);
+
+			ctx2.clearRect(0, 0, cw, ch);
+
+			var i = fallingCharArr.length;
+
+			while (i--) {
+				fallingCharArr[i].draw(ctx);
+				var v = fallingCharArr[i];
+			}
+
+			requestAnimationFrame(update);
+		};
+
+		update();
+	</script>
+	{% endblock %}
