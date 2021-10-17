@@ -329,8 +329,6 @@ def Individual(request, qid):
                     return HttpResponse('<h2> Your Form data was Invalid </h2>')
 
 
-def Disqualify(request) :
-    return render(request, 'quiz/disqualified.html')
 
 def dummytimer(request):
     return render(request, 'quiz/timer.html')
