@@ -102,7 +102,7 @@ button:hover{
 }
 
 .dotg3{
-    left: 60vw;
+    left: 65vw;
     bottom: 2vw;
 }
 
@@ -120,11 +120,25 @@ button:hover{
 
     .boxin{
         font-size: 20px;
-        width:40vw;
+        width:80vw;
     }
 
     p{
         font-size: 24px;
+    }
+
+    .details{
+        grid-template-columns: 80vw;
+    }
+
+    .dotg2{
+        right:45vw;
+        top:20vw;
+    }
+
+    .dotg3{
+        left: 80vw;
+        bottom: 2vw;
     }
 }
 
@@ -142,7 +156,7 @@ button:hover{
 
     .boxin{
         font-size: 20px;
-        width:40vw;
+        width:80vw;
         margin-left: -20px;
     }
 
@@ -164,8 +178,9 @@ button:hover{
     }
 
     .details{
-        margin-left: 15px;
+        margin-left: 10vw;
         grid-gap: 3.5vw 7vw;
+        grid-template-columns: 80vw;
     }
 }
 
@@ -183,7 +198,7 @@ button:hover{
 
     .boxin{
         font-size: 17px;
-        width:40vw;
+        width:80vw;
         margin-left: -2px;
     }
 
@@ -193,6 +208,10 @@ button:hover{
 
     p{
         font-size: 20px;
+    }
+
+    .details{
+        grid-template-columns: 80vw;
     }
 
     .dotg1{

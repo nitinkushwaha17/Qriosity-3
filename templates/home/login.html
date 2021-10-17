@@ -11,6 +11,13 @@
 			0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
 
 		animation: glitch 500ms infinite;
+        height: 70px;
+        width: 400px;
+        background-color: black;
+        color:white;
+        border-color: #66FCF1;
+        border-radius: 20px;
+        font-size: 28px;
 	}
 
 	.glitch span {
@@ -120,7 +127,7 @@ canvas {
   <div class="buttons">
     <a href="{% url 'social:begin' 'google-oauth2' %}">
       <div class="button_1" >
-        <button  id="b1" href="#" class="glitch">
+        <button href="#" class="glitch">
             Login with <image id="b2_im" src="{% static 'login_images/Vector.png' %}"></image>
           </button>
       </div>
