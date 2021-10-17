@@ -15,6 +15,21 @@ p,h1{
     margin: -26vw 0 -6vw 0;
 }
 
+canvas {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0.3;
+}
+
+#particles-js {
+  	z-index: -1;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+}
+
 .boxin{
     border: 2px solid #66FCF1;
     border-radius: 20px;

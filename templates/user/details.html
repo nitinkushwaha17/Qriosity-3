@@ -8,6 +8,7 @@
 
 {% block content %}
 <div class="content usercontactblock">
+  <div id="particles-js"></div>
   <div class="dots dotg1">
     <img src="{% static 'images/Ornament 17.svg'%}" class="dots1" />
     <img src="{% static 'images/Ornament 17.svg'%}" class="dots2" />
@@ -23,16 +24,24 @@
     
 
     {% csrf_token %} {{ form.as_p }}
-
-    <button type="submit" class="btn">
-      Submit
-    </button>
-    <br />
+    <div class="buttons">
+      <button type="submit" class="btn">
+        Submit
+      </button>
+    </div>
   </form>
+  <a href="{% url 'user:dashboard'%}" class="newbtn" style="text-decoration:none;">
+        <button value="Update Contact" class="btn cancel">
+          Cancel
+        </button>
+      </a>
   <div class="dots dotg3">
     <img src="{% static 'images/Ornament 17.svg'%}" class="dots5" />
     <img src="{% static 'images/Ornament 17.svg'%}" class="dots6" />
   </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="{% static 'user/particles.js' %}"></script>
 
 {% endblock %}
