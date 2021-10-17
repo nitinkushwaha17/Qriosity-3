@@ -53,15 +53,16 @@ def StageOne(request):
     quiz = datetime(2021, 9, 2, 9, 0, 0)       # Set the Date Time Here
     end = datetime(2021, 10, 20, 23, 0, 0)
 
-    # firstend = datetime(2021, 8, 3, 2, 0, 0)
+    firstend = datetime(2021, 10, 17, 2, 0, 0)
 
     print(now)
     if now < quiz:
         print('not time ' + str(quiz))
         return render(request, 'quiz/timer.html')
 
-    # if firstend < now and player.level2 < 0:
-    #     return render(request, 'quiz/wait.html')
+    # this is for first round ends but couldnt make to round 2
+    if firstend < now and player.level2 < 0:
+        return render(request, 'quiz/disqualified.html')
 
     if (now > end):
         print('end ' + str(end))
