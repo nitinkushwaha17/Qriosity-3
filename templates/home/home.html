@@ -264,7 +264,18 @@
 	<canvas id="canvas">Canvas is not supported in your browser.</canvas>
 	<canvas id="canvas2">Canvas is not supported in your browser.</canvas>
 	<section>
-		<img src="{% static 'images/bg.jpg' %}" class="cicada" />
+		<picture >
+			<source 
+			class="cicada"
+			   media="(min-width: 600px)"
+			   srcset="{% static 'images/bg-desktop.jpg' %}">
+			<source 
+			class="cicada"
+			   media="(max-width: 600px)"
+			   srcset="{% static 'images/bg-mobile.png' %}">
+			<img class="cicada" src="{% static 'images/bg-desktop.jpg' %}" 
+			alt="cicada bg">
+		 </picture>
 		<div class="first_part">
 			<div class="dots dotg1">
 				<img src="{% static 'images/Ornament 17.svg'%}" class="dots1" />
