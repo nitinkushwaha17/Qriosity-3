@@ -13,9 +13,6 @@ urlpatterns = [
     path('<int:qid>', views.Individual, name="individual"),
     path('passcode/', views.Passcode, name="passcode"),
     path('algo/', views.Algo, name="algo"),
-    path('dis/', views.Disqualify, name="disqualify"),
 
     path('timer/', views.dummytimer, name="timer"),
-    
-    url(r'^algo/questions/(?P<pk>.*)/$',views.showanswer,name='showanswer'),
 ]
