@@ -7,8 +7,11 @@ from quiz.forms import UserAnswer
 from django.core.mail import send_mail
 from django.contrib import messages
 
-# Create your views here.
+from django.contrib.admin.views.decorators import staff_member_required
 
+
+# Create your views here.
+@staff_member_required
 def email_users(request) :
     player = Player.objects.all()
     return render(request, 'home/emails.html', {'players':player})
@@ -39,6 +42,7 @@ def rules(request):
     return render(request, 'home/rule.html')
 
 
+@staff_member_required
 def page(request):
     "Only After 1st Round is complete"
 
