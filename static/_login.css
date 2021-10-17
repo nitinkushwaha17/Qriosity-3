@@ -58,8 +58,14 @@ a{
   margin: 300px 0px 20px 0px;
 }
 
+.glitch:hover{
+  background-color: #66FCF1;
+  color:black;
+}
+
 .button_1 img{
-  margin-left: 20px;
+  margin-left: 5px;
+  margin-top: -5px;
 }
 
 #b1{
@@ -84,7 +90,7 @@ a{
 }
 
 #b2_im{
-  max-width: 100%;
+  width: 10%;
   height: auto;
 }
 
