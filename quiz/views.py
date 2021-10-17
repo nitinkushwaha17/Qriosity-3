@@ -30,16 +30,6 @@ def Algo(request):
 
 
 @login_required(login_url='/login', redirect_field_name=None)
-def showanswer(request, pk):
-    question = get_object_or_404(Stage_1, pk=pk)
-    player = get_object_or_404(Player, user=request.user)
-    if player.question_level > Stage_1.objects.count():
-        return render(request, 'quiz/answerdisplay.html', {'question': question})
-    else:
-        raise Http404("Page does not exist")
-
-
-@login_required(login_url='/login', redirect_field_name=None)
 def StageOne(request):
     ''' Set the date time as class datetime.datetime
     (year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)'''
@@ -48,24 +38,32 @@ def StageOne(request):
     now = datetime.utcnow()+timedelta(hours=5.5)
 
     
+    # Set the Date Time Here
 
+    #Start
+    quiz = datetime(2021, 10, 2, 9, 0, 0)       
+    # First Round Ends
+    firstend = datetime(2021, 10, 20, 2, 0, 0)
+    # Second Round Ends
+    end = datetime(2021, 10, 22, 3, 0, 0)
 
-    quiz = datetime(2021, 9, 2, 9, 0, 0)       # Set the Date Time Here
-    end = datetime(2021, 10, 20, 23, 0, 0)
-
-    # firstend = datetime(2021, 8, 3, 2, 0, 0)
+    
 
     print(now)
     if now < quiz:
         print('not time ' + str(quiz))
         return render(request, 'quiz/timer.html')
-
-    # if firstend < now and player.level2 < 0:
-    #     return render(request, 'quiz/wait.html')
-
+    
+    # the end of the quiz
     if (now > end):
         print('end ' + str(end))
         return render(request, 'quiz/timer.html', {"end": end})
+
+    # this is for first round ends but couldnt make to round 2
+    if firstend < now and player.level2 < 0:
+        return render(request, 'quiz/disqualified.html')
+
+    
 
     else:
         print('quiz on')
@@ -328,8 +326,6 @@ def Individual(request, qid):
                     return HttpResponse('<h2> Your Form data was Invalid </h2>')
 
 
-def Disqualify(request) :
-    return render(request, 'quiz/disqualified.html')
 
 def dummytimer(request):
     return render(request, 'quiz/timer.html')
