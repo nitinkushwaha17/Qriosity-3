@@ -1,4 +1,4 @@
-p,h1{
+.details p,h1{
     color: #66FCF1;
     font-family: Darker Grotesque, Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -74,7 +74,7 @@ button:hover{
     justify-content: space-evenly;
     width:100%;
     margin-top: 1.3vw;
-    margin-bottom: -5vw;
+    margin-bottom: 5vw;
 }
 
 .dots1,.dots2,.dots3,.dots4,.dots5,.dots6{
@@ -111,6 +111,7 @@ button:hover{
         display:grid;
         justify-items: center;
         grid-gap: 15px;
+        margin-bottom: 10vw;
     }
 
     .submit button{
@@ -123,7 +124,7 @@ button:hover{
         width:80vw;
     }
 
-    p{
+    .details p{
         font-size: 24px;
     }
 
@@ -147,6 +148,7 @@ button:hover{
         display:grid;
         justify-items: center;
         grid-gap: 15px;
+        margin-bottom: 18vw;
     }
 
     .submit button{
@@ -160,7 +162,7 @@ button:hover{
         margin-left: -20px;
     }
 
-    p{
+    .details p{
         font-size: 24px;
     }
 
@@ -189,6 +191,7 @@ button:hover{
         display:grid;
         justify-items: center;
         grid-gap: 15px;
+        margin-bottom: 20vw;
     }
 
     .submit button{
@@ -206,7 +209,7 @@ button:hover{
         font-size: 28px;
     }
 
-    p{
+    .details p{
         font-size: 20px;
     }
 
