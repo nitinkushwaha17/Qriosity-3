@@ -88,4 +88,86 @@
 		</div>
 	</div>
 </div>
+
+<!-- <div class="ready" onclick="fullScreen()">
+	<h1>READY?</h1>
+	<h3>Click to continue.</h3>
+</div> -->
+
+<script>
+	if(localStorage.getItem("vid")==null){
+		document.querySelector("#main").style.display = "none";
+
+		const vid = document.createElement("video");
+
+		if(window.innerWidth>=750){
+			vid.src = "{%static 'video/video-desktop.mp4' %}";
+		}
+		else{
+			vid.src = "{%static 'video/video-mobile.mp4' %}";
+		}
+
+		vid.controls = false;
+		document.body.appendChild(vid);
+
+		const bg = document.createElement("div");
+		bg.classList.add("ready");
+
+		const head1 = document.createElement("h1");
+		head1.append(document.createTextNode("READY?"));
+
+		const head3 = document.createElement("h3");
+
+		if(window.innerWidth>=750){
+			head3.append(document.createTextNode("Click to continue..."));
+		}
+		else{
+			head3.append(document.createTextNode("Tap to continue..."));
+		}
+		
+
+		bg.appendChild(head1);
+		bg.appendChild(head3);
+		
+		document.body.appendChild(bg);
+		bg.onclick = fullScreen;
+
+		vid.style.position = "absolute";
+		vid.style.zIndex = "100";
+		vid.style.display = "none";
+		vid.style.height = "100vh";
+		vid.style.width = "100vw";
+
+		vid.onended = function(){
+			document.querySelector("#main").style.display = "block";
+
+			bg.style.display="none";
+			vid.style.display="none";
+
+			if (document.exitFullscreen) {
+				document.exitFullscreen();
+			} else if (document.webkitExitFullscreen) { /* Safari */
+				document.webkitExitFullscreen();
+			} else if (document.msExitFullscreen) { /* IE11 */
+				document.msExitFullscreen();
+			}
+			localStorage.setItem("vid", 1);
+		}
+
+		function fullScreen(){
+			vid.style.display = "block";
+
+			if (vid.requestFullscreen) {
+				vid.requestFullscreen();
+			} else if (vid.webkitRequestFullscreen) { /* Safari */
+				vid.webkitRequestFullscreen();
+			} else if (vid.msRequestFullscreen) { /* IE11 */
+				vid.msRequestFullscreen();
+			}
+
+			vid.play();
+			vid.controls = false;
+		}
+	}
+</script>
 {% endblock %}
