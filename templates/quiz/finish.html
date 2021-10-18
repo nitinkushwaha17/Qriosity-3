@@ -3,7 +3,7 @@
 {% block title %}
 <head> 
   
-    <link rel= "stylesheet" href="{% static 'quiz/finish.css' %}">
+    <!-- <link rel= "stylesheet" href="{% static 'quiz/finish.css' %}"> -->
 </head>
 {% endblock %}
 {% block content %}
@@ -116,13 +116,11 @@ canvas {
 <canvas id="canvas2">Canvas is not supported in your browser.</canvas>
 <div class="row">
 	<div class="col-sm bro">
-			<img class="image imgpos" src="{% static 'images/cicada-finish.png' %}" alt="game_ended" srcset="">
+			<img class="image imgpos" src="{% static 'images/winner.svg' %}" alt="game_ended" srcset="">
 	</div>
 	<div class="col-sm bro centric">
-		<div class="row align-items over">
-            <h1 class="alignments neonText">
-                YOU NAILED IT
-          </h1>
+		<div class="row bro alignments">
+            <h1 class="neonText bro over">YOU NAILED IT</h1>
         </div>
 		<!-- <div class="w-100"></div> -->
 		<div class= "row bro">
@@ -319,11 +317,13 @@ canvas {
 </script>
 <style>
 	.over{
+		text-align: center;
+		/* display: flex;
     color: #ffff;
-    font-size: 62px ;
+    font-size: 62px ; */
     font-weight: 700;
     /* margin-top:  190px; */
-    margin-left: 10px;
+    /* margin-left: 10px; */
   }
   /* .alignments{
 	  align-items: center;
@@ -345,8 +345,21 @@ canvas {
   justify-content: center;
 
   } */
+  /* .over{
+    color: #ffff;
+    font-size: 62px ;
+    font-weight: 700;
+    margin-top:  190px;
+    /* margin-left: 25px; 
+  } */
+  /* .over{
+    color: #ffff;
+    /* font-size: 32px ;
+    font-weight: 600; */
+    /* margin-top: 0px;
+	margin-left: 120px; 
+  } */ 
 
-  
 @media (max-width: 767px) {
   .alignments {
     display:flex;
@@ -359,6 +372,154 @@ canvas {
 	.centric{
 		margin-top: 190px;
 	}
+}
+
+
+body
+{
+    background-color: black;
+    font-family: 'Darker Grotesque';
+    color: white;
+    font-weight: normal;
+}
+.imgpos{
+    align-content: center;
+}
+
+  .bro{
+    align-items: center;
+    right: 1164px; 
+	text-align: center; 
+  }
+  .bro img 
+  {
+      height: 700px;
+      width: 700px;
+  }
+  
+  .textedits{
+      margin:10px;
+      font-size: 28px;
+      margin-left: 73px;
+  }
+  .smth{
+padding: 90px;
+  }
+
+  /* button */
+
+   .buttons-container{
+    display: flex;
+    /* background: purple; */
+    width: 100%;
+    justify-content: space-around;
+} 
+.buttons-container button{
+    background: transparent !important;
+    border-radius: 12px;
+    border: 2px solid #66FCF1;
+    padding: 8px 60px;
+    color: #C5C6C8;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-right:  92px;
+}
+
+
+/* Dots Css*/
+.top-left{
+    position: absolute;
+    z-index: 10000;
+    top: 150px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.top-left svg:first-child{
+    margin-bottom: 40px;
+}
+
+.top-right{
+    position: absolute;
+    z-index: 10000;
+    top: 37px;
+    right: -23px;
+    font-size: 16px;
+    display: flex;
+    overflow: hidden;
+    transform: rotate(180deg)
+}
+.top-right {
+    display: flex;
+}
+.top-right svg{
+    margin-bottom: 40px;
+}
+.bottom-left{
+    position: absolute;
+    bottom: 0;
+    bottom: 50px;
+}
+
+
+@media (max-width: 991px)
+{
+
+.dots
+{
+    display: none;
+}
+
+.bro img 
+{
+   
+    height: 350px;
+    width: 350px;
+}
+/* .over{
+    color: #ffff;
+    /* font-size: 32px ; */
+    /* font-weight: 600;
+    margin-top: 0px; */
+/* margin-left: 120px; 
+  } */
+  .textedits{
+
+      font-size: 28px;
+  }
+  .smth{
+padding: 0px;
+  }
+
+  
+  .buttons-container{
+    display: flex;
+    /* background: purple; */
+    width: 100%;
+    justify-content: space-around;
+} 
+.buttons-container button{
+    background: transparent !important;
+    border-radius: 12px;
+    border: 2px solid #66FCF1;
+    padding: 4px 25px;
+    color: #C5C6C8;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-left: 90px;
+}
+.alignments{
+-moz-box-align: center;
+align-content: center;
+}
+ .textedits
+
+{
+/* background-color: blue; */
+margin: 0;
+padding: 0;
+padding-right: 10px;
 }
 
 </style>
