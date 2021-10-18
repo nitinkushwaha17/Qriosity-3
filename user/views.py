@@ -118,6 +118,7 @@ def leaderboard(request):
 
 
 def privacy_policy_fb(request):
+    '''jhanter baal'''
     return render(request, "user/privacypolicy.html")
 
 
@@ -141,6 +142,8 @@ def Formdata(request):
             r = models.PlayerDetails(
                 user_name=p1, college=form_data['college'], year=form_data['year'], contact=form_data['contact'],
                 full_name=form_data['full_name'])
+            p1.name = r.full_name
+            p1.save()
             r.save()
 
         else:
@@ -176,7 +179,7 @@ def psave(request) :
 
     user_data={
         'user_id':auth0_user.uid,
-        'name':user.first_name + user.last_name,
+        'name':user.first_name,
         'picture':auth0_user.extra_data['picture'],
         'email':user.email,
     }
