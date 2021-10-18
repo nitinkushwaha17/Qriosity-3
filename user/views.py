@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404, Http404
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import login_required
@@ -155,7 +156,10 @@ def Formdata(request):
 def story(request):
     return render(request, 'user/story.html')
 
+@login_required
 def psave(request) :
+    ''' View to save profile of a person'''
+    
     my_form = UserDetails()
     user=request.user
 
@@ -187,3 +191,4 @@ def psave(request) :
         "form": my_form
     }
     return render(request, "user/details.html", context)
+    
