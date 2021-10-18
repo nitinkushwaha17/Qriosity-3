@@ -27,7 +27,15 @@ def logout(request):
 
 @login_required(login_url='/login', redirect_field_name=None)
 def dashboard(request):
-    player = models.Player.objects.get(user=request.user)
+    '''Return the Dasboard of User'''
+
+    # Sanity Check
+    try : 
+        player = models.Player.objects.get(user=request.user)
+    except models.Player.DoesNotExist:
+        return redirect('user:psave')
+
+
     print("In dashboard - Name - {}  User - {}".format(player.name, player.user))
     cl = models.Player.objects.order_by(
         '-score', 'last_submit')
@@ -156,10 +164,11 @@ def Formdata(request):
 def story(request):
     return render(request, 'user/story.html')
 
+
 @login_required
 def psave(request) :
     ''' View to save profile of a person'''
-    
+
     my_form = UserDetails()
     user=request.user
 
