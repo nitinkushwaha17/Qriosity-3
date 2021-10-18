@@ -3,6 +3,20 @@
 
 <div class="container">
 
+  <video width="320" height="240" controls>
+    <source src="https://github.com/sa-y-an/optim/raw/main/video-desktop.mp4" type="video/mp4">
+    <source src="https://github.com/sa-y-an/optim/raw/main/video-desktop.mp4" type="video/ogg">
+  Your browser does not support the video tag.
+  </video>
+
+  <video width="320" height="240" controls>
+    <source src="{%static 'video/video-desktop.mp4' %}" type="video/mp4">
+    <source src="{%static 'video/video-desktop.mp4' %}" type="video/ogg">
+  Your browser does not support the video tag.
+  </video>
+  
+
+
   <h2>The top {{n }} qualified participants are</h2>
   <br />
 
@@ -42,6 +56,8 @@
   </form>
 
   <br />
+
+
 
   <div class="check">
     {% if lst == 0 %}
