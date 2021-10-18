@@ -170,6 +170,7 @@ def psave(request) :
 
     try :
         p = models.Player.objects.get(user=user)
+        return redirect('home:home')
     except models.Player.DoesNotExist:
 
         p = models.Player.objects.create(
