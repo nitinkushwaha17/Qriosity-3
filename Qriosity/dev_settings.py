@@ -72,7 +72,7 @@ AUTHENTICATION_BACKENDS = {
 }
 
 LOGIN_URL = '/login/auth0'
-LOGIN_REDIRECT_URL = '/user/form/'
+LOGIN_REDIRECT_URL = '/user/auth/'
 LOGOUT_REDIRECT_URL = '/'
 
 

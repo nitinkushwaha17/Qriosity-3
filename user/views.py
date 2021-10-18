@@ -5,6 +5,7 @@ from .import models
 from datetime import datetime, timedelta
 from .forms import UserDetails
 from django.conf import settings
+from django.contrib import messages
 
 # from django.contrib.auth.models import User
 
@@ -153,3 +154,35 @@ def Formdata(request):
 
 def story(request):
     return render(request, 'user/story.html')
+
+def psave(request) :
+    my_form = UserDetails()
+    user=request.user
+
+    auth0_user=user.social_auth.get(provider='auth0')
+
+    user_data={
+        'user_id':auth0_user.uid,
+        'name':user.first_name + user.last_name,
+        'picture':auth0_user.extra_data['picture'],
+        'email':user.email,
+    }
+
+    try :
+        p = models.Player.objects.get(user=user)
+    except models.Player.DoesNotExist:
+
+        p = models.Player.objects.create(
+                user=user)
+        p.last_submit = datetime.utcnow()+timedelta(hours=5.5)
+        p.name = user_data['name']
+        p.image = user_data['picture']
+        p.email = user_data['email']
+        p.save()
+
+        messages.success(request, 'Account was created for ' + user.username)
+
+    context = {
+        "form": my_form
+    }
+    return render(request, "user/details.html", context)
