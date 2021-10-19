@@ -1,9 +1,10 @@
 # Arcane 
 
 ### Installation 
-
+- Run ` pip install -r requirements2.txt `
 - Create a config.json file following <a href="dummy.json">dummy.json</a>
-- Put it inside the Qriosity Folder (one constaining ```settings.py ``` )
+- Put it inside the Qriosity Folder (one constaining ```settings.py ``` 
+- Run `python local.py migrate`
 
 
 ### For running it locally use
