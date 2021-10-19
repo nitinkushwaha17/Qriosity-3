@@ -7,6 +7,9 @@ body
     color: white;
     font-weight: normal;
 }
+.imgpos{
+    align-content: center;
+}
 
   .bro{
     align-items: center;
@@ -16,13 +19,14 @@ body
   {
       height: 700px;
       width: 700px;
+      z-index: 100000000;
   }
   .over{
     color: #ffff;
     font-size: 62px ;
     font-weight: 700;
-    margin-top:  190px;
-    margin-left: 70px;
+    /* margin-top:  190px; */
+    margin-left: 25px;
   }
   .textedits{
       margin:10px;
@@ -109,7 +113,7 @@ padding: 90px;
     font-size: 32px ;
     font-weight: 600;
     margin-top: 0px;
-margin-left: 120px;
+/* margin-left: 120px; */
   }
   .textedits{
 
@@ -135,6 +139,10 @@ padding: 0px;
     font-size: 1.2rem;
     font-weight: 500;
     margin-left: 90px;
+}
+.alignments{
+-moz-box-align: center;
+align-content: center;
 }
  .textedits
 

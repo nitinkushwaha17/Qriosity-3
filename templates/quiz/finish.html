@@ -3,27 +3,180 @@
 {% block title %}
 <head> 
   
-    <link rel= "stylesheet" href="{% static 'quiz/finish.css' %}">
+    <!-- <link rel= "stylesheet" href="{% static 'quiz/finish.css' %}"> -->
 </head>
 {% endblock %}
 {% block content %}
 
+<style>
+.image{
+    height : 150%;
+    transform: scale(1.5);
+}
 
+.neonText {
+color: #C5C6C8;
+padding: 10px 25px;
+margin-top: 15px;
+font-size: 50px;  
+  color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+    animation: flicker 1.5s infinite alternate;        
+}
+
+
+/* Flickering animation */
+@keyframes flicker {
+    
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #0fa,
+      0 0 80px #0fa,
+      0 0 90px #0fa,
+      0 0 100px #0fa,
+      0 0 150px #0fa;
+  
+  }
+  
+  20%, 24%, 55% {        
+      text-shadow: none;
+  }    
+}
+
+.glitch {
+		text-transform: uppercase;
+		position: relative;
+		text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+			-0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+			0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+
+		animation: glitch 500ms infinite;
+	}
+
+	.glitch span {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.glitch span:first-child {
+		animation: glitch 650ms infinite;
+		clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+		transform: translate(-0.025em, -0.0125em);
+		/* color: green; */
+		opacity: 0.8;
+	}
+
+	.glitch span:last-child {
+		animation: glitch 375ms infinite;
+		clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+		transform: translate(0.0125em, 0.025em);
+		/* color: red; */
+		opacity: 0.8;
+	}
+.btn {
+    margin : auto;
+    color: #C5C6C8;
+    border: 2px solid #66FCF1;
+    padding: 10px 25px;
+    border-radius: 10px;
+    margin-top: 15px;
+	margin-bottom: 20%;
+    font-size: 1.8vw;
+}
+
+.btn:hover {
+    background-color: #66FCF1;
+}
+
+
+canvas {
+		margin: auto;
+		opacity: 0.2;
+		z-index: -2;
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
+</style>
+<canvas id="canvas">Canvas is not supported in your browser.</canvas>
+<canvas id="canvas2">Canvas is not supported in your browser.</canvas>
 <div class="row">
+	<div class="col-sm bro">
+			<img class="image imgpos" src="{% static 'images/winner.svg' %}" alt="game_ended" srcset="">
+	</div>
+	<div class="col-sm bro centric">
+		<div class="row bro alignments">
+            <h1 class="neonText bro over">YOU NAILED IT</h1>
+        </div>
+		<!-- <div class="w-100"></div> -->
+		<div class= "row bro">
+			<form action="{% url 'user:leaderboard' %}" method="POST">
+				{% csrf_token %}
+				<button class="btn alignments">
+					<h1 class="glitch">
+						<span aria-hidden="true">Check Leaderboard</span>
+						Check Leaderboard
+						<span aria-hidden="true">Check Leaderboard</span>
+					</h1>
+				</button>
+			</form>
+		</div>
+	</div>
+	<!-- <div class="col-sm bro">
+		<form action="{% url 'user:leaderboard' %}" method="POST">
+			{% csrf_token %}
+			<button class="btn alignments">
+				<h1 class="glitch">
+					<span aria-hidden="true">Check Leaderboard</span>
+					Check Leaderboard
+					<span aria-hidden="true">Check Leaderboard</span>
+				</h1>
+			</button>
+		</form>
+	</div>
+  </div> -->
+
+<!-- <div class="row">
     <div class="col grid-example s12 m12 l6 textedits">
         <span class="flow-text bro">
-              <img src="{% static 'images/finish.png' %}" alt="game_ended" srcset="" width="350px" height="350px">
+              <img class="image" src="{% static 'images/cicada-finish.png' %}" alt="game_ended" srcset="">
         </span>
 </div> 
  <div class="col smth">
-        <div class="flow-text over">
-        You nailed it !
+        <div class=" align-items over">
+            <h1 class="neonText">
+                YOU NAILED IT !
+          </h1>
         </div>
-        <div class="buttons-container">
-            <button type="submit" class="button">Check Leaderboard</button>
-            </div>
+        
+            <form action="{% url 'user:leaderboard' %}" method="POST">
+                {% csrf_token %}
+                <button class="btn">
+                    <h1 class="glitch">
+                        <span aria-hidden="true">Check Leaderboard</span>
+                        Check Leaderboard
+                        <span aria-hidden="true">Check Leaderboard</span>
+                    </h1>
+                </button>
+            </form>
+        
     </div>
-</div>
+</div> -->
 
 <div class="top-left dots">
 
@@ -64,4 +217,324 @@
 </div>
 
 </div>
+
+
+<script>
+	var canvas = document.getElementById("canvas"),
+		ctx = canvas.getContext("2d"),
+		canvas2 = document.getElementById("canvas2"),
+		ctx2 = canvas2.getContext("2d"),
+		// full screen dimensions
+		cw = window.innerWidth,
+		ch = window.innerHeight,
+		charArr = [
+			"a",
+			"b",
+			"c",
+			"d",
+			"e",
+			"f",
+			"g",
+			"h",
+			"i",
+			"j",
+			"k",
+			"l",
+			"m",
+			"n",
+			"o",
+			"p",
+			"q",
+			"r",
+			"s",
+			"t",
+			"u",
+			"v",
+			"w",
+			"x",
+			"y",
+			"z",
+		],
+		maxCharCount = 100,
+		fallingCharArr = [],
+		fontSize = 10,
+		maxColums = cw / fontSize;
+	canvas.width = canvas2.width = cw;
+	canvas.height = canvas2.height = ch;
+
+	function randomInt(min, max) {
+		return Math.floor(Math.random() * (max - min) + min);
+	}
+
+	function randomFloat(min, max) {
+		return Math.random() * (max - min) + min;
+	}
+
+	function Point(x, y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	Point.prototype.draw = function (ctx) {
+		this.value = charArr[randomInt(0, charArr.length - 1)].toUpperCase();
+		this.speed = randomFloat(1, 5);
+
+		ctx2.fillStyle = "rgba(255,255,255,0.8)";
+		ctx2.font = fontSize + "px san-serif";
+		ctx2.fillText(this.value, this.x, this.y);
+
+		ctx.fillStyle = "#0F0";
+		ctx.font = fontSize + "px san-serif";
+		ctx.fillText(this.value, this.x, this.y);
+
+		this.y += this.speed;
+		if (this.y > ch) {
+			this.y = randomFloat(-100, 0);
+			this.speed = randomFloat(2, 5);
+		}
+	};
+
+	for (var i = 0; i < maxColums; i++) {
+		fallingCharArr.push(new Point(i * fontSize, randomFloat(-500, 0)));
+	}
+
+	var update = function () {
+		ctx.fillStyle = "rgba(0,0,0,0.05)";
+		ctx.fillRect(0, 0, cw, ch);
+
+		ctx2.clearRect(0, 0, cw, ch);
+
+		var i = fallingCharArr.length;
+
+		while (i--) {
+			fallingCharArr[i].draw(ctx);
+			var v = fallingCharArr[i];
+		}
+
+		requestAnimationFrame(update);
+	};
+
+	update();
+</script>
+<style>
+	.over{
+		text-align: center;
+		/* display: flex;
+    color: #ffff;
+    font-size: 62px ; */
+    font-weight: 700;
+    /* margin-top:  190px; */
+    /* margin-left: 10px; */
+  }
+  /* .alignments{
+	  align-items: center;
+	  margin-top: 50px;
+	  display:flex; */
+  }
+  .bro img 
+  {
+      /* height: 700px;
+      width: 700px;
+	  z-index: 100000000; */
+
+	  
+    height: 70%;
+    /* width: 692px; */
+    margin-top: 25%;
+    z-index: 20000 !important; 
+
+  }
+  .image{
+	  /* display:flex; */
+	  margin-top: 18%;
+  }
+
+  /* .centric{
+	
+  display: flex;
+  justify-content: center;
+
+  } */
+  /* .over{
+    color: #ffff;
+    font-size: 62px ;
+    font-weight: 700;
+    margin-top:  190px;
+    /* margin-left: 25px; 
+  } */
+  /* .over{
+    color: #ffff;
+    /* font-size: 32px ;
+    font-weight: 600; */
+    /* margin-top: 0px;
+	margin-left: 120px; 
+  } */ 
+
+@media (max-width: 767px) {
+  .alignments {
+    display:flex;
+	margin-top: 50px;
+	align-items: center;
+  }
+
+}
+@media (min-width: 768px) and (max-width : 1600px){
+	.centric{
+		margin-top: 190px;
+	}
+	.image{
+		margin-left:10%;
+	}
+	
+}
+
+
+body
+{
+    background-color: black;
+    font-family: 'Darker Grotesque';
+    color: white;
+    font-weight: normal;
+}
+.imgpos{
+    align-content: center;
+}
+
+  .bro{
+    align-items: center;
+    right: 1164px; 
+	text-align: center; 
+  }
+  .bro img 
+  {
+      height: 70%;
+      /* width: 700px; */
+  }
+  
+  .textedits{
+      margin:10px;
+      font-size: 28px;
+      margin-left: 73px;
+  }
+  .smth{
+padding: 90px;
+  }
+
+  /* button */
+
+   .buttons-container{
+    display: flex;
+    /* background: purple; */
+    width: 100%;
+    justify-content: space-around;
+} 
+.buttons-container button{
+    background: transparent !important;
+    border-radius: 12px;
+    border: 2px solid #66FCF1;
+    padding: 8px 60px;
+    color: #C5C6C8;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-right:  92px;
+}
+
+
+/* Dots Css*/
+.top-left{
+    position: absolute;
+    z-index: 10000;
+    top: 150px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.top-left svg:first-child{
+    margin-bottom: 40px;
+}
+
+.top-right{
+    position: absolute;
+    z-index: 10000;
+    top: 37px;
+    right: -23px;
+    font-size: 16px;
+    display: flex;
+    overflow: hidden;
+    transform: rotate(180deg)
+}
+.top-right {
+    display: flex;
+}
+.top-right svg{
+    margin-bottom: 40px;
+}
+.bottom-left{
+    position: absolute;
+    bottom: 0;
+    bottom: 50px;
+}
+
+
+@media (max-width: 991px)
+{
+
+.dots
+{
+    display: none;
+}
+
+.bro img 
+{
+   
+    height: 70%;
+    /* width: 350px; */
+}
+/* .over{
+    color: #ffff;
+    /* font-size: 32px ; */
+    /* font-weight: 600;
+    margin-top: 0px; */
+/* margin-left: 120px; 
+  } */
+  .textedits{
+
+      font-size: 28px;
+  }
+  .smth{
+padding: 0px;
+  }
+
+  
+  .buttons-container{
+    display: flex;
+    /* background: purple; */
+    width: 100%;
+    justify-content: space-around;
+} 
+.buttons-container button{
+    background: transparent !important;
+    border-radius: 12px;
+    border: 2px solid #66FCF1;
+    padding: 4px 25px;
+    color: #C5C6C8;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-left: 90px;
+}
+.alignments{
+-moz-box-align: center;
+align-content: center;
+}
+ .textedits
+
+{
+/* background-color: blue; */
+margin: 0;
+padding: 0;
+padding-right: 10px;
+}
+
+</style>
 {% endblock %}
