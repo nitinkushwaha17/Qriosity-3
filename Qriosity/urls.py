@@ -14,9 +14,8 @@ urlpatterns = [
     path('user/', include('user.urls')),
     path('quiz/', include('quiz.urls')),
     path('', include('home.urls')),
-    path('oauth/', include('social_django.urls', namespace='social')),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-
+    path('', include('social_django.urls', namespace='social')),
+    path('logout/', user.views.logout, name='logout'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

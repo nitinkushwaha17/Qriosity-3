@@ -34,6 +34,11 @@ INSTALLED_APPS = [
     'social_django'
 ]
 
+
+
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -46,20 +51,38 @@ MIDDLEWARE = [
 ]
 
 
-AUTHENTICATION_BACKENDS = (
+# Authentication 
 
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.google.GoogleOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
+AUTH_USER_MODEL = 'user.User'
 
-LOGIN_URL = '/'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = '/user/dashboard'
+
+SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
+
+SOCIAL_AUTH_AUTH0_DOMAIN = params['SOCIAL_AUTH_AUTH0_DOMAIN']
+SOCIAL_AUTH_AUTH0_KEY = params['SOCIAL_AUTH_AUTH0_KEY']
+SOCIAL_AUTH_AUTH0_SECRET = params['SOCIAL_AUTH_AUTH0_SECRET']
+
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email'
+]
+
+AUTHENTICATION_BACKENDS = {
+    'social_core.backends.auth0.Auth0OAuth2',
+    'django.contrib.auth.backends.ModelBackend'
+}
+
+LOGIN_URL = '/login/auth0'
+LOGIN_REDIRECT_URL = '/user/auth/'
 LOGOUT_REDIRECT_URL = '/'
-SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
+
 
 ROOT_URLCONF = 'Qriosity.urls'
+
+
+
 
 TEMPLATES = [
     {

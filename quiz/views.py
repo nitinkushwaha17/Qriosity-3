@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Stage_1, StageTwo
 from django.contrib.auth.decorators import login_required
 from user.models import Player, Solved, StageOneHint
@@ -34,7 +34,13 @@ def StageOne(request):
     ''' Set the date time as class datetime.datetime
     (year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)'''
 
-    player = get_object_or_404(Player, user=request.user)
+    # sanity check
+    try : 
+        player = get_object_or_404(Player, user=request.user)
+    except Player.DoesNotExist: 
+        return redirect('user:psave')
+
+
     now = datetime.utcnow()+timedelta(hours=5.5)
 
     

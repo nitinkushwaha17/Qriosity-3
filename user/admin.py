@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Player, PlayerDetails, Solved, StageOneHint
+from .models import Player, PlayerDetails, Solved, StageOneHint,User
 
 
 admin.site.site_header = "Arcane"
@@ -27,3 +27,4 @@ class PlayerAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Player, PlayerAdmin)
+admin.site.register(User)

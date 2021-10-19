@@ -12,4 +12,5 @@ urlpatterns = [
     path('form/', views.Formdata, name="formdata"),
     path('details/logout/', views.logout, name="logout"),
     path('story/', views.story, name="story"),
+    path('auth/', views.psave, name='psave')
 ]

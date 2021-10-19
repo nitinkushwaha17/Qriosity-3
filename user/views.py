@@ -1,8 +1,13 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404, Http404
+from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import login_required
 from .import models
 from datetime import datetime, timedelta
 from .forms import UserDetails
+from django.conf import settings
+from django.contrib import messages
+
 # from django.contrib.auth.models import User
 
 # Create your views here.
@@ -10,13 +15,27 @@ from .forms import UserDetails
 current_leaderboard = None
 
 
+@login_required
 def logout(request):
-    return render(request, 'user/logout.html')
+    django_logout(request)
+    domain = settings.SOCIAL_AUTH_AUTH0_DOMAIN
+    client_id = settings.SOCIAL_AUTH_AUTH0_KEY
+    return_to = 'http://arcane.ieeesbnitdgp.com' # this can be current domain
+    return redirect(f'https://{domain}/v2/logout?client_id={client_id}&returnTo={return_to}')
+
 
 
 @login_required(login_url='/login', redirect_field_name=None)
 def dashboard(request):
-    player = models.Player.objects.get(user=request.user)
+    '''Return the Dasboard of User'''
+
+    # Sanity Check
+    try : 
+        player = models.Player.objects.get(user=request.user)
+    except models.Player.DoesNotExist:
+        return redirect('user:psave')
+
+
     print("In dashboard - Name - {}  User - {}".format(player.name, player.user))
     cl = models.Player.objects.order_by(
         '-score', 'last_submit')
@@ -99,6 +118,7 @@ def leaderboard(request):
 
 
 def privacy_policy_fb(request):
+    '''jhanter baal'''
     return render(request, "user/privacypolicy.html")
 
 
@@ -122,6 +142,8 @@ def Formdata(request):
             r = models.PlayerDetails(
                 user_name=p1, college=form_data['college'], year=form_data['year'], contact=form_data['contact'],
                 full_name=form_data['full_name'])
+            p1.name = r.full_name
+            p1.save()
             r.save()
 
         else:
@@ -144,3 +166,41 @@ def Formdata(request):
 
 def story(request):
     return render(request, 'user/story.html')
+
+
+@login_required
+def psave(request) :
+    ''' View to save profile of a person'''
+
+    my_form = UserDetails()
+    user=request.user
+
+    auth0_user=user.social_auth.get(provider='auth0')
+
+    user_data={
+        'user_id':auth0_user.uid,
+        'name':user.first_name,
+        'picture':auth0_user.extra_data['picture'],
+        'email':user.email,
+    }
+
+    try :
+        p = models.Player.objects.get(user=user)
+        return redirect('home:home')
+    except models.Player.DoesNotExist:
+
+        p = models.Player.objects.create(
+                user=user)
+        p.last_submit = datetime.utcnow()+timedelta(hours=5.5)
+        p.name = user_data['name']
+        p.image = user_data['picture']
+        p.email = user_data['email']
+        p.save()
+
+        messages.success(request, 'Account was created for ' + user.username)
+
+    context = {
+        "form": my_form
+    }
+    return render(request, "user/details.html", context)
+    

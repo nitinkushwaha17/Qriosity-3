@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['herokuapp.com', 'arcane.ieeesbnitdgp.com']
 
@@ -51,47 +51,39 @@ MIDDLEWARE = [
 # SECURE_SSL_REDIRECT = True
 
 
-
-AUTHENTICATION_BACKENDS = (
-
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.google.GoogleOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-LOGIN_URL = '/login/'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = '/user/form/'
-LOGOUT_REDIRECT_URL = '/'
-SOCIAL_AUTH_URL_NAMESPACE = 'social'
-
-# SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FB_APP_ID']
-# SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FB_SECRET']
-#FACEBOOK_EXTENDED_PERMISSIONS = ['email']
-#SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = ['first_name', 'last_name']
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-    'fields': 'id,first_name,email,last_name,gender,picture,link'}
-#SOCIAL_AUTH_ADMIN_USER_SEARCH_FIELDS = ['username', 'first_name', 'email']
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ['GOOGLE_KEY']
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ['GOOGLE_SECRET']
-
-SOCIAL_AUTH_PIPELINE = (
-    'social_core.pipeline.social_auth.social_details',
-    'social_core.pipeline.social_auth.social_uid',
-    'social_core.pipeline.social_auth.auth_allowed',
-    'social_core.pipeline.social_auth.social_user',
-    'social_core.pipeline.user.get_username',
-    'social_core.pipeline.user.create_user',
-    'user.views.save_profile',
-    'social_core.pipeline.social_auth.associate_by_email',
-    'social_core.pipeline.social_auth.associate_user',
-    'social_core.pipeline.social_auth.load_extra_data',
-    'social_core.pipeline.user.user_details',
-)
-
 ROOT_URLCONF = 'Qriosity.urls'
+
+
+# Authentication Backend
+
+
+
+AUTH_USER_MODEL = 'user.User'
+
+
+SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
+
+SOCIAL_AUTH_AUTH0_DOMAIN = os.environ['SOCIAL_AUTH_AUTH0_DOMAIN']
+SOCIAL_AUTH_AUTH0_KEY = os.environ['SOCIAL_AUTH_AUTH0_KEY']
+SOCIAL_AUTH_AUTH0_SECRET = os.environ['SOCIAL_AUTH_AUTH0_SECRET']
+
+SOCIAL_AUTH_AUTH0_SCOPE = [
+    'openid',
+    'profile',
+    'email'
+]
+
+AUTHENTICATION_BACKENDS = {
+    'social_core.backends.auth0.Auth0OAuth2',
+    'django.contrib.auth.backends.ModelBackend'
+}
+
+LOGIN_URL = '/login/auth0'
+LOGIN_REDIRECT_URL = '/user/auth/'
+LOGOUT_REDIRECT_URL = '/'
+
+
+
 
 
 TEMPLATES = [
