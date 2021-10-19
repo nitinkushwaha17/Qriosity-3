@@ -15,7 +15,7 @@ hintButton = True
 question1 = Stage_1.objects.all()
 
 
-@login_required(login_url='/login', redirect_field_name=None)
+@login_required(login_url='/login/auth0', redirect_field_name=None)
 def Algo(request):
     if request.method == "POST":
         player = get_object_or_404(Player, user=request.user)
@@ -29,7 +29,7 @@ def Algo(request):
         raise Http404("Page does not exist")
 
 
-@login_required(login_url='/login', redirect_field_name=None)
+@login_required(login_url='/login/auth0', redirect_field_name=None)
 def StageOne(request):
     ''' Set the date time as class datetime.datetime
     (year, month, day, hour=0, minute=0, second=0, microsecond=0, tzinfo=None, *, fold=0)'''
@@ -105,7 +105,7 @@ def StageOne(request):
                 return render(request, 'quiz/finish.html', {"player": player})
 
 
-@login_required(login_url='/login', redirect_field_name=None)
+@login_required(login_url='/login/auth0', redirect_field_name=None)
 def Stage1Hint(request):
     player = get_object_or_404(Player, user=request.user)
     hint = player.stageonehint_set.get(level=int(player.question_level))
@@ -124,7 +124,7 @@ def Stage1Hint(request):
         return render(request, 'quiz/Stage1.html', {"question": question, "form": my_form, "value": value, "hint": hint.taken})
 
 
-@login_required(login_url='/login', redirect_field_name=None)
+@login_required(login_url='/login/auth0', redirect_field_name=None)
 def Stage1Answer(request):
 
     if request.method == "POST":
@@ -195,7 +195,7 @@ def Stage1Answer(request):
         return HttpResponseNotFound('<h1>Page not found</h1>')
 
 
-@login_required(login_url='/login', redirect_field_name=None)
+@login_required(login_url='/login/auth0', redirect_field_name=None)
 def Index(request):
     q = StageTwo.objects.order_by('level')
     player = get_object_or_404(Player, user=request.user)
@@ -210,7 +210,7 @@ def Index(request):
             return render(request, 'quiz/finish.html', {"player": player})
 
 
-@login_required(login_url='/login', redirect_field_name=None)
+@login_required(login_url='/login/auth0', redirect_field_name=None)
 def Passcode(request):
     code = "ENIGMAHACK"
     if request.method == "POST":
@@ -247,7 +247,7 @@ def Passcode(request):
 
 
 # individual questions of stage 2
-@login_required(login_url='/login', redirect_field_name=None)
+@login_required(login_url='/login/auth0', redirect_field_name=None)
 def Individual(request, qid):
     player = get_object_or_404(Player, user=request.user)
     if(player.level2 < -1):
