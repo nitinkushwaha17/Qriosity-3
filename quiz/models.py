@@ -25,6 +25,7 @@ class StageTwo(models.Model):
     level = models.IntegerField(unique=True)
     image_url = models.URLField(blank=True)
     format = models.CharField(blank=True, max_length=200)
+    audio_url = models.URLField(blank=True)
 
     def __str__(self):
         return str(str(self.level)+str(" . ")+str(self.title))
