@@ -36,17 +36,19 @@
 				
 			</div>
 			
+			<div class="btns">
+				<a href="{% url 'user:formdata'%}">
+					<button class="btn">
+						Profile
+					</button>
+				</a>
+				<a href="{% url 'quiz:stageone' %}">
+					<button class="btn ">
+						Resume
+					</button>
+				</a>
+			</div>
 		
-			<a href="{% url 'user:formdata'%}">
-				<button class="btn btn-secondary">
-					Profile
-				</button>
-			</a>
-			<a href="{% url 'quiz:stageone' %}">
-				<button class="btn btn-secondary">
-					Start Game
-				</button>
-			</a>
 		</div>
 	</div>
 </div>
