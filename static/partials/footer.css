@@ -1,4 +1,4 @@
-.footer{
+/* .footer{
     display:flex;
     background-color: rgba(0, 0, 0, 0.6);
     align-items: center;
@@ -7,7 +7,7 @@
     justify-content: space-between;
     padding: 0px 20px;
     z-index: 2;
-}
+} */
 .texts{
     
     width: auto; 
