@@ -1,0 +1,53 @@
+body {
+    background-image: url('../images/bg-desktop.jpg');
+    background-size: cover;
+
+}
+
+.content{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh ;
+    width: 100vw;
+
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* width: 70vw; */
+    /* background-color: rgba(255, 255, 255, 0.7); */
+    /* height: 50vh; */
+    backdrop-filter: blur(10px);
+    padding: 2em;
+    margin: 1em;
+    flex-wrap: wrap;
+    border-radius: 2em;
+}
+
+img{
+    height: 40vh;
+    width: 40vh;
+    border-radius: 1em;
+}
+
+.writeup {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 1em;
+    margin: 1em;
+    padding: 2em;
+    height: 40vh;
+    width: 40vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.details{
+    font-size: 2em;
+
+}
