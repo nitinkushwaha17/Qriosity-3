@@ -49,7 +49,7 @@ def StageOne(request):
     #Start
     quiz = datetime(2021, 10, 2, 9, 0, 0)       
     # First Round Ends
-    firstend = datetime(2021, 10, 20, 2, 0, 0)
+    firstend = datetime(2021, 10, 21, 2, 0, 0)
     # Second Round Ends
     end = datetime(2021, 10, 22, 3, 0, 0)
 

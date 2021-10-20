@@ -2,6 +2,16 @@
 
 {% block title %}
 <link rel="stylesheet" href="{%static 'quiz/individual.css' %}">
+<style>
+    body {
+		background-image: url("{% static 'images/question/desktop.png' %}");
+		background-size: cover;
+		/* background: black; */
+	}
+	.ques {
+		backdrop-filter: blur(15px);
+	}
+</style>
 {% endblock %}
 
 {% block content %}
@@ -61,5 +71,8 @@
             </button>
         </a>
     </div>
+    <br>
+    <br>
+    <br>
 </div>
 {% endblock %}
