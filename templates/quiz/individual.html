@@ -43,11 +43,19 @@
             </div>
 
             <div class="">
+                {% if question.audio_url %}
+                <audio controls>
+                    <source src="{{question.audio_url}}" type="audio/mpeg">]
+                    
+                    Your browser does not support the audio element.
+                </audio>
+                {% endif %}
+
                 {%if question.format %}
                 <div class= "text-secondary">
                    Format -  {{question.format}}
                 </div>
-            {% endif %}
+                {% endif %}
             </div>
 
             <form action="" method="post" id="ans" class="d-flex justify-content-between">

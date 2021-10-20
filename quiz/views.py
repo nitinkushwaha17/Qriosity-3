@@ -51,7 +51,7 @@ def StageOne(request):
     # First Round Ends
     firstend = datetime(2021, 10, 20, 14, 0, 0)
     # Second Round Ends
-    end = datetime(2021, 10, 20, 15, 0, 0)
+    end = datetime(2021, 10, 20, 17, 0, 0)
 
     
 
