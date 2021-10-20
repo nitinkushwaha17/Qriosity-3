@@ -33,7 +33,7 @@
             <div class="ques-content d-flex">
                 <!-- description -->
                 {% if question.description %}
-                <div class="description">{{ question.description }}</div>
+                <div class="description">{{ question.description|safe }}</div>
                 {% endif %}
 
                 <!-- image -->
