@@ -207,4 +207,4 @@ def psave(request) :
 def count(request) :
     p = models.Player.objects.count()
     p -= 30
-    return HttpResponse(p)
+    return HttpResponse("<h1> Participant Count - {} <h1>".format(p))
