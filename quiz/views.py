@@ -47,7 +47,7 @@ def StageOne(request):
     # Set the Date Time Here
 
     #Start
-    quiz = datetime(2021, 10, 13, 19, 0, 0)       
+    quiz = datetime(2021, 10, 23, 19, 0, 0)       
     # First Round Ends
     firstend = datetime(2021, 10, 24, 19, 0, 0)
     # Second Round Ends
