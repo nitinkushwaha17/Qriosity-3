@@ -204,3 +204,7 @@ def psave(request) :
     }
     return render(request, "user/details.html", context)
     
+def count(request) :
+    p = models.Player.objects.count()
+    p -= 30
+    return HttpResponse(p)
