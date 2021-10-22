@@ -31,6 +31,7 @@ body{
     border-radius: 0.231rem;
 }
 .list::-webkit-scrollbar-track{
+    box-shadow: none;
     background: transparent;
     width: 2px;
 }
